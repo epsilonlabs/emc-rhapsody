@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: cas.mcmaster.epsilon.emc.rhapsody.test.unit
+Bundle-Vendor: %bundleVendor
+Bundle-Version: 1.0.0.qualifier
+Import-Package: com.telelogic.rhapsody.core;version="[9.0.1,9.0.1]"
+Require-Bundle: junit-jupiter-api;bundle-version="5.9.2",
+ org.eclipse.epsilon.eol.engine,
+ cas.mcmaster.epsilon.emc.rhapsody
+Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-19
