@@ -76,6 +76,7 @@ public class RhapsodyModel extends Model implements IModel {
 	private IRPPackage localpackage;
 	private boolean usingActivePrj = false;
 	private boolean rhapsodyWasActive = false;
+	private RhapsodyMetaclasses types;
 	
 	
 	public RhapsodyModel() {
@@ -126,21 +127,13 @@ public class RhapsodyModel extends Model implements IModel {
 				throw new EolModelLoadingException(new IllegalArgumentException("Invalid project name and/or path"), this);
 			}
 		}
+		this.types = new RhapsodyMetaclasses(
+				properties.getProperty(PROPERTIES_INSTALLATION_DIRECTORY),
+				this.prj)
+			.load();
 		LOG.info("Current project is: {}", this.prj.getName());
-		setReadOnLoad(properties.getBooleanProperty(PROPERTY_READONLOAD, true));
-		setStoredOnDisposal(properties.getBooleanProperty(PROPERTY_STOREONDISPOSAL, false));
-	}
-	
-	
-	private IRPApplication connectToRhapsody() throws RhapsodyRuntimeException {
-		IRPApplication result;
-		try {
-			result = RhapsodyAppServer.getActiveRhapsodyApplication();
-			this.rhapsodyWasActive = true;
-		} catch (RhapsodyRuntimeException e) {
-			result = RhapsodyAppServer.createRhapsodyApplication();
-		}
-		return result;
+		super.load(properties, relativePathResolver);
+		this.setName(this.prj.getName());
 	}
 
 	@Override
@@ -152,30 +145,22 @@ public class RhapsodyModel extends Model implements IModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	@Override
-	public List<String> getAliases() {
-		aliases.add(name);
-		return aliases;
-	}
-
-	@Override
-	public Object getEnumerationValue(String enumeration, String label) throws EolEnumerationValueNotFoundException {
-		var contents = prj.getNestedElementsRecursive();
-		for (int i = 1; i <= contents.getCount(); i++) {
-			var element = (IRPModelElement)contents.getItem(i);
-			if (element!=null && element.getMetaClass().equals("EnumerationLiteral") && element.getName().equals(enumeration)) {
-				var enumerationLiteral = (IRPEnumerationLiteral) element;
-				return enumerationLiteral.getValue();
-			}
-		}
-		throw new EolEnumerationValueNotFoundException(enumeration,label,name);
-	}
-
+	
 	@Override
 	public Collection<?> allContents() {
 		return prj.getNestedElementsRecursive().toList();
 	}
+	
+
+	@Override
+	public Object getEnumerationValue(
+		String enumeration,
+		String label) throws EolEnumerationValueNotFoundException {
+		// Enumerations are IRPType
+		return this.types.getEnumerationValue(enumeration, label, this.getName());
+	}
+
+	
 
 	@Override
 	public Collection<?> getAllOfType(String type) throws EolModelElementTypeNotFoundException {
@@ -393,6 +378,22 @@ public class RhapsodyModel extends Model implements IModel {
 	@Override
 	public void setReadOnLoad(boolean readOnLoad) {
 		this.readOnLoad = readOnLoad;
+	}
+	
+	/**
+	 * Use the {@link RhapsodyAppServer} to connect to the active Rhapsody or launch a new one.
+	 * @return the Rhapsody application to use.
+	 * @throws RhapsodyRuntimeException if the {@link RhapsodyAppServer} fails to find/create the {@link IRPApplication}
+	 */
+	private IRPApplication connectToRhapsody() throws RhapsodyRuntimeException {
+		IRPApplication result;
+		try {
+			result = RhapsodyAppServer.getActiveRhapsodyApplication();
+			this.rhapsodyWasActive = true;
+		} catch (RhapsodyRuntimeException e) {
+			result = RhapsodyAppServer.createRhapsodyApplication();
+		}
+		return result;
 	}
 
 

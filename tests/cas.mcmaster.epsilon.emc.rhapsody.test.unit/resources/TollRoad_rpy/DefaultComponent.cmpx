@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>109.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202006101734</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<IComponent type="e">
+			<_id type="a">GUID 12cfdfdc-9beb-4e21-8835-439ae9b38627</_id>
+			<_myState type="a">139264</_myState>
+			<_name type="a">DefaultComponent</_name>
+			<_modifiedTimeWeak type="a">11.30.2011::15:41:4</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<m_buildType type="a">Executable</m_buildType>
+			<m_configActive type="r">
+				<ICodeGenConfigInfoHandle type="e">
+					<_hm2Class type="a">ICodeGenConfigInfo</_hm2Class>
+					<_hid type="a">GUID 52977e35-632b-4254-8cda-e4217a949443</_hid>
+				</ICodeGenConfigInfoHandle>
+			</m_configActive>
+			<HandlesInMe type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hname type="a">SysML</_hname>
+							<_hid type="a">GUID d9689b73-885e-44c4-896b-de43defa0a33</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre803Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre803Cpp</_hname>
+							<_hid type="a">GUID 2c6673a1-7843-43a4-92d5-93795ef7e229</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre804Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre804Cpp</_hname>
+							<_hid type="a">GUID 17b86635-8a53-4a10-9901-f57883be4aa2</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre805Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre805Cpp</_hname>
+							<_hid type="a">GUID a32649f4-8029-4846-82f3-6deba65e416d</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre806Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre806Cpp</_hname>
+							<_hid type="a">GUID ebf790f8-a405-40ba-af1e-eeb76a25e1d0</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre81Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre81Cpp</_hname>
+							<_hid type="a">GUID dcd2cdb5-4c74-4d47-99ca-1b358b271e5f</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre812Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre812Cpp</_hname>
+							<_hid type="a">GUID 3026d3ea-02b4-49ae-b086-6982c27412f0</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre813Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre813Cpp</_hname>
+							<_hid type="a">GUID 803c9619-7509-44c3-bfdf-6fee2352ab55</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre814Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre814Cpp</_hname>
+							<_hid type="a">GUID cffbed2a-cf85-4cf9-9c94-13d34d25c47b</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre815Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre815Cpp</_hname>
+							<_hid type="a">GUID 9d010694-7844-4cae-a420-3b25ad4f4244</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre82Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre82Cpp</_hname>
+							<_hid type="a">GUID 40cbe594-82cd-42e6-be5a-cbec76e87570</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre821Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre821Cpp</_hname>
+							<_hid type="a">GUID 00b0140e-6d06-4d19-ba99-8a8e40131db7</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\GECompatibilityPre831.sbsx</_hfilename>
+							<_hname type="a">GECompatibilityPre831</_hname>
+							<_hid type="a">GUID 0a931094-5e7d-4d59-83e8-247a645b1176</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre831Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre831Cpp</_hname>
+							<_hid type="a">GUID 393f0af9-b382-4c3e-aa31-ad304f2ac38c</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\CGCompatibilityPre901Cpp.sbsx</_hfilename>
+							<_hname type="a">CGCompatibilityPre901Cpp</_hname>
+							<_hid type="a">GUID 1783458c-844d-40a6-853a-e7868821e695</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IProfile</_hm2Class>
+							<_hfilename type="a">.\SysML_Pre80.sbsx</_hfilename>
+							<_hname type="a">SysML_Pre80</_hname>
+							<_hid type="a">GUID 4b435a8c-5c01-4ecd-a419-aa0b116ac54d</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\RoadMonitoringPkg.sbsx</_hfilename>
+							<_hname type="a">RoadMonitoringPkg</_hname>
+							<_hid type="a">GUID fe10d56a-baae-4305-9bd1-f8db5aff6190</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</HandlesInMe>
+			<VariationPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</VariationPoints>
+			<SelectedVariants type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</SelectedVariants>
+			<weakCGTime type="a">11.30.2011::15:41:4</weakCGTime>
+			<strongCGTime type="a">11.22.2011::16:48:45</strongCGTime>
+			<AggregatesList type="e">
+				<value>GUID 73a35315-5dea-4f62-a275-403908b895cc</value>
+				<value>GUID 52977e35-632b-4254-8cda-e4217a949443</value>
+			</AggregatesList>
+		</IComponent>
+		<IFolder type="e">
+			<_id type="a">GUID 73a35315-5dea-4f62-a275-403908b895cc</_id>
+			<_myState type="a">73728</_myState>
+			<_name type="a">Files</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<Elements type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Elements>
+			<Files type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Files>
+		</IFolder>
+		<ICodeGenConfigInfo type="e">
+			<_id type="a">GUID 52977e35-632b-4254-8cda-e4217a949443</_id>
+			<_myState type="a">8192</_myState>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<IPropertySubject type="e">
+							<_Name type="a">Activity</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">General</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">SimulationMode</_Name>
+													<_Value type="a">TokenOriented</_Value>
+													<_Type type="a">Enum</_Type>
+													<_ExtraTypeInfo type="a">StateOriented, TokenOriented</_ExtraTypeInfo>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">Animation</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Activity</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">ShowFlowToken</_Name>
+													<_Value type="a">True</_Value>
+													<_Type type="a">Bool</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">General</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">AutoOpenBehavioralDiagrams</_Name>
+													<_Value type="a">WhileStepping</_Value>
+													<_Type type="a">Enum</_Type>
+													<_ExtraTypeInfo type="a">Never,WhileStepping,Always</_ExtraTypeInfo>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">EnableAutoScroll</_Name>
+													<_Value type="a">True</_Value>
+													<_Type type="a">Bool</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">CPP_CG</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Type</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">GenerateSerializationFunctions</_Name>
+													<_Value type="a">None</_Value>
+													<_Type type="a">Enum</_Type>
+													<_ExtraTypeInfo type="a">SerializationAndUnserialization,SerializationOnly,None</_ExtraTypeInfo>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
+			<_name type="a">DefaultConfig</_name>
+			<_modifiedTimeWeak type="a">11.30.2011::15:42:18</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_scopeType type="a">Explicit</_scopeType>
+			<_instrumentation type="a">Animation</_instrumentation>
+			<_timeModel type="a">Simulated</_timeModel>
+			<m_generateActors type="a">1</m_generateActors>
+			<_statechartImplementation type="a">Flat</_statechartImplementation>
+			<_checksList type="a">0 ,</_checksList>
+			<_checksList_Default type="a">1</_checksList_Default>
+			<ScopeElements type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</ScopeElements>
+			<InitialInstances type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IUseCase</_hm2Class>
+							<_hfilename type="a">.\RoadMonitoringPkg.sbsx</_hfilename>
+							<_hsubsystem type="a">RoadMonitoringPkg</_hsubsystem>
+							<_hname type="a">MonitorTraffic</_hname>
+							<_hid type="a">GUID 262cd453-62a9-4393-9b50-702b5a5dde4c</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</InitialInstances>
+			<weakCGTime type="a">11.30.2011::15:42:18</weakCGTime>
+			<strongCGTime type="a">11.30.2011::15:42:18</strongCGTime>
+			<AnimScopeElements type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</AnimScopeElements>
+			<m_allInAnimScope type="a">1</m_allInAnimScope>
+			<m_generateUsecases type="a">1</m_generateUsecases>
+			<AggregatesList type="e">
+				<value>GUID 1afc0f51-7ccb-4ed2-8c0c-960bc36e1909</value>
+				<value>GUID da61ab25-0b67-45a2-86e0-7acfa7bf5192</value>
+				<value>GUID 957fe966-22c7-4344-8a2d-ad78379ea336</value>
+			</AggregatesList>
+		</ICodeGenConfigInfo>
+		<IMHyperLink type="e">
+			<_id type="a">GUID 1afc0f51-7ccb-4ed2-8c0c-960bc36e1909</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+				</INObjectHandle>
+			</_dependsOn>
+			<_linkDispName type="a">Edit Makefile</_linkDispName>
+			<_linkType type="a">FREE</_linkType>
+			<_linkTarget type="a">DefaultComponent.mak</_linkTarget>
+			<isConfigurationFileHyperLink type="a">1</isConfigurationFileHyperLink>
+		</IMHyperLink>
+		<IMHyperLink type="e">
+			<_id type="a">GUID da61ab25-0b67-45a2-86e0-7acfa7bf5192</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+				</INObjectHandle>
+			</_dependsOn>
+			<_linkDispName type="a">Edit Main File</_linkDispName>
+			<_linkType type="a">FREE</_linkType>
+			<_linkTarget type="a">MainDefaultComponent</_linkTarget>
+			<isConfigurationFileHyperLink type="a">1</isConfigurationFileHyperLink>
+		</IMHyperLink>
+		<IFolder type="e">
+			<_id type="a">GUID 957fe966-22c7-4344-8a2d-ad78379ea336</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">DefaultConfig</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<Elements type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Elements>
+			<Files type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Files>
+		</IFolder>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+
