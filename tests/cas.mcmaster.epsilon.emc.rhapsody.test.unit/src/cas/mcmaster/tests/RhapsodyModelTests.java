@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.epsilon.common.util.StringProperties;
@@ -28,6 +29,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import com.telelogic.rhapsody.core.IRPOperation;
 
 import cas.mcmaster.epsilon.emc.RhapsodyModel;
 
@@ -175,7 +178,6 @@ public class RhapsodyModelTests {
 		} catch (EolModelLoadingException | EolEnumerationValueNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
-		
 	}
 	
 	@Test
@@ -253,6 +255,7 @@ public class RhapsodyModelTests {
 			fail("Should not throw exception", e);
 		}
 	}
+	
 
 	private IModel model;
 	
