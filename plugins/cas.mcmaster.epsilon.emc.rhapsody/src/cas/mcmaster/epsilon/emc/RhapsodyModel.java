@@ -12,7 +12,10 @@ package cas.mcmaster.epsilon.emc;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,12 +27,12 @@ import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertyGetter;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
+import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
 import org.eclipse.epsilon.eol.models.Model;
 
 import com.telelogic.rhapsody.core.IRPApplication;
-import com.telelogic.rhapsody.core.IRPEnumerationLiteral;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPPackage;
 import com.telelogic.rhapsody.core.IRPProject;
@@ -63,7 +66,7 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  * @author Horacio Hoyos Rodriguez - Refactoring and complete implementation
  *
  */
-public class RhapsodyModel extends Model implements IModel {
+public class RhapsodyModel extends CachedModel<IRPModelElement> implements IModel {
 	
 	public static final String PROPERTIES_PROJECT_PATH = "path";
 	public static final String PROPERTIES_INSTALLATION_DIRECTORY = "install_dir";
@@ -129,11 +132,20 @@ public class RhapsodyModel extends Model implements IModel {
 		}
 		this.types = new RhapsodyMetaclasses(
 				properties.getProperty(PROPERTIES_INSTALLATION_DIRECTORY),
+				properties.getBooleanProperty(PROPERTY_CACHED, false),
 				this.prj)
 			.load();
+		// TODO If useLive setting, register the model as an RPApplicationListener so if the model
+		// changes, we can clear the cache. https://www.ibm.com/docs/en/elms/esdr/8.4.0?topic=api-using-rpapplicationlistener-respond-events
 		LOG.info("Current project is: {}", this.prj.getName());
 		super.load(properties, relativePathResolver);
 		this.setName(this.prj.getName());
+		clearCache();
+	}
+
+	@Override
+	protected Collection<String> getAllTypeNamesOf(Object instance) {
+		return this.types.getAllTypeNamesOf(instance);
 	}
 
 	@Override
@@ -147,43 +159,11 @@ public class RhapsodyModel extends Model implements IModel {
 	}
 	
 	@Override
-	public Collection<?> allContents() {
-		return prj.getNestedElementsRecursive().toList();
-	}
-	
-
-	@Override
 	public Object getEnumerationValue(
 		String enumeration,
 		String label) throws EolEnumerationValueNotFoundException {
 		// Enumerations are IRPType
 		return this.types.getEnumerationValue(enumeration, label, this.getName());
-	}
-
-	
-
-	@Override
-	public Collection<?> getAllOfType(String type) throws EolModelElementTypeNotFoundException {
-		var contents = prj.getNestedElementsRecursive();
-		var matching = app.createNewCollection();
-		for (int i = 1; i <= contents.getCount(); i++) {
-			var element = (IRPModelElement)contents.getItem(i);
-			if (element!=null && type.equals(element.getMetaClass()))
-				matching.addItem(element);
-		}
-		return matching.toList();
-	}
-
-	@Override
-	public Collection<?> getAllOfKind(String kind) throws EolModelElementTypeNotFoundException {
-		var contents = prj.getNestedElementsRecursive();
-		var matching = app.createNewCollection();
-		for (int i = 1; i <= contents.getCount(); i++) {
-			var element = (IRPModelElement)contents.getItem(i);
-			if (element!=null && element.getIsOfMetaClass(kind)==1 )
-				matching.addItem(element);
-		}
-		return matching.toList();
 	}
 
 	@Override
@@ -204,7 +184,7 @@ public class RhapsodyModel extends Model implements IModel {
 	}
 
 	@Override
-	public Object createInstance(String type)
+	public IRPModelElement createInstance(String type)
 			throws EolModelElementTypeNotFoundException, EolNotInstantiableModelElementTypeException {
 		if (!hasType(type)){
 			throw new EolModelElementTypeNotFoundException(prj.getName(), type);
@@ -334,23 +314,6 @@ public class RhapsodyModel extends Model implements IModel {
 	}
 
 	@Override
-	public void dispose() {
-		if (this.storeOnDisposal) {
-			this.store();
-		}
-		if (this.prj != null) {
-			if (!this.usingActivePrj) {
-				this.prj.close();					
-			}
-		}
-		if(!this.rhapsodyWasActive && (this.app != null)) {
-			this.app.quit();
-		}
-		// terminate the Rhapsody session
-		RhapsodyAppServer.CloseSession();
-	}
-
-	@Override
 	public IPropertyGetter getPropertyGetter() {
 		return propertyGetter;
 	}
@@ -380,6 +343,69 @@ public class RhapsodyModel extends Model implements IModel {
 		this.readOnLoad = readOnLoad;
 	}
 	
+	@Override
+	protected void loadModel() throws EolModelLoadingException {
+		// Nothing to do
+	}
+
+	@Override
+	protected void disposeModel() {
+		if (this.storeOnDisposal) {
+			this.store();
+		}
+		if (this.prj != null) {
+			if (!this.usingActivePrj) {
+				this.prj.close();					
+			}
+		}
+		if(!this.rhapsodyWasActive && (this.app != null)) {
+			this.app.quit();
+		}
+		// terminate the Rhapsody session
+		RhapsodyAppServer.CloseSession();
+	}
+	
+	@Override
+	protected Object getCacheKeyForType(String type) throws EolModelElementTypeNotFoundException {
+		return type;
+	}
+
+	@Override
+	protected Collection<IRPModelElement> allContentsFromModel() {
+		@SuppressWarnings("unchecked")
+		List<Object> x = prj.getNestedElementsRecursive().toList();
+		return x.stream()
+				.filter(IRPModelElement.class::isInstance)
+				.map(IRPModelElement.class::cast)
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	protected Collection<IRPModelElement> getAllOfTypeFromModel(String type)
+			throws EolModelElementTypeNotFoundException {
+		return this.types.getAllOfType(type, this.getName());
+	}
+
+	@Override
+	protected Collection<IRPModelElement> getAllOfKindFromModel(String kind)
+			throws EolModelElementTypeNotFoundException {
+		// Rhapsody does not expose the metaclass type hierarchy, so we cannot find by kind
+		return this.getAllOfTypeFromModel(kind);
+	}
+
+	@Override
+	protected IRPModelElement createInstanceInModel(String type)
+			throws EolModelElementTypeNotFoundException, EolNotInstantiableModelElementTypeException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected boolean deleteElementInModel(Object instance) throws EolRuntimeException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	/**
 	 * Use the {@link RhapsodyAppServer} to connect to the active Rhapsody or launch a new one.
 	 * @return the Rhapsody application to use.
@@ -395,8 +421,6 @@ public class RhapsodyModel extends Model implements IModel {
 		}
 		return result;
 	}
-
-
 	
 	/*
 	 * public Boolean checkIfChanged() { return prj.isModifiedRecursive()==1; }

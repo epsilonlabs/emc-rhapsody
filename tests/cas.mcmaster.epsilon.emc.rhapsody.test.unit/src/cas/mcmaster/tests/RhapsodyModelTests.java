@@ -11,6 +11,7 @@
 package cas.mcmaster.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -18,11 +19,14 @@ import java.util.List;
 
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.eol.exceptions.models.EolEnumerationValueNotFoundException;
+import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.Model;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import cas.mcmaster.epsilon.emc.RhapsodyModel;
@@ -32,6 +36,9 @@ import cas.mcmaster.epsilon.emc.RhapsodyModel;
  * <ul>
  * 	<li> RHAPSODY_PATH: The full path to the Rhapsody installation, till the version folder.
  * </ul>
+ * 
+ * Getting elements by Stereotype is slow.
+ * 
  * @author Horacio Hoyos Rodriguez
  *
  */
@@ -71,7 +78,9 @@ public class RhapsodyModelTests {
 	/**
 	 * This test will prompt user interaction
 	 */
+	@Tag("prompt")
 	@Test
+	@Disabled
 	void cant_load_project_from_invalid_path() {
 		model = new RhapsodyModel();
 		EolModelLoadingException thrown = Assertions.assertThrows(
@@ -83,7 +92,6 @@ public class RhapsodyModelTests {
 				});
 		assertTrue(thrown.getMessage().contains("Invalid project name and/or path"));
 	}
-	
 	
 	@Test
 	void loads_project_from_path() {
@@ -136,7 +144,7 @@ public class RhapsodyModelTests {
 				() -> {
 					model.getEnumerationValue("TestEnumWrong", "SOME_VALUE");
 				});
-		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TEST_ENUM_WRONG#SOME_VALUE in model TollRoad"));
+		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TestEnumWrong#SOME_VALUE in model TollRoad"));
 	}
 	
 	@Test
@@ -152,7 +160,7 @@ public class RhapsodyModelTests {
 				() -> {
 					model.getEnumerationValue("TestEnum", "SOME_VALUE");
 				});
-		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TEST_ENUM#SOME_VALUE in model TollRoad"));
+		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TestEnum#SOME_VALUE in model TollRoad"));
 	}
 	
 	@Test
@@ -170,8 +178,82 @@ public class RhapsodyModelTests {
 		
 	}
 	
+	@Test
+	void get_all_by_type_fails_if_unknown_stereotype_or_type() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+		} catch (EolModelLoadingException e) {
+			fail("Should not throw exception", e);
+		}
+		EolModelElementTypeNotFoundException thrown = assertThrows(
+				EolModelElementTypeNotFoundException.class,
+				() -> model.getAllOfType("car"));
+		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'car' in model 'TollRoad'"));
+	}
 	
+	@Test
+	void get_all_by_type_for_type() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+			var packages = model.getAllOfType("Package");
+			assertEquals(14, packages.size());
+		} catch (EolModelLoadingException | EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
 	
+	@Test
+	void get_all_by_type_for_stereotype() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+			var blocks = model.getAllOfType("Block");
+			assertEquals(5, blocks.size());
+		} catch (EolModelLoadingException | EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void get_all_by_kind_fails_if_unknown_stereotype_or_type() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+		} catch (EolModelLoadingException e) {
+			fail("Should not throw exception", e);
+		}
+		EolModelElementTypeNotFoundException thrown = assertThrows(
+				EolModelElementTypeNotFoundException.class,
+				() -> model.getAllOfKind("car"));
+		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'car' in model 'TollRoad'"));
+	}
+	
+	@Test
+	void get_all_by_kind_for_type() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+			var packages = model.getAllOfKind("Package");
+			assertEquals(14, packages.size());
+		} catch (EolModelLoadingException | EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void get_all_by_kind_for_stereotype() {
+		model = new RhapsodyModel();
+		try {
+			model.load(defaultProperties());
+			var blocks = model.getAllOfKind("Block");
+			assertEquals(5, blocks.size());
+		} catch (EolModelLoadingException | EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+
 	private IModel model;
 	
 	private StringProperties defaultProperties() {
