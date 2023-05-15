@@ -137,6 +137,14 @@ public class RhapsodyMetaclasses {
 		return result;
 	}
 	
+	public boolean hasType(String type) {
+		return this.metaclasses.contains(type) || this.stereotypes().contains(type);
+	}
+	
+	public boolean isInstantiable(String type) {
+		return this.metaclasses.contains(type);
+	}
+
 	private static final Logger LOG = LogManager.getLogger(RhapsodyMetaclasses.class);
 	
 	private final Set<String> metaclasses;
@@ -190,5 +198,7 @@ public class RhapsodyMetaclasses {
 		}
 		return stereotypes;
 	}
+
 	
+
 }
