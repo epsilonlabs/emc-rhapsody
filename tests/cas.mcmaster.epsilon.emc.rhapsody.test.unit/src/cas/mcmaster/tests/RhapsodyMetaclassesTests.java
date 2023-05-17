@@ -10,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.Iterator;
 
 import org.eclipse.epsilon.eol.exceptions.models.EolEnumerationValueNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
@@ -99,6 +97,15 @@ public class RhapsodyMetaclassesTests {
 	}
 	
 	@Test
+	void get_all_by_type_fails_if_no_new_term_stereotype() {
+		var underTest = underTest();
+		EolModelElementTypeNotFoundException thrown = assertThrows(
+				EolModelElementTypeNotFoundException.class,
+				() -> underTest.getAllOfType("Usage", prj.getName()));
+		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'Usage' in model 'TollRoad'"));
+	}
+	
+	@Test
 	void get_all_by_type_for_type() {
 		var underTest = underTest();
 		try {
@@ -120,51 +127,54 @@ public class RhapsodyMetaclassesTests {
 		}
 	}
 
-	
 	@Test
 	void get_all_type_names_for_class_base() {
 		var underTest = underTest();
-		Collection<IRPModelElement> operations = null;
-		try {
-			operations = underTest.getAllOfType("Operation", prj.getName());
-		} catch (EolModelElementTypeNotFoundException e) {
-			fail("Should not throw exception", e);
+		IRPModelElement operation = prj.findNestedElementRecursive("takePicture", "Operation");
+		if (operation == null) {
+			fail("Operation with name 'takePicture' should exist");
 		}
-		Iterator<IRPModelElement> it = operations.iterator();
-		if (it.hasNext()) {
-			var op = it.next();
-			var typeNames = underTest.getAllTypeNamesOf(op);
-			assertEquals(1, typeNames.size());
-		} else {
-			fail("Model should have operations");
-		}
+		var typeNames = underTest.getAllTypeNamesOf(operation);
+		assertEquals(1, typeNames.size());
+		assertTrue(typeNames.contains("Operation"));
 	}
 	
 	@Test
-	void get_all_type_names_for_applied_stereotype() {
+	void get_all_type_names_for_new_term_stereotype() {
 		var underTest = underTest();
-		Collection<IRPModelElement> blocks = null;
-		try {
-			blocks = underTest.getAllOfType("Block", prj.getName());
-		} catch (EolModelElementTypeNotFoundException e) {
-			fail("Should not throw exception", e);
+		var block = prj.findNestedElementRecursive("Camera", "Block");
+		if (block == null) {
+			fail("Block with name 'Camera' should exist");
 		}
-		Iterator<IRPModelElement> it = blocks.iterator();
-		if (it.hasNext()) {
-			var block = it.next();
-			var typeNames = underTest.getAllTypeNamesOf(block);
-			assertEquals(2, typeNames.size());
-			assertTrue(typeNames.contains("Class"));
-			assertTrue(typeNames.contains("Block"));
-		} else {
-			fail("Model should have operations");
-		}
+		var typeNames = underTest.getAllTypeNamesOf(block);
+		assertEquals(2, typeNames.size());
+		assertTrue(typeNames.contains("Class"));
+		assertTrue(typeNames.contains("Block"));
 	}
 	
 	@Test
-	void has_type_is_false_for_unknown() {
+	void get_all_type_names_for_no_new_term_stereotype() {
+		var underTest = underTest();
+		var dep = prj.findNestedElementRecursive("TimeServices", "Dependency");
+		if (dep == null) {
+			fail("Dependency with name 'TimeServices' should exist");
+		}
+		// TimeServices has a Usage (no new term) stereotype
+		var typeNames = underTest.getAllTypeNamesOf(dep);
+		assertEquals(1, typeNames.size());
+		assertTrue(typeNames.contains("Dependency"));
+	}
+	
+	@Test
+	void has_type_is_false_for_unknown_metaclass() {
 		var underTest = underTest();
 		assertFalse(underTest.hasType("car"));
+	}
+	
+	@Test
+	void has_type_is_false_for_no_new_term_stereotype() {
+		var underTest = underTest();
+		assertFalse(underTest.hasType("ModifiedTo"));
 	}
 	
 	@ParameterizedTest
@@ -175,7 +185,7 @@ public class RhapsodyMetaclassesTests {
 	}
 	
 	@Test
-	void has_type_is_true_for_stereotype() {
+	void has_type_is_true_for_new_term_stereotype() {
 		var underTest = underTest();
 		assertTrue(underTest.hasType("Block"));
 	}
@@ -193,10 +203,15 @@ public class RhapsodyMetaclassesTests {
 		assertTrue(underTest.isInstantiable("Operation"));
 	}
 	
-	@Test
-	void is_instantiable_is_false_for_known_stereotype() {
+	void is_instantiable_is_true_for_new_term_stereotype() {
 		var underTest = underTest();
-		assertFalse(underTest.isInstantiable("Block"));
+		assertTrue(underTest.isInstantiable("Interface"));
+	}
+	
+	@Test
+	void is_instantiable_is_false_for_no_new_term_stereotype() {
+		var underTest = underTest();
+		assertFalse(underTest.isInstantiable("ImportedProfile"));
 	}
 	
 	private RhapsodyMetaclasses underTest() {

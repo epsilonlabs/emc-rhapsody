@@ -10,10 +10,14 @@
  ********************************************************************************/
 package cas.mcmaster.epsilon.emc;
 
-import java.util.ArrayList;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
@@ -35,16 +39,15 @@ import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPPackage;
 import com.telelogic.rhapsody.core.IRPProject;
+import com.telelogic.rhapsody.core.IRPStereotype;
 import com.telelogic.rhapsody.core.RhapsodyAppServer;
 import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
 
 /**
- * 
- * Since the model is a live connection to the Rhapsody Application, this implementation
- * is not cached.
- * <p>
- * The Rhapsody Aplication can be running or not. If not running, a new instance will be opened
- * and closed when the model is disposed. If running, the application will not be closed.
+ * This IModel implementation provides access to Rhapsody projects/models via the Rhapsody JAVA API.
+ * The Rhapsody Application can be running or not. If not running, a new instance will be opened
+ * and closed when the model is disposed. If running, the application will not be closed. If a 
+ * project is not provided during load, the active project in Rhapsody will be used.
  * <p>
  * <b>Note: </b> Some actions may trigger an UI prompt from the Rhapsody API, execution will
  * be blocked until the dialog is closed by the user. For example, when loading a project
@@ -60,6 +63,11 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  * 		 to use. If absent, the current project opened in Rhapsody will be used (if available).
  *  <li> {@link RhapsodyModel#PROPERTIES_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults to the first package in the model
  * </ul>
+ * <p>
+ * Type operations (e.g. allOfType, allofKind, createInstance, etc) rely on two sources of information.
+ * i) The <code>metaclasses.txt</code> file that contains the list of supported metaclass (type) names,
+ * and ii) the existing <code>Stereotype</code>s in the model. For the latter, only Stereotypes that
+ * are defined as <b>new terms</b> will be considered for type related operations. 
  * 
  * @author Justin Dang - Initial Version
  * @author Horacio Hoyos Rodriguez - Refactoring and complete implementation
@@ -75,11 +83,15 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	private IRPApplication app;
 	private IRPProject prj;
-	private IRPPackage localpackage;
-	private boolean usingActivePrj = false;
-	private boolean rhapsodyWasActive = false;
 	private RhapsodyMetaclasses types;
 	private IRPPackage mainPackage;
+	
+	private Pattern pattern;
+	
+	private boolean usingActivePrj = false;
+	private boolean rhapsodyWasActive = false;
+	
+	
 	
 	
 	public RhapsodyModel() {
@@ -123,12 +135,23 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		}
 		if (properties.hasProperty(PROPERTIES_PROJECT_PATH)) {
 			String path = properties.getProperty(PROPERTIES_PROJECT_PATH);
-			String fullpath = relativePathResolver.resolve(path);
-			LOG.info("Loading project from: {}", fullpath);
-			this.prj = this.app.openProject(fullpath);
+			Path fullPath = Paths.get(relativePathResolver.resolve(path)).toAbsolutePath();
+			LOG.info("Loading project from: {}", fullPath);
+//			var active = this.app.activeProject();
+//			if (active != null) {
+//				// If active project is the target one, loading fails.
+//				var activePath = Paths.get(active.getCurrentDirectory(), active.getFilename());
+//				if (activePath.equals(fullPath)) {
+//					this.prj = active;
+//					this.usingActivePrj = true;
+//				}
+//			}
 			if (this.prj == null) {
-				LOG.error("Invalid project name and/or path");
-				throw new EolModelLoadingException(new IllegalArgumentException("Invalid project name and/or path"), this);
+				this.prj = this.app.openProject(fullPath.toString());
+				if (this.prj == null) {
+					LOG.error("Invalid project name and/or path");
+					throw new EolModelLoadingException(new IllegalArgumentException("Invalid project name and/or path"), this);
+				}
 			}
 		} else {
 			LOG.info("No model path provided, loading active project");
@@ -161,34 +184,19 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			.load();
 		// TODO If useLive setting, register the model as an RPApplicationListener so if the model
 		// changes, we can clear the cache. https://www.ibm.com/docs/en/elms/esdr/8.4.0?topic=api-using-rpapplicationlistener-respond-events
+		// but still use the chache for improved performance
 		LOG.info("Current project is: {}", this.prj.getName());
 		setName("Rhapsody");
 		super.load(properties, relativePathResolver);
 		clearCache();
+		this.pattern = Pattern.compile(ID_REGEX);
 	}
 
-	
 	@Override
 	public Object getEnumerationValue(
 		String enumeration,
 		String label) throws EolEnumerationValueNotFoundException {
-		// Enumerations are IRPType
 		return this.types.getEnumerationValue(enumeration, label, this.getName());
-	}
-
-	@Override
-	public Object getTypeOf(Object instance) {
-		return this.getTypeNameOf(instance);
-	}
-
-	@Override
-	public String getTypeNameOf(Object instance) {
-		return ((IRPModelElement) instance).getMetaClass();
-	}
-
-	@Override
-	public String getFullyQualifiedTypeNameOf(Object instance) {
-		return getTypeNameOf(instance);
 	}
 	
 	@Override
@@ -200,28 +208,24 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public boolean isInstantiable(String type) {
 		return this.types.isInstantiable(type);
 	}
-	
-	@Override
-	public IRPModelElement createInstance(String type) throws EolModelElementTypeNotFoundException, EolNotInstantiableModelElementTypeException {
-		LOG.error("createInstance is not supportd beacuse the Rhapsody API always needs a context "
-				+ "package to invoke the method and a target package to add the new instance");
-		throw new UnsupportedOperationException("To create an instance use "
-				+ "'createInstance(String type, Collection<Object> parameters)', and pass the "
-				+ "context package and target package names as parameters. Optionally, a third "
-				+ "parameter can be used to provide the new instance name attibute");
-	}
 
 	/**
-	 * Creates the instance.
+	 * Creates the instance. The type can either be a metaclass or a stereotype. The provided 
+	 * parameters can be used to to provide an element name and, for stereotypes, provide the 
+	 * actual metaclass of the instance.
+	 * <p>
+	 * If the type is a metaclass, then the first element if the parameters collection will be used
+	 * for the name. The name value will be the element's <code>toString()</code> value.  
+	 * <p>
+	 * If the type is a stereotype, then, if the parameters collection has only one element, it will
+	 * be used as the name of the actual the metaclass for the instance. If two parameters are
+	 * provided, then the first will be the element's name and the second the actual metaclass. 
 	 *
 	 * @param type the type of the new instance
-	 * @param parameters Collection of: 
-	 * 		0 -> context package name	(package for calling addGlobalObject
-	 * 		1 -> owner package name 	(package where the new element will be created)
-	 * 		2(Optional) -> element name ("newElement" will be used if not provided)
+	 * @param parameters instantiation parameters
 	 * @return the object
-	 * @throws EolModelElementTypeNotFoundException the eol model element type not found exception
-	 * @throws EolNotInstantiableModelElementTypeException the eol not instantiable model element type exception
+	 * @throws EolModelElementTypeNotFoundException if the type/metaclass is not found in the model
+	 * @throws EolNotInstantiableModelElementTypeException if the type is not instantiatable
 	 */
 	@Override
 	public Object createInstance(String type, Collection<Object> parameters)
@@ -229,29 +233,95 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		if (!this.hasType(type)) {
 			throw new EolModelElementTypeNotFoundException(this.getName(), type);
 		}
-		if (!this.isInstantiable(type)) {
-			throw new EolNotInstantiableModelElementTypeException(this.getName(), type);
-		}
-		if (parameters.size() < 2) {
-			throw new IllegalArgumentException("At least 2 parameters must be provided: the "
-					+ "context package and target package names as parameters.");
-		}
-		Iterator<Object> it = parameters.iterator();
-		IRPPackage context = (IRPPackage) this.prj.findNestedElement((String) it.next(), "Package");
-		String target = (String) it.next();
+		ElementFactory factory;
 		String name = "";
-		if (it.hasNext()) {
-			name = (String) it.next();
+		if (this.types.isMetaclass(type)) {
+			Iterator<Object> it = parameters.iterator();
+			if (it.hasNext()) {
+				Object next = it.next();
+				if (next != null) {
+					name = next.toString();
+				}
+			}
+			factory = new ElementFactory(type, name);
+		} else {
+			IRPStereotype sType = (IRPStereotype) this.prj.findNestedElementRecursive(type, "Stereotype");
+			List<String> ofMetaClass = Arrays.asList(sType.getOfMetaClass().split(","));
+			Iterator<Object> it = parameters.iterator();
+			String metaClass = "";
+			if (it.hasNext()) { // 1 element = metaclass
+				Object next = it.next();
+				if (next != null) {
+					metaClass = next.toString();
+				}
+			}
+			if (it.hasNext()) { // 2 elements = name, metaclass
+				Object next = it.next();
+				if (next != null) {
+					name = metaClass;
+					metaClass = next.toString();
+				}
+			}	
+			if (!ofMetaClass.contains(metaClass)) {
+					LOG.error("The provided metaclass for stereotype instantation is not in the "
+							+ "list from getOfMetaClass() for stereotype {}", type);
+					throw new EolNotInstantiableModelElementTypeException(this.getName(), type);
+			}
+			factory = new ElementFactory(metaClass, name, sType);
 		}
-		try {
-			return context.addGlobalObject(name, type, target);
-		} catch (RhapsodyRuntimeException e) {
-			e.printStackTrace();
-			System.out.println("Error: " + this.app.getErrorMessage());
-			return null;
+		IRPModelElement instance = factory.create(this.mainPackage);
+		if (isCachingEnabled()) {
+			addToCache(type, instance);
 		}
+		return instance;
+	}
+	
+	@Override
+	public Object getTypeOf(Object instance) {
+		if (instance instanceof IRPModelElement) {
+			return ((IRPModelElement)instance).getInterfaceName();
+		}
+		LOG.error("Calling getTypeOf with an object that is not an IRPModelElement");
+		throw new IllegalArgumentException("Instance is not an IRPModelElement");
 	}
 
+	/**
+	 * Gets the type name of.
+	 *
+	 * @param instance the instance
+	 * @return the type name of the instance
+	 */
+	@Override
+	public String getTypeNameOf(Object instance) {
+		if (instance instanceof IRPModelElement) {
+			IRPModelElement element = (IRPModelElement) instance;
+			var newTerm = element.getUserDefinedMetaClass();
+			if (newTerm != null) {
+				return newTerm;
+			}
+			return element.getMetaClass();
+		}
+		LOG.error("Calling getTypeNameOf with an object that is not an IRPModelElement");
+		throw new IllegalArgumentException("Instance is not an IRPModelElement");
+	}
+
+	@Override
+	public String getFullyQualifiedTypeNameOf(Object instance) {
+		return getTypeNameOf(instance);
+	}
+	
+	@Override
+	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
+		return Objects.equals(this.getTypeNameOf(instance), type);
+	}
+
+	@Override
+	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
+		return Objects.equals(this.getTypeNameOf(instance), type);
+	}
+	
+	private final String ID_REGEX = "^GUID\s[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$";
+	
 	@Override
 	public Object getElementById(String id) {
 		return prj.findElementByGUID(id);
@@ -269,18 +339,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		element.setGUID(newId);
 	}
 
-	@Override
-	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		var element = (IRPModelElement) instance;
-		return element.getIsOfMetaClass(type)==1;
-	}
-
-	@Override
-	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		var element = (IRPModelElement) instance;
-		return element.getIsOfMetaClass(type)==1;
-	}
-
+	
 	@Override
 	public boolean owns(Object instance) {
 		if (!isModelElement(instance))
@@ -312,14 +371,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		return getPropertyGetter().invoke(instance, property, null) != null;
 	}
 
-	
-
 	@Override
 	public boolean isModelElement(Object instance) {
 		return (instance instanceof IRPModelElement);
 	}
-
-	
 
 	@Override
 	public boolean store(String location) {
@@ -416,25 +471,16 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	@Override
 	protected IRPModelElement createInstanceInModel(String type)
 			throws EolModelElementTypeNotFoundException, EolNotInstantiableModelElementTypeException {
-		if (!hasType(type)){
-			throw new EolModelElementTypeNotFoundException(prj.getName(), type);
-		} else if (!isInstantiable(type)) {
-			throw new EolNotInstantiableModelElementTypeException(prj.getName(), type);
+		if (!this.hasType(type)) {
+			throw new EolModelElementTypeNotFoundException(this.getName(), type);
 		}
-		if (localpackage==null)
-			localpackage = prj.addPackage("New_Instances");
-		if (type.equals("Type"))
-			return localpackage.addType("default_name");
-		else if (type.equals("Class"))
-			return localpackage.addClass("default_name");
-		else if (type.equals("Event"))
-			return localpackage.addEvent("default_name");
-		else if (type.equals("Package"))
-			return localpackage.addNestedPackage("default_name");
-		else if (type.equals("Component"))
-			return prj.addComponent("default_name");
-		else
-			throw new EolNotInstantiableModelElementTypeException(prj.getName(), type);
+		ElementFactory factory;
+		if (this.types.isMetaclass(type)) {
+			factory = new ElementFactory(type);
+		} else {
+			factory = new ElementFactory( (IRPStereotype) this.prj.findNestedElementRecursive(type, "Stereotype"));
+		}
+		return factory.create(this.mainPackage);
 	}
 
 	@Override
@@ -452,6 +498,45 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	@Override
 	protected Collection<String> getAllTypeNamesOf(Object instance) {
 		return this.types.getAllTypeNamesOf(instance);
+	}
+	
+	/**
+	 * Factory for creating instances with classes or stereotypes
+	 * @author Horacio Hoyos Rodriguez
+	 */
+	private class ElementFactory {
+		private final String name;
+		private final String metaclass;
+		private final IRPStereotype sType;
+		
+		public ElementFactory(String metaclass) {
+			this(metaclass, "", null);
+		}
+		
+		public ElementFactory(String metaclass, String name) {
+			this(metaclass, name, null);
+		}
+
+
+		public ElementFactory(String metaclass, String name, IRPStereotype sType) {
+			this.name = name;
+			this.metaclass = metaclass;
+			this.sType = sType;
+		}
+		
+		public ElementFactory(IRPStereotype sType) {
+			this.name = "";
+			this.metaclass = sType.getOfMetaClass().split(",")[0];
+			this.sType = sType;
+		}
+		
+		public IRPModelElement create(IRPPackage pckg) {
+			var result = pckg.addNewAggr(this.metaclass, this.name);
+			if (this.sType != null) {
+				result.addSpecificStereotype(this.sType);
+			}
+			return result;
+		}
 	}
 	
 	/**

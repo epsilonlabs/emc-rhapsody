@@ -109,12 +109,9 @@ public class RhapsodyMetaclasses {
 			var contents = prj.getNestedElementsRecursive();
 			for (int i=1; i<=contents.getCount(); i++) {
 				var element = (IRPModelElement)contents.getItem(i);
-				var appliedStrtyps = element.getStereotypes();
-				for (int j=1; j<=appliedStrtyps.getCount(); j++) {
-					var strtyp =  (IRPStereotype) appliedStrtyps.getItem(j);
-					if (strtyp != null && Objects.equals(type, strtyp.getName())) {
-						matching.add(element);	
-					}
+				var newTerm =  element.getUserDefinedMetaClass();
+				if (newTerm != null && Objects.equals(type, newTerm)) {
+					matching.add(element);	
 				}
 			}
 		}
@@ -126,12 +123,9 @@ public class RhapsodyMetaclasses {
 		if (instance instanceof IRPModelElement) {
 			var element = (IRPModelElement) instance;
 			result.add(element.getMetaClass());
-			var appliedStrtyps = element.getStereotypes();
-			for (int j=1; j<=appliedStrtyps.getCount(); j++) {
-				var strtyp =  (IRPStereotype) appliedStrtyps.getItem(j);
-				if (strtyp != null) {
-					result.add(strtyp.getName());	
-				}
+			String newTerm = element.getUserDefinedMetaClass();
+			if (newTerm != null) {
+				result.add(newTerm);
 			}
 		}
 		return result;
@@ -142,6 +136,16 @@ public class RhapsodyMetaclasses {
 	}
 	
 	public boolean isInstantiable(String type) {
+		return this.hasType(type);
+	}
+	
+	/**
+	 * Checks if the type is a metaclass. This method can be used to distinguish between metaclasses
+	 * and stereotypes
+	 * @param type the type to check
+	 * @return
+	 */
+	public boolean isMetaclass(String type) {
 		return this.metaclasses.contains(type);
 	}
 
@@ -172,9 +176,10 @@ public class RhapsodyMetaclasses {
 	 * @return
 	 */
 	private Set<String> metaclasses() {
+		LOG.info("Loading metaclasses from Metaclasses.txt" );
 		String mcList = "";
 		try(BufferedReader brTest = new BufferedReader(
-				new FileReader(this.path.resolve("Doc/Metaclasses.txt").toFile()))) {
+				new FileReader(this.path.resolve("Doc/metaclasses.txt").toFile()))) {
 			mcList = brTest .readLine();	
 		} catch (IOException e) {
 			LOG.error("Unable to read the metaclasses file at given path: {}", this.path);
@@ -189,11 +194,15 @@ public class RhapsodyMetaclasses {
 	 */
 	private Set<String> stereotypes() {
 		if (this.stereotypes.isEmpty() || !this.cachingEnabled) {
+			LOG.info("Loading stereotypes from model" );
 			this.stereotypes.clear();
 			IRPCollection sts = this.prj.getAllStereotypes();
 			for(int i=1;i<sts.getCount();i++) {
 				IRPStereotype stereotype = (IRPStereotype) sts.getItem(i);
-				stereotypes.add(stereotype.getName()); 
+				if (stereotype.getIsNewTerm() == 1) {
+					stereotypes.add(stereotype.getName());
+				}
+				//System.out.println(stereotype.getName() + " newTerm?: " + stereotype.getIsNewTerm());
 			}	
 		}
 		return stereotypes;
