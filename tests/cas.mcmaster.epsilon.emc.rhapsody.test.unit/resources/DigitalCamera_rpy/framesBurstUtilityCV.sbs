@@ -1,0 +1,177 @@
+I-Logix-RPY-Archive version 8.5.2 C++ 1508637
+{ ISubsystem 
+	- _ownerHandle = { IHandle 
+		- _m2Class = "ISubsystem";
+		- _filename = "UtilityCurves.sbs";
+		- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+		- _class = "";
+		- _name = "UtilityCurves";
+		- _id = GUID d38c64ac-a66f-4c3b-b3f8-a9c0a6f666ab;
+	}
+	- _id = GUID 1f7c5c1c-017c-40ba-8c50-76e6fd49d796;
+	- _myState = 8192;
+	- _name = "framesBurstUtilityCV";
+	- Dependencies = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IDependency 
+			- _id = GUID e9d5e9d0-b870-477f-9c12-ef5ef163cd77;
+			- _myState = 2048;
+			- _name = "burstFramesUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "burstFramesUtility";
+				- _id = GUID 73641672-60de-410f-978f-77668d96433b;
+			}
+		}
+	}
+	- Stereotypes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IHandle 
+			- _m2Class = "IStereotype";
+			- _filename = "PCE.sbs";
+			- _subsystem = "PCE";
+			- _class = "";
+			- _name = "ConstraintView";
+			- _id = GUID ebbbe90e-2234-48a0-ac69-a4dd36914337;
+		}
+	}
+	- Tags = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ ITag 
+			- _id = GUID 5ed9826a-b70e-42f8-8511-4aae1eabad6e;
+			- _name = "PlotSettings";
+			- ValueSpecifications = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ILiteralSpecification 
+					- _id = GUID 0da7cb0a-99e7-440d-9390-834abdf26e48;
+					- _value = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">
+<properties>
+<comment/>
+<entry key=\"Frames in Burst Mode\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".nticks2\"/&gt;&#13;
+&lt;entry key=\".nticks1\"&gt;30&lt;/entry&gt;&#13;
+&lt;entry key=\".label2\"/&gt;&#13;
+&lt;entry key=\".label1\"&gt;framesInBurstMode (fps)&lt;/entry&gt;&#13;
+&lt;entry key=\".var2\"/&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::GenericDigitalCamera.framesInBurstMode\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".var1\"&gt;DigitalCamerasAnalysis::GenericDigitalCamera.framesInBurstMode&lt;/entry&gt;&#13;
+&lt;entry key=\".font2\"/&gt;&#13;
+&lt;entry key=\".font1\"/&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::CameraMOEs.burstFramesMOE\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"&amp;gt;Frames in Burst Mode MOE&amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt;x&amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves::framesInBurstModeMOE.framesBurst\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves::framesInBurstModeMOE.moe\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".max2\"/&gt;&#13;
+&lt;entry key=\".max1\"&gt;15.0&lt;/entry&gt;&#13;
+&lt;entry key=\".min2\"/&gt;&#13;
+&lt;entry key=\".min1\"&gt;0.0&lt;/entry&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+</properties>
+";
+				}
+			}
+			- _typeOf = { IHandle 
+				- _m2Class = "IType";
+				- _filename = "PredefinedTypes.sbs";
+				- _subsystem = "PredefinedTypes";
+				- _class = "";
+				- _name = "RhpString";
+				- _id = GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35;
+			}
+			- _isOrdered = 0;
+			- _base = { IHandle 
+				- _m2Class = "ITag";
+				- _filename = "PCE.sbs";
+				- _subsystem = "PCE";
+				- _class = "ConstraintView";
+				- _name = "PlotSettings";
+				- _id = GUID 9d13c319-87f5-4a74-9f6a-7b3eb89742a0;
+			}
+		}
+	}
+	- weakCGTime = 10.12.2010::11:55:16;
+	- strongCGTime = 10.11.2010::13:7:9;
+	- _defaultComposite = GUID 29e0a1e3-cc5e-4365-8914-e7e1a3a0c8df;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IClass 
+			- _id = GUID 29e0a1e3-cc5e-4365-8914-e7e1a3a0c8df;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- weakCGTime = 10.11.2010::13:8:35;
+			- strongCGTime = 10.11.2010::13:7:9;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 1.2.1990::0:0:0;
+}
+

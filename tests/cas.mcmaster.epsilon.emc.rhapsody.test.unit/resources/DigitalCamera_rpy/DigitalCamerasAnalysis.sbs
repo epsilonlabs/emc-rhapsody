@@ -1,0 +1,4583 @@
+I-Logix-RPY-Archive version 8.6.0 C++ 2066820
+{ ISubsystem 
+	- _id = GUID 32d679ca-6820-488e-9199-ed6e3049ce2a;
+	- _myState = 8192;
+	- _name = "DigitalCamerasAnalysis";
+	- _lastID = 126;
+	- Declaratives = { IRPYRawContainer 
+		- size = 43;
+		- value = 
+		{ IDiagram 
+			- _id = GUID 0dc5151a-4ab4-4cc9-a768-fcd552aba42a;
+			- _myState = 8192;
+			- _properties = { IPropertyContainer 
+				- Subjects = { IRPYRawContainer 
+					- size = 2;
+					- value = 
+					{ IPropertySubject 
+						- _Name = "Format";
+						- Metaclasses = { IRPYRawContainer 
+							- size = 7;
+							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "Association";
+								- Properties = { IRPYRawContainer 
+									- size = 4;
+									- value = 
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "128,128,128";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "Class";
+								- Properties = { IRPYRawContainer 
+									- size = 7;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,34,84,148";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "109,163,217";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineStyle";
+										- _Value = "0";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "Comment";
+								- Properties = { IRPYRawContainer 
+									- size = 6;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,0,116,60";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "194,192,192";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "DiagramFrame";
+								- Properties = { IRPYRawContainer 
+									- size = 7;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "20,20,590,500";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "247,247,247";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Fill.Transparent_Fill";
+										- _Value = "0";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "194,192,192";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "FreeText";
+								- Properties = { IRPYRawContainer 
+									- size = 6;
+									- value = 
+									{ IProperty 
+										- _Name = "Fill.Transparent_Fill";
+										- _Value = "1";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "HorzAlign";
+										- _Value = "0";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.Transparent";
+										- _Value = "1";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Multiline";
+										- _Value = "True";
+										- _Type = Bool;
+									}
+									{ IProperty 
+										- _Name = "VertAlign";
+										- _Value = "0";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Wordbreak";
+										- _Value = "False";
+										- _Type = Bool;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "Interface";
+								- Properties = { IRPYRawContainer 
+									- size = 7;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,34,84,148";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "109,163,217";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineStyle";
+										- _Value = "0";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "Package";
+								- Properties = { IRPYRawContainer 
+									- size = 6;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,0,216,151";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Tahoma";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "8";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "109,163,217";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+						}
+					}
+					{ IPropertySubject 
+						- _Name = "ObjectModelGe";
+						- Metaclasses = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "ClassDiagram";
+								- Properties = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IProperty 
+										- _Name = "Fillcolor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			- _name = "Digital Camera";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Diagrams";
+					- _class = "";
+					- _name = "Block Definition Diagram";
+					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
+				}
+			}
+			- _lastModifiedTime = "5.22.2011::13:1:57";
+			- _graphicChart = { CGIClassChart 
+				- _id = GUID 831d6d37-d99e-471c-8405-bb04a6058680;
+				- m_type = 0;
+				- m_pModelObject = { IHandle 
+					- _m2Class = "IDiagram";
+					- _id = GUID 0dc5151a-4ab4-4cc9-a768-fcd552aba42a;
+				}
+				- m_pParent = ;
+				- m_name = { CGIText 
+					- m_str = "";
+					- m_style = "Arial" 10 0 0 0 1 ;
+					- m_color = { IColor 
+						- m_fgColor = 0;
+						- m_bgColor = 0;
+						- m_bgFlag = 0;
+					}
+					- m_position = 1 0 0  ;
+					- m_nIdent = 0;
+					- m_bImplicitSetRectPoints = 0;
+					- m_nOrientationCtrlPt = 8;
+				}
+				- m_drawBehavior = 0;
+				- m_bIsPreferencesInitialized = 0;
+				- elementList = 6;
+				{ CGIClass 
+					- _id = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_type = 78;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IClass";
+						- _id = GUID ff7d254d-1878-4c05-b932-5dea96c3d701;
+					}
+					- m_pParent = ;
+					- m_name = { CGIText 
+						- m_str = "TopLevel";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 0;
+					- m_bIsPreferencesInitialized = 0;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 0 ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Attrs = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 0;
+					}
+				}
+				{ CGIDiagramFrame 
+					- _id = GUID 371337f9-34eb-4806-93ee-eb214d699445;
+					- m_type = 203;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "";
+					}
+					- m_pParent = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_name = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 8;
+					}
+					- m_drawBehavior = 4096;
+					- m_transform = 3.81481 0 0 5.43182 20 20 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 0 0  0 132  216 132  216 0  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+				}
+				{ CGIClass 
+					- _id = GUID 37aaf421-275d-4f9b-bd44-de0d72936e80;
+					- m_type = 87;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IClass";
+						- _id = GUID fd4df31a-386c-49e8-bbae-0f8b190e1f0d;
+					}
+					- m_pParent = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_name = { CGIText 
+						- m_str = "GenericDigitalCamera";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2058;
+					- m_transform = 0.293673 0 0 0.294118 55.413 1.23529 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- frameset = "<frameset rows=100%>
+<frame name=AttributeListCompartment>";
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Attrs = { IRPYRawContainer 
+						- size = 13;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 858bb983-b675-43ff-9486-079be56939db;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 0727db97-4936-431a-a422-a862fee1a60e;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 4f0a2c5b-d956-48d6-b24a-9fbffbc8435a;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 3b6c4b0b-a5df-424d-90bc-65dadaacf21c;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 3328bda6-aeb4-4384-99d8-a39608c6f93c;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 7007874c-3a32-4f37-a30c-1d54897d47a3;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID eb106a29-aa74-4598-a861-989c93edef4e;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 4d2afdc8-8011-4338-8e10-ff1aa1f3ade0;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 5e7a03b1-9578-40d0-afef-f480dae315f5;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 36ac889d-6024-4bb6-a8ae-40c5877b1133;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID d531482c-29bc-4c27-b9b1-45fbfecfd296;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 23fd1a29-450a-4f10-88cc-b4ce99f0033b;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID 7266fc1e-b1ff-4697-bb16-af46e2e6666c;
+						}
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 0;
+					}
+				}
+				{ CGIClass 
+					- _id = GUID bc001b1f-38d1-4dc8-9fc3-5bd1506e256b;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 87;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IClass";
+						- _filename = "TradeStudy.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+						- _class = "";
+						- _name = "CameraTradeStudyWeights";
+						- _id = GUID f24a29e6-b02b-4b9d-a546-e5970ab48486;
+					}
+					- m_pParent = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_name = { CGIText 
+						- m_str = "TradeStudy::CameraTradeStudyWeights";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2122;
+					- m_transform = 0.383381 0 0 0.291444 427.233 -3.88503 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- frameset = "<frameset rows=100%>
+<frame name=AttributeListCompartment>";
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Attrs = { IRPYRawContainer 
+						- size = 11;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "WEIGHT_W";
+							- _id = GUID 28bd044d-8ffe-45c2-9c1f-2619b70cdfeb;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "SIZE_W";
+							- _id = GUID 4a121401-1587-4411-852c-a0a37f169293;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "RECOVERY_TIME_W";
+							- _id = GUID c3ff6f48-f6ad-4ed4-9e50-3918f2311256;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "RESOLUTION_W";
+							- _id = GUID 2be5b3be-c023-4520-aaab-842a977753ee;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "COLOR_DEPTH_W";
+							- _id = GUID 2259e48d-9652-40f4-ab0b-8b807f9ccf9f;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "SHUTTER_SPEED_W";
+							- _id = GUID 895b5de2-9f8d-4e4f-b265-8130cebd639a;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "BURST_MODE_W";
+							- _id = GUID 31a12789-477f-4dae-b483-f46e3fed810f;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "COST_W";
+							- _id = GUID b65b57af-4d42-4d5b-b181-a55b0a62fe9a;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "ZOOM_W";
+							- _id = GUID ba5cc29e-d937-4626-80cf-93ba6c7e0629;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "LCD_SIZE_W";
+							- _id = GUID e0b03ca0-8a0b-439b-b9a3-a3080df1e179;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraTradeStudyWeights";
+							- _name = "VIDEO_W";
+							- _id = GUID c06d10ee-cd4f-4abd-aa71-dbd61867d0ec;
+						}
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 0;
+					}
+				}
+				{ CGIClass 
+					- _id = GUID 9c1c2417-ad23-4301-a722-aac200f57b97;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 87;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IClass";
+						- _filename = "TradeStudy.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+						- _class = "";
+						- _name = "CameraMOEs";
+						- _id = GUID 1e3dcdf3-e0b9-4528-af08-a89690ff89ee;
+					}
+					- m_pParent = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_name = { CGIText 
+						- m_str = "TradeStudy::CameraMOEs";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2058;
+					- m_transform = 0.236072 0 0 0.248663 59.5278 366.189 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- frameset = "<frameset rows=100%>
+<frame name=AttributeListCompartment>";
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Attrs = { IRPYRawContainer 
+						- size = 11;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "weightMOE";
+							- _id = GUID 670ee528-aa4f-419b-804c-b975e6ff260b;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "widthMOE";
+							- _id = GUID e17b3cbd-0a09-4d14-b4e3-b6b4e607422c;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "heightMOE";
+							- _id = GUID 8f718f9e-bee9-43d2-af48-ad63adf26a8a;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "thickMOE";
+							- _id = GUID dbc85bc3-4737-4b80-9b29-34a272634163;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "colorMOE";
+							- _id = GUID b08391a1-d106-40cb-990a-24c9bb11faff;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "resolutionMOE";
+							- _id = GUID 5b719c6b-de9e-4d75-af80-6dfb86f43b9f;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "shutterSpeedMOE";
+							- _id = GUID 95d0269e-812f-4d9b-9cb8-8cca1277e5fe;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "burstFramesMOE";
+							- _id = GUID 0450fbe7-a5be-4e13-9440-3414abdbf346;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "costMOE";
+							- _id = GUID 096bdc54-5d38-4c8b-8f8f-66f2f7a645d0;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "zoomMOE";
+							- _id = GUID 64be4a2b-0355-4694-b0f8-2cd62a863db4;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "TradeStudy.sbs";
+							- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+							- _class = "CameraMOEs";
+							- _name = "screenMOE";
+							- _id = GUID e5024ad9-14c6-41bf-a1a6-e6d251b64e79;
+						}
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 0;
+					}
+				}
+				{ CGIAnnotation 
+					- _id = GUID 59202f6a-11fa-4c65-b920-be72085fb3b7;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 175;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IComment";
+						- _filename = "UtilityCurves.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+						- _class = "";
+						- _name = "Utility Hyper Links";
+						- _id = GUID a58ad8e3-4e45-4cd3-8420-f599ff94c110;
+					}
+					- m_pParent = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+					- m_name = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2056;
+					- m_transform = 0.278495 0 0 0.24308 479.895 447.004 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 0 3  0 1095  1084 1095  1084 3  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- Compartments = { IRPYRawContainer 
+						- size = 0;
+					}
+					- _iTempdisplayTextFlag = 2;
+					- m_bIsBoxStyle = 0;
+				}
+				
+				- m_access = 'Z';
+				- m_modified = 'N';
+				- m_fileVersion = "";
+				- m_nModifyDate = 0;
+				- m_nCreateDate = 0;
+				- m_creator = "";
+				- m_bScaleWithZoom = 1;
+				- m_arrowStyle = 'S';
+				- m_pRoot = GUID e32af742-9bac-475f-abb6-379bede8db4e;
+				- m_currentLeftTop = 0 0 ;
+				- m_currentRightBottom = 0 0 ;
+			}
+			- _defaultSubsystem = { IHandle 
+				- _m2Class = "ISubsystem";
+				- _id = GUID 32d679ca-6820-488e-9199-ed6e3049ce2a;
+			}
+		}
+		{ IInformationFlow 
+			- _id = GUID 67598e06-e3a3-46bd-9e14-e574b319f6d1;
+			- _myState = 2048;
+			- _name = "bindingconnector_4";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 3cac3bf9-ee60-4228-b32e-cfe33e67688e;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 82928fd5-e578-4541-ac2b-191cf7b40627;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 916988d4-c6e0-4e36-875d-9f1661de2e6f;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 3b6c4b0b-a5df-424d-90bc-65dadaacf21c;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "w";
+				- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 29c2eb4b-137a-4f87-9d50-20046a6c393e;
+			- _myState = 2048;
+			- _name = "bindingconnector_13";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID e5430747-0ec2-4ee7-a9b5-e83fa8a2f37e;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 5a34ffef-2ef3-4075-8c5c-235d0ff40cc8;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID ba4b02c0-5872-45ef-baec-33a1262d5b58;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "MAX_VAL";
+				- _id = GUID 0c68f48f-545e-4ccf-940c-d6587c0ef113;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "MAX_Weight";
+				- _id = GUID 34d412e8-baca-4e54-b3aa-d87abc589e7d;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 328567c2-8bee-4c67-8e9a-f509bd352190;
+			- _myState = 2048;
+			- _name = "MAX_BEST_VAL_MAX_BEST_Weight_1";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID d7759c55-d818-474a-ac5d-3e9c8925011e;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID d54c0736-587f-4135-bef8-22d33a916c81;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 50fc3858-5983-42c2-a7ec-2f2f1781a760;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "MAX_BEST_VAL";
+				- _id = GUID 8a56ba4f-e766-4064-8dbb-7cfe2218c038;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "MAX_BEST_Weight";
+				- _id = GUID 6319dbe9-b544-4669-9d0a-2e9fa90a7a36;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 5447febd-6d99-4c1f-9081-df94dcea4279;
+			- _myState = 2048;
+			- _name = "bindingconnector_19";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 2;
+				- value = 
+				{ ITag 
+					- _id = GUID 08e0a32c-3ddd-480d-b7fa-1bbcdaa5c0df;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID c03f5667-b848-4f61-b32e-1ef1ee8f6285;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID ac99ffb2-7982-4651-be8c-fa6e5f865034;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+				{ ITag 
+					- _id = GUID 67698c0e-722e-4800-b567-bfee1555290b;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID e26a02ea-c49e-4554-93e3-859aa09ec34a;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID d2372455-c911-4c89-8736-b1ff02575b7c;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "res";
+				- _id = GUID 1bdb53c7-41ce-43ed-be92-06254a5fd0a6;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 3343d7ab-471c-4942-af81-56bf2197f25d;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID e1aaa058-2c11-445b-92ac-f081e09b1458;
+			- _myState = 2048;
+			- _name = "bindingconnector_23";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 27145396-f85f-4b85-90b3-8b368e0aa06a;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 6441b306-708a-4da4-9ff3-c19d8f8b9e4c;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "widthMOE";
+								- _id = GUID be008ca4-5a4e-4a2a-8f5a-4375d5d0f4bd;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 7ceeeee0-eb73-43ad-bbf3-2fa0a8f8439f;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 858bb983-b675-43ff-9486-079be56939db;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "w";
+				- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 306da8c6-f44f-4efb-b416-93e566926131;
+			- _myState = 2048;
+			- _name = "bindingconnector_29";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 2;
+				- value = 
+				{ ITag 
+					- _id = GUID 11972050-bfcf-459e-96ab-77095f6da6cb;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 29b8d76a-dab2-40c4-8f92-a58367500346;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "widthMOE";
+								- _id = GUID be008ca4-5a4e-4a2a-8f5a-4375d5d0f4bd;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID cd85d644-f4f4-435f-acc2-840336e9edf3;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+				{ ITag 
+					- _id = GUID 4afbf3a8-903a-477a-ba36-b38f81984171;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 43334437-f1b7-40cd-aea8-4a930e8ec012;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID da0e40e2-debb-4404-a204-751e011778ab;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "res";
+				- _id = GUID 1bdb53c7-41ce-43ed-be92-06254a5fd0a6;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 3343d7ab-471c-4942-af81-56bf2197f25d;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID c00af5c2-0532-407e-9131-63f44bc8480c;
+			- _myState = 2048;
+			- _name = "bindingconnector_31";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID d07adad7-a62b-4350-a0f0-2a007b07f225;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 3cbe40bd-1f02-4cb6-aac1-0ca14eb89c5b;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 11bad855-39b6-4527-abdf-75a766cec4d5;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID f323fd55-cb75-483d-bc6f-6d67148071f8;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 1dc05dff-0dcb-4200-8570-8555389f8d30;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 4eb90a63-c726-4c30-bc25-27fe538cbbac;
+			- _myState = 2048;
+			- _name = "MAX_BEST_VAL_MAX_BEST_Weight_0";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID ba0692a9-5f1d-4d4c-be9c-505abcd0bd26;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 4d93a992-7db9-44b6-a7b2-c70060997e9d;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "heightMOE";
+								- _id = GUID 1d14d418-d724-4d29-86c0-290c354f0a09;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID edb1775a-8471-48a8-85d4-ccce4349240a;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "MAX_BEST_VAL";
+				- _id = GUID 8a56ba4f-e766-4064-8dbb-7cfe2218c038;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "MAX_BEST_Weight";
+				- _id = GUID 6319dbe9-b544-4669-9d0a-2e9fa90a7a36;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID e5819079-d839-465e-b2e0-f9b49872b7c8;
+			- _myState = 2048;
+			- _name = "bindingconnector_39";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 764f8c59-2943-4bbf-896e-244a9ea21585;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 2f992759-c061-41bb-8936-dc21d34e5df1;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 250fc642-d488-46b9-abca-7f8bb4287113;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID f323fd55-cb75-483d-bc6f-6d67148071f8;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 1dc05dff-0dcb-4200-8570-8555389f8d30;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 36be2cd5-a1f6-4516-9b3e-3e80c7f4fc46;
+			- _myState = 2048;
+			- _name = "bindingconnector_41";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 2;
+				- value = 
+				{ ITag 
+					- _id = GUID 414be0ca-7c20-4df5-9e71-602936080e2b;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 1487d264-fdc1-45ee-898a-66c9d5738753;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "heightMOE";
+								- _id = GUID 1d14d418-d724-4d29-86c0-290c354f0a09;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 9de5e6ff-8abe-4e66-9625-743613032224;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+				{ ITag 
+					- _id = GUID 5564959d-6821-4d2d-86b4-b845b030b8fb;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 1192280e-7b6f-4ffd-b13f-caf8de99e202;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 9e2877ae-7504-49fb-b8de-72bc86b35e4f;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "res";
+				- _id = GUID 1bdb53c7-41ce-43ed-be92-06254a5fd0a6;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 3343d7ab-471c-4942-af81-56bf2197f25d;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 3b33d969-66a9-48d8-b9aa-e0621e26880d;
+			- _myState = 2048;
+			- _name = "bindingconnector_50";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID a9d8e0ab-ba98-499b-980a-f2b853002d45;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 0417784a-9af9-4858-9bd4-44308e15b81c;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID f57b4018-9b51-4c14-ac76-12c856106e2b;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 3b6c4b0b-a5df-424d-90bc-65dadaacf21c;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "w";
+				- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 561b18dc-bf33-4ebd-837b-b90c225b7949;
+			- _myState = 2048;
+			- _name = "bindingconnector_52";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID e9f80ee3-c252-48c5-8ac1-f22a3f781770;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID f3adee2e-ea2c-40b7-b9f7-9d11cf831a77;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "heightMOE";
+								- _id = GUID 1d14d418-d724-4d29-86c0-290c354f0a09;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 410ad9a7-5ab4-41dd-a6db-4650964831d0;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "w";
+				- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 0727db97-4936-431a-a422-a862fee1a60e;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID dbbf1a61-7242-47ad-9451-9e42206cdfff;
+			- _myState = 2048;
+			- _name = "bindingconnector_54";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 369ab11f-8347-40ab-96f8-58f8449fba57;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID efa62181-f2b1-44f0-a2f7-e858dd0719f2;
+							- _value = { IHandle 
+								- _m2Class = "";
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 0756735a-7901-4632-927e-2c45ae2b5559;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID f323fd55-cb75-483d-bc6f-6d67148071f8;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _id = GUID 1dc05dff-0dcb-4200-8570-8555389f8d30;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 7a54db06-42a6-4b5b-9ce1-4e84ba80a2de;
+			- _myState = 2048;
+			- _name = "bindingconnector_56";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 25e6a55c-632b-48f4-b11c-733db1dc4da8;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 8bb6186d-4804-4736-9b4a-b83f7dbfc7e2;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 73c51a71-aa7d-4fdc-a6da-d3cf4c6043cc;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "MAX_VAL";
+				- _id = GUID 0c68f48f-545e-4ccf-940c-d6587c0ef113;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "MAX_Weight";
+				- _id = GUID 34d412e8-baca-4e54-b3aa-d87abc589e7d;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 21d5a7cc-7f8e-4626-a866-c04fafb082e8;
+			- _myState = 2048;
+			- _name = "MAX_BEST_VAL_MAX_BEST_Weight";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID f8e055c0-1d3f-4dcc-a934-a58cc4e54d26;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID c42e934a-cb1a-43e7-baff-fcd3efa5027f;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "weightMOE";
+								- _id = GUID edc5b724-1f5f-4029-b5bb-28891ae45cc2;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 8a4412cf-4c61-4863-8ef1-3c3bad456e13;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "DecliningThUtilCurve";
+				- _name = "MAX_BEST_VAL";
+				- _id = GUID 8a56ba4f-e766-4064-8dbb-7cfe2218c038;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "MAX_BEST_Weight";
+				- _id = GUID 6319dbe9-b544-4669-9d0a-2e9fa90a7a36;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IStereotype 
+			- _id = GUID 0dd6129d-80b0-49cc-8cec-be393bfb8098;
+			- _myState = 8192;
+			- _name = "TradeStudyWeight";
+			- _m2Classes = { IRPYRawContainer 
+				- size = 1;
+				- value = "Attribute"; 
+			}
+			- _newTerm = 1;
+		}
+		{ IInformationFlow 
+			- _id = GUID 6ff9fbd8-4c03-4ff0-8579-816fba6d51d0;
+			- _myState = 2048;
+			- _name = "weightMOE_wtMOE";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID f1d54dab-8ddf-4233-a1d0-3b9e956fe3eb;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID cb26e52a-3a7f-4690-a599-08421f0fc3aa;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 7ecd8b39-9387-4ab6-9cb2-9342e50673ea;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "weightMOE";
+				- _id = GUID 670ee528-aa4f-419b-804c-b975e6ff260b;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "wtMOE";
+				- _id = GUID dcc0b04c-f2fd-4e29-8f82-ad79b5282e27;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 0c1a9140-5a9b-4cb8-9d13-a2d44076f5b4;
+			- _myState = 2048;
+			- _name = "widthMOE_wdtMOE";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 06b36f15-3250-42dc-b746-a2cc31a1876b;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID c7038493-a204-4682-bea7-1e100ff1d078;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 1bb6197c-c93c-4ee3-bea8-b7e473eaee89;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "widthMOE";
+				- _id = GUID e17b3cbd-0a09-4d14-b4e3-b6b4e607422c;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "wdtMOE";
+				- _id = GUID 2598ed68-fe2e-453d-90bb-c2fbcdfaada6;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID f4383d97-53de-47f1-b621-b39b3867c11a;
+			- _myState = 2048;
+			- _name = "wtWT_WEIGHT_W";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 4fb28a1a-9659-41bf-b929-e1ae601f955d;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 4c3cc1d1-995d-467f-b916-843262d50a98;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 54859e41-1323-4be4-a938-a8a366320e56;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "wtWT";
+				- _id = GUID 71aa8822-8f8a-49e6-af67-eaa838d90112;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "WEIGHT_W";
+				- _id = GUID 28bd044d-8ffe-45c2-9c1f-2619b70cdfeb;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 667ca84f-d3c8-48bb-a21a-bb6e574302b5;
+			- _myState = 2048;
+			- _name = "szWT_SIZE_W";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 5b092e80-47d0-41eb-b601-db6478b1ed2b;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 8079968a-22f7-4bd0-8f18-bbe228dc1902;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID e2ea4c0f-3ec8-4371-a893-af84a1873318;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "szWT";
+				- _id = GUID 6d7e4fe4-ed85-48d9-91e5-520192cd91cc;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "SIZE_W";
+				- _id = GUID 4a121401-1587-4411-852c-a0a37f169293;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 3b2c1d28-6a49-4aab-997a-adfdeb6e52a8;
+			- _myState = 2048;
+			- _name = "bindingconnector_78";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 6b1791e4-003c-435f-be9e-2843d3565934;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 6c201434-2d80-421c-8982-7ca49e40278e;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID d3198deb-a1fc-4ef1-b015-a31fdfb6e5d4;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "res";
+				- _id = GUID bad8440f-76f5-4f0f-a996-e7d9add21926;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID aba01086-bccf-4c0d-b61f-e27f09b96aac;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID a5157631-a667-48c8-b7fd-55351bec97a2;
+			- _myState = 2048;
+			- _name = "bindingconnector_80";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID f6348ace-2a21-4588-97b4-a433bd1a00fb;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 780b11bd-2bcc-41be-90b8-21422a8eea35;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 66ed9f37-9926-43d1-aae0-1c5eeedc6145;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "vdoWT";
+				- _id = GUID ea532225-f7b6-44be-b333-1c59a63dc418;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "VIDEO_W";
+				- _id = GUID c06d10ee-cd4f-4abd-aa71-dbd61867d0ec;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 469b6505-4cec-4cf0-8907-76ef6e200ec6;
+			- _myState = 2048;
+			- _name = "bindingconnector_84";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 02410925-4f9c-4eb1-a4eb-d566cefbfda1;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 2e14f735-8aef-4b1d-a826-dd43ac81eca0;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID b832ca0f-f954-468f-a809-7e272bfc3282;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "thickMOE";
+				- _id = GUID dbc85bc3-4737-4b80-9b29-34a272634163;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "thkMOE";
+				- _id = GUID 4c936700-0b23-451d-bced-0602531a6a15;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 21b5b799-0647-43c8-9595-d558e893223f;
+			- _myState = 2048;
+			- _name = "bindingconnector_86";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 09f41b8e-5fe0-433f-8ad5-2f418c01c35d;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 12df6696-7d62-4cad-a885-fd6230ffb1b3;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID f8b18925-22cb-44b8-bd2b-d68a02c78ded;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "heightMOE";
+				- _id = GUID 8f718f9e-bee9-43d2-af48-ad63adf26a8a;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "htMOE";
+				- _id = GUID 632921c9-f777-4d8a-a445-9b8aa0798c12;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID b9783422-24c0-49a5-80db-f0b83974349d;
+			- _myState = 2048;
+			- _name = "bindingconnector_88";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID bb3e0ec3-c55c-4ae7-9603-8fb7dbabe925;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 114abba2-06a4-4089-ab8d-25a867ebb396;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID ac248c5f-63b6-4867-8db0-de534e2cfda2;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 7266fc1e-b1ff-4697-bb16-af46e2e6666c;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "vdo";
+				- _id = GUID 41bba0bd-2608-4c32-bba1-ed3c03e3ac54;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 082b4662-5f8d-42b0-a8ee-d047391a45cc;
+			- _myState = 2048;
+			- _name = "bindingconnector_91";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 54265839-dfad-4d2b-a9d7-b357fe875330;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID d850e279-1a71-48f6-80d5-186252bf695c;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 7edb9319-0af8-4123-b704-c8f6aa650d51;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "colorMOE";
+				- _id = GUID b08391a1-d106-40cb-990a-24c9bb11faff;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "clrMOE";
+				- _id = GUID 107bb8b0-5c07-45d2-8363-d8a02c1d4e89;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID b6d0aff8-f4b0-42af-a447-fc3594f45701;
+			- _myState = 2048;
+			- _name = "bindingconnector_93";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 98afe58e-67e7-41fc-a76c-644c40abcfe5;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID eee7e42a-315e-4d87-b884-fac62c042f94;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID d193b933-f033-486e-bc21-3675bcae35f2;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "clrWT";
+				- _id = GUID dbac3073-5a99-4f00-aaae-5c86354a5bee;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "COLOR_DEPTH_W";
+				- _id = GUID 2259e48d-9652-40f4-ab0b-8b807f9ccf9f;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 230a2775-f032-4ac2-b719-6ec53d139aa7;
+			- _myState = 2048;
+			- _name = "bindingconnector_96";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 367056db-0fcc-4689-8e42-09f5947090eb;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 43754847-50e1-4b1b-b0b3-8be862f7f930;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "resolutionMOEUtility";
+								- _id = GUID f7465c2e-60ba-4a93-8437-d29421dc2373;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 9364c960-3765-41b4-b4a1-7c4e93336de2;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 7007874c-3a32-4f37-a30c-1d54897d47a3;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.resolutionMOEUtility";
+				- _name = "res";
+				- _id = GUID f82c75a7-5551-47db-a72a-16498c158cc7;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 425bc4f5-1c03-45c3-971d-ab7d89bde4f9;
+			- _myState = 2048;
+			- _name = "bindingconnector_98";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 743719a3-92c9-4e74-8781-adfbe9f9d4bd;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID d514615c-056c-4ce5-91ad-e0039a5bd3a0;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "resolutionMOEUtility";
+								- _id = GUID f7465c2e-60ba-4a93-8437-d29421dc2373;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 1ed9c43a-4799-44c4-9bce-856d7d99e542;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.resolutionMOEUtility";
+				- _name = "moe";
+				- _id = GUID e5a540c1-4604-49b8-a5a7-ac6d40caeb91;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "resolutionMOE";
+				- _id = GUID 5b719c6b-de9e-4d75-af80-6dfb86f43b9f;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 71cf7ebb-3109-4f16-bdcf-312ca408e2f5;
+			- _myState = 2048;
+			- _name = "bindingconnector_101";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID ce1060e0-28ce-4d33-8c38-86e11efc177a;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID eef178f7-e72a-4b9a-b15d-fb7cd5c130de;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 5bf556fc-a3d3-4e21-851d-5f238f238153;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "resolutionMOE";
+				- _id = GUID 5b719c6b-de9e-4d75-af80-6dfb86f43b9f;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "resMOE";
+				- _id = GUID 0dd380cd-75e9-4aba-929f-29e0e4b6193f;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 4a784e9e-e6f1-4144-91e7-7d698148046d;
+			- _myState = 2048;
+			- _name = "bindingconnector_103";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID a4a69cf1-6d84-43eb-b132-78f096a79d40;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 54f54c96-d4fa-479d-a469-1e2bd986b00a;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID e14847ef-8068-49df-abfd-7ff279a3d253;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "resWT";
+				- _id = GUID e64d47bd-4fcd-4962-a698-66b833127ff7;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "RESOLUTION_W";
+				- _id = GUID 2be5b3be-c023-4520-aaab-842a977753ee;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 4930ef5a-5ea7-45eb-b40d-e00bc5a657b2;
+			- _myState = 2048;
+			- _name = "bindingconnector_105";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID eb005bdf-865e-4251-9e03-4781c2542782;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 996efdc2-7bf5-4079-806a-b4be9a9fc513;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "shutterSpeedMOE";
+								- _id = GUID 7183f39f-b9c5-4494-8a3a-3202fbce545f;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID c8482108-18ed-4885-9a46-d6a0c9bd0ebd;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 4d2afdc8-8011-4338-8e10-ff1aa1f3ade0;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.shutterSpeedMOE";
+				- _name = "shSpeed";
+				- _id = GUID a44f2b09-e58d-4a74-a9da-4fb2403e4aae;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 9f82c7ca-277f-43e5-9f00-769616c01ab0;
+			- _myState = 2048;
+			- _name = "bindingconnector_107";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID a1cfc15b-ea15-4c1a-971f-c339cd4bb948;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID ea61029c-d62c-454d-993a-e2f538831b37;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "shutterSpeedMOE";
+								- _id = GUID 7183f39f-b9c5-4494-8a3a-3202fbce545f;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 4246db35-9923-4023-8506-ade3a8162f51;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.shutterSpeedMOE";
+				- _name = "moe";
+				- _id = GUID a5dedf0a-851c-44f8-a744-f4657d257c05;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "shutterSpeedMOE";
+				- _id = GUID 95d0269e-812f-4d9b-9cb8-8cca1277e5fe;
+			}
+			- direction_ = toEnd2;
+		}
+		{ ISubsystem 
+			- fileName = "TradeStudy";
+			- _id = GUID 220e8b44-da2f-4496-b4e3-0544b1b2f95c;
+		}
+		{ IInformationFlow 
+			- _id = GUID 90fa3a7c-6904-43dd-b226-d9e89c8d9040;
+			- _myState = 2048;
+			- _name = "bindingconnector_110";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID fd91b196-528d-420c-a86d-63102e74b43a;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 6d9f996d-53b7-4528-bb7e-4901299a24fd;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "framesInBurstModeMOE";
+								- _id = GUID 03fa726a-ae20-4f1e-ad31-c981cafc87a7;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 0af39cd7-a441-42a9-86da-a3cdfce03ce2;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 5e7a03b1-9578-40d0-afef-f480dae315f5;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.framesInBurstModeMOE";
+				- _name = "framesBurst";
+				- _id = GUID 134fa392-5624-4fa3-96c2-374a813a4bf6;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 202d37b8-8d6b-41b3-88fb-a5daaed722c9;
+			- _myState = 2048;
+			- _name = "shtrMOE_shutterSpeedMOE";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID dbf9b563-6df7-42e7-a504-69441613d3b4;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 85dfc074-0c3e-4d74-b079-9383008c2e51;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 68779472-25b5-43a9-98ed-7a741dea7188;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "shtrMOE";
+				- _id = GUID 15b05e42-e943-4ba0-b49b-4efb7979fe97;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "shutterSpeedMOE";
+				- _id = GUID 95d0269e-812f-4d9b-9cb8-8cca1277e5fe;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID c6aae4a2-6957-449a-a84d-133b7c64cf57;
+			- _myState = 2048;
+			- _name = "bindingconnector_114";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 677c61b0-6d9b-4f2a-ace6-36324b66571a;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 8deecbea-8cdb-47da-a7ba-e1f666ae2554;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID bed5e7d0-e05c-4c4c-b7b1-f78a6da647c8;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraMOEs";
+				- _name = "burstFramesMOE";
+				- _id = GUID 0450fbe7-a5be-4e13-9440-3414abdbf346;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "brstMOE";
+				- _id = GUID 69c6310f-0bc1-47c4-a093-0454571193b0;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 9f6889a8-4616-48e1-b421-32b4a9db466d;
+			- _myState = 2048;
+			- _name = "bindingconnector_116";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 540f7a6f-afa0-4641-848b-60a24bd4f611;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 1858042a-23ae-4c22-bf2f-9a2723fb19d6;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 9c29a62f-5c63-4355-ab04-f7d8fc7eadb8;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "shtrWT";
+				- _id = GUID 0c9b5323-6bae-45a0-b194-2d586228ac56;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "SHUTTER_SPEED_W";
+				- _id = GUID 895b5de2-9f8d-4e4f-b265-8130cebd639a;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 6858c856-1159-4890-849b-60b3bd582381;
+			- _myState = 2048;
+			- _name = "bindingconnector_118";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 1998e232-450d-4afb-a5ae-d5f870395475;
+					- _name = "SourceContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 7e7b327b-666f-4e63-bda1-92ef5de97652;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "TradeStudy.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+								- _class = "TopLevel";
+								- _name = "ScoreCalc";
+								- _id = GUID e27a0ac8-56d9-4313-b6cd-3736c0967c14;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 470c1197-a26f-4ccd-9cda-d8f0dcdfed97;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "SourceContext";
+						- _id = GUID 9a437f0e-ba06-4d7d-a7ad-8e238726e596;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "TopLevel.ScoreCalc";
+				- _name = "brstWT";
+				- _id = GUID a5e8c082-35b0-4859-84ec-8cc6bb83abdd;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "CameraTradeStudyWeights";
+				- _name = "BURST_MODE_W";
+				- _id = GUID 31a12789-477f-4dae-b483-f46e3fed810f;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 79c67543-3785-4785-81b3-b5dee214cdea;
+			- _myState = 2048;
+			- _name = "bindingconnector_120";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID db6e0f31-7217-4491-8061-a4de0408b2ce;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 943c09ee-7a4e-4e74-8b18-7c3e5c870cf8;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "costMOE";
+								- _id = GUID 1327a9c6-daa0-4208-a213-1eed8fa483c0;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID e9f340e9-b19a-4674-8efa-45b190c65420;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 36ac889d-6024-4bb6-a8ae-40c5877b1133;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.costMOE";
+				- _name = "cost";
+				- _id = GUID 01fc1619-0c3f-442e-8598-5e8674b43f89;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 6960cc70-822e-42eb-8e61-b8c78751ce7f;
+			- _myState = 2048;
+			- _name = "bindingconnector_122";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 53a6c348-c824-4a9a-85bf-047c6ef1b963;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 10a3eaf9-e79c-4533-88a4-69f7ae36b276;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "zoomMOE";
+								- _id = GUID 4f92847d-7a28-47b5-a129-7dd23ade80dc;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 942e8414-4a1d-4031-931d-beb29f618c16;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID d531482c-29bc-4c27-b9b1-45fbfecfd296;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.zoomMOE";
+				- _name = "zoom";
+				- _id = GUID be3c382b-bee8-4641-8c78-91ffaaf4d6c9;
+			}
+			- direction_ = toEnd2;
+		}
+		{ IInformationFlow 
+			- _id = GUID 0e96328b-3369-4ff6-8a95-86f607af1f0a;
+			- _myState = 2048;
+			- _name = "bindingconnector_124";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "BindingConnector";
+					- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+				}
+			}
+			- Tags = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ITag 
+					- _id = GUID 419d2ae8-70dc-4463-a777-3bd69fbc7156;
+					- _name = "TargetContext";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IInstanceValue 
+							- _id = GUID 4a9bf892-6cd3-4aa7-95f9-2ce5ba279f98;
+							- _value = { IHandle 
+								- _m2Class = "IPart";
+								- _filename = "UtilityCurves.sbs";
+								- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+								- _class = "TopLevel";
+								- _name = "screenMOE";
+								- _id = GUID 7d6b65de-5efc-449b-99af-83a903e19e5a;
+							}
+						}
+					}
+					- myTypeOf = { IType 
+						- _id = GUID 51dce671-a3b7-4c1f-8be8-4b40efa63c92;
+						- _myState = 8192;
+						- _declaration = "Object";
+						- _kind = Language;
+					}
+					- _isOrdered = 0;
+					- _base = { IHandle 
+						- _m2Class = "ITag";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::Blocks";
+						- _class = "BindingConnector";
+						- _name = "TargetContext";
+						- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+					}
+				}
+			}
+			- end1_ = { IHandle 
+				- _m2Class = "IAttribute";
+				- _id = GUID 23fd1a29-450a-4f10-88cc-b4ce99f0033b;
+			}
+			- end2_ = { IHandle 
+				- _m2Class = "ISysMLPort";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "TopLevel.screenMOE";
+				- _name = "size";
+				- _id = GUID a0ee60a3-60e7-4c39-ac3b-59a772b6e077;
+			}
+			- direction_ = toEnd2;
+		}
+	}
+	- weakCGTime = 5.22.2011::13:1:57;
+	- strongCGTime = 10.11.2010::11:57:42;
+	- _defaultComposite = GUID ff7d254d-1878-4c05-b932-5dea96c3d701;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 3;
+		- value = 
+		{ IClass 
+			- _id = GUID ff7d254d-1878-4c05-b932-5dea96c3d701;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- weakCGTime = 10.14.2010::13:7:45;
+			- strongCGTime = 10.11.2010::11:57:42;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+		{ IClass 
+			- _id = GUID fd4df31a-386c-49e8-bbae-0f8b190e1f0d;
+			- _myState = 8192;
+			- _name = "GenericDigitalCamera";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::Blocks";
+					- _class = "";
+					- _name = "block";
+					- _id = GUID f685432f-691e-4ff1-be70-4d09d19457e1;
+				}
+			}
+			- _theMainDiagram = { IHandle 
+				- _m2Class = "IDiagram";
+				- _id = GUID 0dc5151a-4ab4-4cc9-a768-fcd552aba42a;
+			}
+			- _lastID = 30;
+			- Declaratives = { IRPYRawContainer 
+				- size = 4;
+				- value = 
+				{ IInformationFlow 
+					- _id = GUID 1476331d-f099-49bf-8081-4287701bbc54;
+					- _myState = 2048;
+					- _name = "bindingconnector_22";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::Blocks";
+							- _class = "";
+							- _name = "BindingConnector";
+							- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+						}
+					}
+					- Tags = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ ITag 
+							- _id = GUID ff8c1a50-94a5-437e-9837-7d519a851c2f;
+							- _name = "TargetContext";
+							- ValueSpecifications = { IRPYRawContainer 
+								- size = 1;
+								- value = 
+								{ IInstanceValue 
+									- _id = GUID cd01e01e-eaa9-4575-9e23-42422245432e;
+									- _value = { IHandle 
+										- _m2Class = "IPart";
+										- _filename = "UtilityCurves.sbs";
+										- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+										- _class = "TopLevel";
+										- _name = "widthMOE";
+										- _id = GUID be008ca4-5a4e-4a2a-8f5a-4375d5d0f4bd;
+									}
+								}
+							}
+							- myTypeOf = { IType 
+								- _id = GUID 86432956-1e97-4d82-8bd4-6a8bea1d8fa7;
+								- _myState = 8192;
+								- _declaration = "Object";
+								- _kind = Language;
+							}
+							- _isOrdered = 0;
+							- _base = { IHandle 
+								- _m2Class = "ITag";
+								- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+								- _subsystem = "SysML::Blocks";
+								- _class = "BindingConnector";
+								- _name = "TargetContext";
+								- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+							}
+						}
+					}
+					- end1_ = { IHandle 
+						- _m2Class = "IAttribute";
+						- _id = GUID 858bb983-b675-43ff-9486-079be56939db;
+					}
+					- end2_ = { IHandle 
+						- _m2Class = "ISysMLPort";
+						- _filename = "UtilityCurves.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+						- _class = "DecliningThUtilCurve";
+						- _name = "w";
+						- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+					}
+					- direction_ = toEnd2;
+				}
+				{ IInformationFlow 
+					- _id = GUID cdab2cac-10d1-41e4-9cc7-8e9720d3656a;
+					- _myState = 2048;
+					- _name = "bindingconnector_24";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::Blocks";
+							- _class = "";
+							- _name = "BindingConnector";
+							- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+						}
+					}
+					- Tags = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ ITag 
+							- _id = GUID 9504778c-5321-45dd-88df-4e9f4c238f4a;
+							- _name = "TargetContext";
+							- ValueSpecifications = { IRPYRawContainer 
+								- size = 1;
+								- value = 
+								{ IInstanceValue 
+									- _id = GUID f7448f2a-81cc-4180-a241-e4b667662dcb;
+									- _value = { IHandle 
+										- _m2Class = "IPart";
+										- _filename = "UtilityCurves.sbs";
+										- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+										- _class = "TopLevel";
+										- _name = "heightMOE";
+										- _id = GUID 1d14d418-d724-4d29-86c0-290c354f0a09;
+									}
+								}
+							}
+							- myTypeOf = { IType 
+								- _id = GUID 6e9848ba-e083-4c08-82a9-295cac96c8fd;
+								- _myState = 8192;
+								- _declaration = "Object";
+								- _kind = Language;
+							}
+							- _isOrdered = 0;
+							- _base = { IHandle 
+								- _m2Class = "ITag";
+								- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+								- _subsystem = "SysML::Blocks";
+								- _class = "BindingConnector";
+								- _name = "TargetContext";
+								- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+							}
+						}
+					}
+					- end1_ = { IHandle 
+						- _m2Class = "IAttribute";
+						- _id = GUID 0727db97-4936-431a-a422-a862fee1a60e;
+					}
+					- end2_ = { IHandle 
+						- _m2Class = "ISysMLPort";
+						- _filename = "UtilityCurves.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+						- _class = "DecliningThUtilCurve";
+						- _name = "w";
+						- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+					}
+					- direction_ = toEnd2;
+				}
+				{ IInformationFlow 
+					- _id = GUID f8e59417-72e1-4a83-9627-ad09f7d3a0bf;
+					- _myState = 2048;
+					- _name = "bindingconnector_26";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::Blocks";
+							- _class = "";
+							- _name = "BindingConnector";
+							- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+						}
+					}
+					- Tags = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ ITag 
+							- _id = GUID b14222ab-8af5-4ca0-8251-e084d958a969;
+							- _name = "TargetContext";
+							- ValueSpecifications = { IRPYRawContainer 
+								- size = 1;
+								- value = 
+								{ IInstanceValue 
+									- _id = GUID 3842b5b0-71d5-4cba-9973-53ca822159cf;
+									- _value = { IHandle 
+										- _m2Class = "";
+									}
+								}
+							}
+							- myTypeOf = { IType 
+								- _id = GUID 5ce46d97-f6b1-4772-9916-41153913e0f8;
+								- _myState = 8192;
+								- _declaration = "Object";
+								- _kind = Language;
+							}
+							- _isOrdered = 0;
+							- _base = { IHandle 
+								- _m2Class = "ITag";
+								- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+								- _subsystem = "SysML::Blocks";
+								- _class = "BindingConnector";
+								- _name = "TargetContext";
+								- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+							}
+						}
+					}
+					- end1_ = { IHandle 
+						- _m2Class = "IAttribute";
+						- _id = GUID 4f0a2c5b-d956-48d6-b24a-9fbffbc8435a;
+					}
+					- end2_ = { IHandle 
+						- _m2Class = "ISysMLPort";
+						- _filename = "UtilityCurves.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+						- _class = "DecliningThUtilCurve";
+						- _name = "w";
+						- _id = GUID 110190f9-28bf-4f59-9ffa-cc5a03aff410;
+					}
+					- direction_ = toEnd2;
+				}
+				{ IInformationFlow 
+					- _id = GUID 570647a6-3922-4407-93ab-b8a1146976c8;
+					- _myState = 2048;
+					- _name = "bindingconnector_29";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::Blocks";
+							- _class = "";
+							- _name = "BindingConnector";
+							- _id = GUID d10728e0-b034-4b51-afad-c00fb9c8c328;
+						}
+					}
+					- Tags = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ ITag 
+							- _id = GUID 8e40ad16-1380-4dd6-9b36-c500b56207b5;
+							- _name = "TargetContext";
+							- ValueSpecifications = { IRPYRawContainer 
+								- size = 1;
+								- value = 
+								{ IInstanceValue 
+									- _id = GUID 85a2d9a3-555a-4ffd-aa0d-ebf675feae25;
+									- _value = { IHandle 
+										- _m2Class = "IPart";
+										- _filename = "UtilityCurves.sbs";
+										- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+										- _class = "TopLevel";
+										- _name = "colorMOE";
+										- _id = GUID 6033532f-8908-400a-81f7-b036a76dc8bc;
+									}
+								}
+							}
+							- myTypeOf = { IType 
+								- _id = GUID 92abf63e-d3ea-4b75-b8ef-d32078346209;
+								- _myState = 8192;
+								- _declaration = "Object";
+								- _kind = Language;
+							}
+							- _isOrdered = 0;
+							- _base = { IHandle 
+								- _m2Class = "ITag";
+								- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+								- _subsystem = "SysML::Blocks";
+								- _class = "BindingConnector";
+								- _name = "TargetContext";
+								- _id = GUID 0d345037-f2f1-4075-bc5f-5c9e92c6c615;
+							}
+						}
+					}
+					- end1_ = { IHandle 
+						- _m2Class = "IAttribute";
+						- _id = GUID eb106a29-aa74-4598-a861-989c93edef4e;
+					}
+					- end2_ = { IHandle 
+						- _m2Class = "ISysMLPort";
+						- _filename = "UtilityCurves.sbs";
+						- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+						- _class = "ColorMOEUtil";
+						- _name = "v";
+						- _id = GUID 4623bbb5-dc6f-41fc-ac24-8c4337e664eb;
+					}
+					- direction_ = toEnd2;
+				}
+			}
+			- weakCGTime = 10.11.2010::12:55:43;
+			- strongCGTime = 10.5.2010::10:2:16;
+			- Attrs = { IRPYRawContainer 
+				- size = 15;
+				- value = 
+				{ IAttribute 
+					- _id = GUID 858bb983-b675-43ff-9486-079be56939db;
+					- _name = "width";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "mm";
+						- _id = GUID 1c6b3a91-fab5-4bab-a4f7-a1ddf5f41811;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 0727db97-4936-431a-a422-a862fee1a60e;
+					- _name = "height";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "mm";
+						- _id = GUID 1c6b3a91-fab5-4bab-a4f7-a1ddf5f41811;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 4f0a2c5b-d956-48d6-b24a-9fbffbc8435a;
+					- _name = "thickness";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "mm";
+						- _id = GUID 1c6b3a91-fab5-4bab-a4f7-a1ddf5f41811;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 3b6c4b0b-a5df-424d-90bc-65dadaacf21c;
+					- _name = "weight";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "gram";
+						- _id = GUID 0454469c-7d29-4db2-892d-7d2347ada7c9;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 3328bda6-aeb4-4384-99d8-a39608c6f93c;
+					- _name = "recoveryTime";
+					- _description = { IDescription 
+						- _textRTF = "{\\rtf1\\fbidis\\ansi\\ansicpg1255\\deff0\\deflang1037{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\ltrpar\\fs20 The time it takes to the camera to be ready after taking a picture.\\par
+}
+";
+					}
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::SIDefinitions::BaseSIUnits";
+						- _class = "";
+						- _name = "Second";
+						- _id = GUID 3949bc39-f8eb-4ee5-96b9-5eab14943561;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 7007874c-3a32-4f37-a30c-1d54897d47a3;
+					- _name = "resolution";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "megapixles";
+						- _id = GUID 4f16e218-4fea-4108-bd0b-f2ec37327e7a;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID eb106a29-aa74-4598-a861-989c93edef4e;
+					- _name = "colorDepth";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "bit";
+						- _id = GUID 4420ad02-6272-42e7-8df2-6768741e1312;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 4d2afdc8-8011-4338-8e10-ff1aa1f3ade0;
+					- _name = "maxShutterSpeed";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::SIDefinitions::BaseSIUnits";
+						- _class = "";
+						- _name = "Second";
+						- _id = GUID 3949bc39-f8eb-4ee5-96b9-5eab14943561;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 5e7a03b1-9578-40d0-afef-f480dae315f5;
+					- _name = "framesInBurstMode";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "fps";
+						- _id = GUID ddb166bb-0b25-4d38-9e1d-bec87ba139c9;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 36ac889d-6024-4bb6-a8ae-40c5877b1133;
+					- _name = "cost";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "dollar";
+						- _id = GUID 950f1afe-d146-47a0-9681-f5235e85abed;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID d531482c-29bc-4c27-b9b1-45fbfecfd296;
+					- _name = "maxOpticalZoom";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "int";
+						- _id = GUID 6024c6ab-fe9e-402e-954f-27aca6d3b5e4;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 23fd1a29-450a-4f10-88cc-b4ce99f0033b;
+					- _name = "lcdScreenSize";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "Units.sbs";
+						- _subsystem = "Units";
+						- _class = "";
+						- _name = "inch";
+						- _id = GUID a1d047b9-0da2-4fc1-b03a-ea761af3b165;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID 7266fc1e-b1ff-4697-bb16-af46e2e6666c;
+					- _name = "hasHDVideoWithSound";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "bool";
+						- _id = GUID e6c263cc-4bc5-4a11-b32d-02148c93add0;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID f323fd55-cb75-483d-bc6f-6d67148071f8;
+					- _name = "weight_and_size_Weight";
+					- ValueSpecifications = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ ILiteralSpecification 
+							- _id = GUID 9be0ccdc-36a3-4c97-bcbf-340ee9fce179;
+							- _value = "4";
+						}
+					}
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::StandardValueTypes";
+						- _class = "";
+						- _name = "Real";
+						- _id = GUID 61a2a90b-9e09-4003-95a6-d522b44eadbe;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID aba01086-bccf-4c0d-b61f-e27f09b96aac;
+					- _name = "tradeStudyScore";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::StandardValueTypes";
+						- _class = "";
+						- _name = "Real";
+						- _id = GUID 61a2a90b-9e09-4003-95a6-d522b44eadbe;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+			}
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+		{ IClass 
+			- _id = GUID efb730d3-80c6-4ef9-9761-5e11f42c3b26;
+			- _myState = 8192;
+			- _name = "WeightMOEValCalc";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+					- _subsystem = "SysML::ConstraintBlocks";
+					- _class = "";
+					- _name = "ConstraintBlock";
+					- _id = GUID 31b97f57-8db8-470e-87ea-ce3eccdc46de;
+				}
+			}
+			- Annotations = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IConstraint 
+					- _id = GUID 6c37d6c8-a8f9-4dbe-9582-3649b036176c;
+					- _name = "weightMOECalc";
+					- _body = "res=weightFactor*moe";
+				}
+			}
+			- _lastID = 7;
+			- weakCGTime = 10.11.2010::12:6:12;
+			- strongCGTime = 10.5.2010::13:20:45;
+			- Ports = { IRPYRawContainer 
+				- size = 3;
+				- value = 
+				{ ISysMLPort 
+					- _id = GUID 3343d7ab-471c-4942-af81-56bf2197f25d;
+					- _myState = 8192;
+					- _name = "moe";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::ConstraintBlocks";
+							- _class = "";
+							- _name = "ConstraintParameter";
+							- _id = GUID 0e2af54e-a57b-41d6-8e2f-91c9186e7aa9;
+						}
+					}
+					- _multiplicity = "1";
+					- _otherClass = { IClassifierHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::StandardValueTypes";
+						- _class = "";
+						- _name = "Real";
+						- _id = GUID 61a2a90b-9e09-4003-95a6-d522b44eadbe;
+					}
+					- _inverse = { IHandle 
+						- _m2Class = "";
+					}
+					- _direction = InOut;
+				}
+				{ ISysMLPort 
+					- _id = GUID 1dc05dff-0dcb-4200-8570-8555389f8d30;
+					- _myState = 8192;
+					- _name = "weightFactor";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::ConstraintBlocks";
+							- _class = "";
+							- _name = "ConstraintParameter";
+							- _id = GUID 0e2af54e-a57b-41d6-8e2f-91c9186e7aa9;
+						}
+					}
+					- _multiplicity = "1";
+					- _otherClass = { IClassifierHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::StandardValueTypes";
+						- _class = "";
+						- _name = "Real";
+						- _id = GUID 61a2a90b-9e09-4003-95a6-d522b44eadbe;
+					}
+					- _inverse = { IHandle 
+						- _m2Class = "";
+					}
+					- _direction = InOut;
+				}
+				{ ISysMLPort 
+					- _id = GUID de52ab42-3152-4146-ae86-55e9fd576adc;
+					- _myState = 8192;
+					- _name = "res";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+							- _subsystem = "SysML::ConstraintBlocks";
+							- _class = "";
+							- _name = "ConstraintParameter";
+							- _id = GUID 0e2af54e-a57b-41d6-8e2f-91c9186e7aa9;
+						}
+					}
+					- _multiplicity = "1";
+					- _otherClass = { IClassifierHandle 
+						- _m2Class = "IType";
+						- _filename = "$OMROOT\\Profiles\\SysML\\SysMLProfile_rpy\\SysML.sbs";
+						- _subsystem = "SysML::StandardValueTypes";
+						- _class = "";
+						- _name = "Real";
+						- _id = GUID 61a2a90b-9e09-4003-95a6-d522b44eadbe;
+					}
+					- _inverse = { IHandle 
+						- _m2Class = "";
+					}
+					- _direction = InOut;
+				}
+			}
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 10.14.2010::12:59:1;
+}
+

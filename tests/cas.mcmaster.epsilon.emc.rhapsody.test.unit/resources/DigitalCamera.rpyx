@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>109.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202006101734</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<IProject type="e">
+			<_id type="a">GUID a79a1dc7-04fd-492c-b898-2b96ad1ee28c</_id>
+			<_myState type="a">8192</_myState>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<IPropertySubject type="e">
+							<_Name type="a">Activity_diagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">StateDiagram</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">Communication_Diagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">CommunicationDiagramGE</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">ComponentDiagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ComponentDiagramGE</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">DeploymentDiagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">DeploymentDiagramGE</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">ObjectModelGe</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ClassDiagram</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">PanelDiagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">General</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">SequenceDiagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">SequenceDiagram</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">StatechartDiagram</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">StateDiagram</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+						<IPropertySubject type="e">
+							<_Name type="a">UseCaseGe</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">UseCaseDiagram</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">Fillcolor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
+			<_name type="a">DigitalCamera</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hsubsystem type="a">SysML</_hsubsystem>
+							<_hname type="a">SysML</_hname>
+							<_hid type="a">GUID 052b8171-a32b-4f45-a829-5585f79f9deb</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.31.1969::18:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_lastID type="a">3</_lastID>
+			<_UserColors type="w">
+				<IRPYRawContainer type="e">
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+					<value>16777215</value>
+				</IRPYRawContainer>
+			</_UserColors>
+			<_defaultSubsystem type="r">
+				<ISubsystemHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hname type="a">DigitalCamerasAnalysis</_hname>
+					<_hid type="a">GUID 32d679ca-6820-488e-9199-ed6e3049ce2a</_hid>
+				</ISubsystemHandle>
+			</_defaultSubsystem>
+			<_component type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IComponent</_hm2Class>
+					<_hname type="a">DefaultComponent</_hname>
+					<_hid type="a">GUID d0867302-9ca6-4bdb-bbb2-1495ead29dfb</_hid>
+				</IHandle>
+			</_component>
+			<Multiplicities type="c">
+				<IRPYRawContainer type="e">
+					<IMultiplicityItem type="e">
+						<_name type="a">1</_name>
+						<_count type="a">19</_count>
+					</IMultiplicityItem>
+					
+					<IMultiplicityItem type="e">
+						<_name type="a">*</_name>
+						<_count type="a">-1</_count>
+					</IMultiplicityItem>
+					
+					<IMultiplicityItem type="e">
+						<_name type="a">0,1</_name>
+						<_count type="a">-1</_count>
+					</IMultiplicityItem>
+					
+					<IMultiplicityItem type="e">
+						<_name type="a">1..*</_name>
+						<_count type="a">-1</_count>
+					</IMultiplicityItem>
+					
+				</IRPYRawContainer>
+			</Multiplicities>
+			<_isImportedFromDM type="a">0</_isImportedFromDM>
+			<mapOslcAddedCollections type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</mapOslcAddedCollections>
+			<mapAssociationsToRemove type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</mapAssociationsToRemove>
+			<AggregatesList type="e">
+				<value>GUID d9689b73-885e-44c4-896b-de43defa0a33</value>
+				<value>GUID 88b3d5cc-acec-4202-b625-2e332540e30f</value>
+				<value>GUID 2c6673a1-7843-43a4-92d5-93795ef7e229</value>
+				<value>GUID 17b86635-8a53-4a10-9901-f57883be4aa2</value>
+				<value>GUID a32649f4-8029-4846-82f3-6deba65e416d</value>
+				<value>GUID ebf790f8-a405-40ba-af1e-eeb76a25e1d0</value>
+				<value>GUID dcd2cdb5-4c74-4d47-99ca-1b358b271e5f</value>
+				<value>GUID 3026d3ea-02b4-49ae-b086-6982c27412f0</value>
+				<value>GUID 803c9619-7509-44c3-bfdf-6fee2352ab55</value>
+				<value>GUID cffbed2a-cf85-4cf9-9c94-13d34d25c47b</value>
+				<value>GUID 9d010694-7844-4cae-a420-3b25ad4f4244</value>
+				<value>GUID 40cbe594-82cd-42e6-be5a-cbec76e87570</value>
+				<value>GUID 00b0140e-6d06-4d19-ba99-8a8e40131db7</value>
+				<value>GUID 0a931094-5e7d-4d59-83e8-247a645b1176</value>
+				<value>GUID 393f0af9-b382-4c3e-aa31-ad304f2ac38c</value>
+				<value>GUID 1783458c-844d-40a6-853a-e7868821e695</value>
+				<value>GUID 4b435a8c-5c01-4ecd-a419-aa0b116ac54d</value>
+				<value>GUID 32d679ca-6820-488e-9199-ed6e3049ce2a</value>
+				<value>GUID 62b6a795-1bff-439b-8ada-d09ca67fdc50</value>
+				<value>GUID e82ca6f6-ec1c-4461-a1f9-4fc1c32f6019</value>
+				<value>GUID d0867302-9ca6-4bdb-bbb2-1495ead29dfb</value>
+			</AggregatesList>
+		</IProject>
+		<IProfile type="e">
+			<fileName type="a">SysML</fileName>
+			<_persistAs type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy</_persistAs>
+			<_id type="a">GUID d9689b73-885e-44c4-896b-de43defa0a33</_id>
+			<_partOfTheModelKind type="a">referenceunit</_partOfTheModelKind>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">PCE</fileName>
+			<_persistAs type="a">$OMROOT\Profiles\PCE</_persistAs>
+			<_id type="a">GUID 88b3d5cc-acec-4202-b625-2e332540e30f</_id>
+			<_partOfTheModelKind type="a">referenceunit</_partOfTheModelKind>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre803Cpp</fileName>
+			<_id type="a">GUID 2c6673a1-7843-43a4-92d5-93795ef7e229</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre804Cpp</fileName>
+			<_id type="a">GUID 17b86635-8a53-4a10-9901-f57883be4aa2</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre805Cpp</fileName>
+			<_id type="a">GUID a32649f4-8029-4846-82f3-6deba65e416d</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre806Cpp</fileName>
+			<_id type="a">GUID ebf790f8-a405-40ba-af1e-eeb76a25e1d0</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre81Cpp</fileName>
+			<_id type="a">GUID dcd2cdb5-4c74-4d47-99ca-1b358b271e5f</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre812Cpp</fileName>
+			<_id type="a">GUID 3026d3ea-02b4-49ae-b086-6982c27412f0</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre813Cpp</fileName>
+			<_id type="a">GUID 803c9619-7509-44c3-bfdf-6fee2352ab55</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre814Cpp</fileName>
+			<_id type="a">GUID cffbed2a-cf85-4cf9-9c94-13d34d25c47b</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre815Cpp</fileName>
+			<_id type="a">GUID 9d010694-7844-4cae-a420-3b25ad4f4244</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre82Cpp</fileName>
+			<_id type="a">GUID 40cbe594-82cd-42e6-be5a-cbec76e87570</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre821Cpp</fileName>
+			<_id type="a">GUID 00b0140e-6d06-4d19-ba99-8a8e40131db7</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">GECompatibilityPre831</fileName>
+			<_id type="a">GUID 0a931094-5e7d-4d59-83e8-247a645b1176</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre831Cpp</fileName>
+			<_id type="a">GUID 393f0af9-b382-4c3e-aa31-ad304f2ac38c</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">CGCompatibilityPre901Cpp</fileName>
+			<_id type="a">GUID 1783458c-844d-40a6-853a-e7868821e695</_id>
+		</IProfile>
+		<IProfile type="e">
+			<fileName type="a">SysML_Pre80</fileName>
+			<_id type="a">GUID 4b435a8c-5c01-4ecd-a419-aa0b116ac54d</_id>
+		</IProfile>
+		<ISubsystem type="e">
+			<fileName type="a">DigitalCamerasAnalysis</fileName>
+			<_id type="a">GUID 32d679ca-6820-488e-9199-ed6e3049ce2a</_id>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">Units</fileName>
+			<_id type="a">GUID 62b6a795-1bff-439b-8ada-d09ca67fdc50</_id>
+		</ISubsystem>
+		<IDiagram type="e">
+			<_id type="a">GUID e82ca6f6-ec1c-4461-a1f9-4fc1c32f6019</_id>
+			<_myState type="a">8192</_myState>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<IPropertySubject type="e">
+							<_Name type="a">Format</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Comment</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">0,0,116,60</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Fill.FillColor</_Name>
+													<_Value type="a">255,255,255</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Font.Font</_Name>
+													<_Value type="a">Tahoma</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Font.Size</_Name>
+													<_Value type="a">8</_Value>
+													<_Type type="a">Int</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Line.LineColor</_Name>
+													<_Value type="a">194,192,192</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Line.LineWidth</_Name>
+													<_Value type="a">1</_Value>
+													<_Type type="a">Int</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">DiagramFrame</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">20,20,590,500</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Fill.FillColor</_Name>
+													<_Value type="a">247,247,247</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Fill.Transparent_Fill</_Name>
+													<_Value type="a">0</_Value>
+													<_Type type="a">Int</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Font.Font</_Name>
+													<_Value type="a">Tahoma</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Font.Size</_Name>
+													<_Value type="a">8</_Value>
+													<_Type type="a">Int</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Line.LineColor</_Name>
+													<_Value type="a">194,192,192</_Value>
+													<_Type type="a">Color</_Type>
+												</IProperty>
+												
+												<IProperty type="e">
+													<_Name type="a">Line.LineWidth</_Name>
+													<_Value type="a">1</_Value>
+													<_Type type="a">Int</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
+			<_name type="a">Example Overview</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hsubsystem type="a">SysML::Diagrams</_hsubsystem>
+							<_hname type="a">Block Definition Diagram</_hname>
+							<_hid type="a">GUID 6c142614-3349-49e9-8c6b-0236be5f6b61</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.31.1969::18:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_lastModifiedTime type="a">5.22.2011::13:1:58</_lastModifiedTime>
+			<m_hReferencedDiagram type="r">
+				<IHandle type="e">
+				</IHandle>
+			</m_hReferencedDiagram>
+			<_defaultSubsystem type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hname type="a">DigitalCamerasAnalysis</_hname>
+					<_hid type="a">GUID 32d679ca-6820-488e-9199-ed6e3049ce2a</_hid>
+				</IHandle>
+			</_defaultSubsystem>
+			<AggregatesList type="e">
+				<value>GUID 4d47c09e-95a1-4902-ba6d-75d945e59d61</value>
+				<value>GUID 0f477693-479e-4b8c-80b7-6ede33c16700</value>
+			</AggregatesList>
+		</IDiagram>
+		<IComment type="e">
+			<_id type="a">GUID 4d47c09e-95a1-4902-ba6d-75d945e59d61</_id>
+			<_name type="a">Example Overview</_name>
+			<_modifiedTimeWeak type="a">12.31.1969::18:0:0</_modifiedTimeWeak>
+			<_description type="p"><IDescription type="e">
+				<_textRTF type="a">{\rtf1\fbidis\ansi\ansicpg1255\deff0\deflang1037{\fonttbl{\f0\fswiss\fprq2\fcharset0 Arial;}{\f1\fnil\fcharset0 Arial;}}%0D
+{\colortbl ;\red0\green0\blue255;}%0D
+\viewkind4\uc1\pard\ltrpar\lang1033\f0\fs20 This example shows how PCE can use MATLAB expression (Constraint Blocks stereotyped ExpressionForMatlab) to do a trade study in which digital cameras can be compared relative to specific quantitative criteria such as size, weight, resolution, etc.\par%0D
+\lang1037\f1\par%0D
+Pre-\lang1033\f0 requisites\lang1037\f1 :\par%0D
+To run this example, you need PCE as well as MATLAB and use either MAXIMA or MATLAB Symbolic Math Toolbox (MSMT) as solvers. Use Tools-&gt;PCE Environment Settings to configure the solvers.\par%0D
+\par%0D
+Model walkthrough:\par%0D
+The \cf1\ul\protect Digital Camera\cf0\ulnone\protect0  diagram shows the \cf1\ul\protect GenericDigitalCamera\cf0\ulnone\protect0  block that owns the attributes representing the criteria used for the comparison. In addition it shows the \cf1\ul\protect CameraMOEs\cf0\ulnone\protect0  and \cf1\ul\protect CameraTradeStudyWeights\cf0\ulnone\protect0  blocks that specify the measure of \lang1033\f0 effectiveness \lang1037\f1 (MOE) and the weights used for the trade study.\par%0D
+\par%0D
+The \cf1\ul\protect Units\cf0\ulnone\protect0  package contains all the specific units used in the example\par%0D
+\par%0D
+The \cf1\ul\protect TradeStudy\cf0\ulnone\protect0  package contains all trade study specific information. The \cf1\ul\protect calculatingScore\cf0\ulnone\protect0  parametric diagram is used to calculate the overall &quot;score&quot; of a specific camera while the MOEs are calculated by the parametric diagrams located in the \cf1\ul\protect UtilityCurves\cf0\ulnone\protect0  package (e.g. \cf1\ul\protect zoomUtility\cf0\ulnone\protect0 ). The constraints views in this package have plot settings that plot the various utility curves - so if you right-click on a constraint view in this package (e.g. \cf1\ul\protect zoomUtilityCV\cf0\ulnone\protect0 ) and do &quot;Open ConstraintView....&quot; then in the dialog click &quot;Plot&quot;, you should have a ready plot settings that will produce the relevant utility graph using MATLAB interp1 function.\par%0D
+\par%0D
+Finally the total score is calculated by the \cf1\ul\protect tradeStudyCV\cf0\ulnone\protect0  which references all the parametric diagrams for the trade study. To calculate the overall score of a camera, fill all \lang1033\f0 criteria \lang1037\f1 values (e.g. set maxOpticalZoom to 15) and click Evaluate. The value tradeStudyScore is the answer.\par%0D
+\par%0D
+\lang1033\f0 In fact, if one just wants to evaluate a specific camera model, all one needs is to open \cf1\ul\protect tradeStudyCV\cf0\ulnone\protect0  constraint view, fill the values and do the evaluation\lang1037\par%0D
+\f1\par%0D
+Tip: Do &quot;Generate Report&quot; after an evaluation of each camera specification to store the results or \lang1033\f0 alternatively \lang1037\f1 do &quot;Export Data&quot; for exporting to comma seperated files that can be accessed by electronic sheet software such as Microsoft Excel\par%0D
+\par%0D
+}%0D
+</_textRTF>
+				<Hyperlinks type="c">
+					<IRPYRawContainer type="e">
+						<IInternalHyperlink type="e">
+							<_name type="a">Digital Camera</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IDiagram</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis</_hsubsystem>
+									<_hname type="a">Digital Camera</_hname>
+									<_hid type="a">GUID 0dc5151a-4ab4-4cc9-a768-fcd552aba42a</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">GenericDigitalCamera</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IClass</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis</_hsubsystem>
+									<_hname type="a">GenericDigitalCamera</_hname>
+									<_hid type="a">GUID fd4df31a-386c-49e8-bbae-0f8b190e1f0d</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">CameraMOEs</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IClass</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">CameraMOEs</_hname>
+									<_hid type="a">GUID 1e3dcdf3-e0b9-4528-af08-a89690ff89ee</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">CameraTradeStudyWeights</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IClass</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">CameraTradeStudyWeights</_hname>
+									<_hid type="a">GUID f24a29e6-b02b-4b9d-a546-e5970ab48486</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">Units</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hname type="a">Units</_hname>
+									<_hid type="a">GUID 62b6a795-1bff-439b-8ada-d09ca67fdc50</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">TradeStudy</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis</_hsubsystem>
+									<_hname type="a">TradeStudy</_hname>
+									<_hid type="a">GUID 220e8b44-da2f-4496-b4e3-0544b1b2f95c</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">calculatingScore</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IDiagram</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">calculatingScore</_hname>
+									<_hid type="a">GUID fb45a52e-fcda-4f30-93c8-f48842940b7c</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">UtilityCurves</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">UtilityCurves</_hname>
+									<_hid type="a">GUID d38c64ac-a66f-4c3b-b3f8-a9c0a6f666ab</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">zoomUtility</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">IDiagram</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy::UtilityCurves</_hsubsystem>
+									<_hname type="a">zoomUtility</_hname>
+									<_hid type="a">GUID 4848fbcf-afba-4f0b-90ea-045a73449bde</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">zoomUtilityCV</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy::UtilityCurves</_hsubsystem>
+									<_hname type="a">zoomUtilityCV</_hname>
+									<_hid type="a">GUID fe4c388f-caac-438f-87e5-56823181f819</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">tradeStudyCV</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">tradeStudyCV</_hname>
+									<_hid type="a">GUID 3b9063e9-8931-46b2-b42e-e120c2ee3fc1</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+						<IInternalHyperlink type="e">
+							<_name type="a">tradeStudyCV</_name>
+							<_textType type="a">NAME</_textType>
+							<_target type="r">
+								<IHandle type="e">
+									<_hm2Class type="a">ISubsystem</_hm2Class>
+									<_hsubsystem type="a">DigitalCamerasAnalysis::TradeStudy</_hsubsystem>
+									<_hname type="a">tradeStudyCV</_hname>
+									<_hid type="a">GUID 3b9063e9-8931-46b2-b42e-e120c2ee3fc1</_hid>
+								</IHandle>
+							</_target>
+						</IInternalHyperlink>
+						
+					</IRPYRawContainer>
+				</Hyperlinks>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+		</IComment>
+		<CGIClassChart type="e">
+			<_id type="a">GUID 0f477693-479e-4b8c-80b7-6ede33c16700</_id>
+			<m_type type="a">0</m_type>
+			<m_pModelObject type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IDiagram</_hm2Class>
+					<_hname type="a">Example Overview</_hname>
+					<_hid type="a">GUID e82ca6f6-ec1c-4461-a1f9-4fc1c32f6019</_hid>
+				</IHandle>
+			</m_pModelObject>
+			<m_pParent type="s"></m_pParent>
+			<m_name type="p">
+				<CGIText type="e">
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">8</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_name>
+			<m_drawBehavior type="a">0</m_drawBehavior>
+			<m_bIsPreferencesInitialized type="a">0</m_bIsPreferencesInitialized>
+			<elementList type="a">3</elementList>
+			
+			<m_access type="a">'Z'</m_access>
+			<m_modified type="a">'N'</m_modified>
+			<m_nModifyDate type="a">0</m_nModifyDate>
+			<m_nCreateDate type="a">0</m_nCreateDate>
+			<m_bScaleWithZoom type="a">1</m_bScaleWithZoom>
+			<m_arrowStyle type="a">'S'</m_arrowStyle>
+			<m_pRoot type="s">GUID b8f39ffb-61eb-4544-ba15-6a1684b419f1</m_pRoot>
+			<m_currentLeftTop type="a">0 0 </m_currentLeftTop>
+			<m_currentRightBottom type="a">0 0 </m_currentRightBottom>
+			<m_bFreezeCompartmentContent type="a">0</m_bFreezeCompartmentContent>
+			<AggregatesList type="e">
+				<value>GUID b8f39ffb-61eb-4544-ba15-6a1684b419f1</value>
+				<value>GUID b952b33a-91dc-441e-9228-d5b9d0f54887</value>
+				<value>GUID ec81fca0-21f4-4573-ba4c-b7bd3aee8a13</value>
+			</AggregatesList>
+		</CGIClassChart>
+		<CGIClass type="e">
+			<_id type="a">GUID b8f39ffb-61eb-4544-ba15-6a1684b419f1</_id>
+			<m_type type="a">78</m_type>
+			<m_pModelObject type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hsubsystem type="a">DigitalCamerasAnalysis</_hsubsystem>
+					<_hname type="a">TopLevel</_hname>
+					<_hid type="a">GUID ff7d254d-1878-4c05-b932-5dea96c3d701</_hid>
+				</IHandle>
+			</m_pModelObject>
+			<m_pParent type="s"></m_pParent>
+			<m_name type="p">
+				<CGIText type="e">
+					<m_str type="a">TopLevel</m_str>
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">5</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_name>
+			<m_drawBehavior type="a">0</m_drawBehavior>
+			<m_bIsPreferencesInitialized type="a">0</m_bIsPreferencesInitialized>
+			<m_AdditionalLabel type="p">
+				<CGIText type="e">
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">1</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_AdditionalLabel>
+			<m_polygon type="a">0 </m_polygon>
+			<m_nNameFormat type="a">0</m_nNameFormat>
+			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
+			<Attrs type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Attrs>
+			<Operations type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Operations>
+			<AggregatesList type="e">
+				<value>GUID ae693fb7-a05c-45e1-b33c-5466bf30d84d</value>
+				<value>GUID 7bedcfc0-534d-4028-9fdc-c7d0d33b1041</value>
+			</AggregatesList>
+		</CGIClass>
+		<CGICompartment type="e">
+			<_id type="a">GUID ae693fb7-a05c-45e1-b33c-5466bf30d84d</_id>
+			<m_name type="a">Attribute</m_name>
+			<m_displayOption type="a">Explicit</m_displayOption>
+			<m_bShowInherited type="a">0</m_bShowInherited>
+			<m_bOrdered type="a">0</m_bOrdered>
+			<Items type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Items>
+		</CGICompartment>
+		<CGICompartment type="e">
+			<_id type="a">GUID 7bedcfc0-534d-4028-9fdc-c7d0d33b1041</_id>
+			<m_name type="a">Operation</m_name>
+			<m_displayOption type="a">Explicit</m_displayOption>
+			<m_bShowInherited type="a">0</m_bShowInherited>
+			<m_bOrdered type="a">0</m_bOrdered>
+			<Items type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Items>
+		</CGICompartment>
+		<CGIDiagramFrame type="e">
+			<_id type="a">GUID b952b33a-91dc-441e-9228-d5b9d0f54887</_id>
+			<m_type type="a">203</m_type>
+			<m_pModelObject type="r">
+				<IHandle type="e">
+				</IHandle>
+			</m_pModelObject>
+			<m_pParent type="s">GUID b8f39ffb-61eb-4544-ba15-6a1684b419f1</m_pParent>
+			<m_name type="p">
+				<CGIText type="e">
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">8</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_name>
+			<m_drawBehavior type="a">4096</m_drawBehavior>
+			<m_transform type="a">3.33333 0 0 4.81061 20 20 </m_transform>
+			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
+			<m_AdditionalLabel type="p">
+				<CGIText type="e">
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">1</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_AdditionalLabel>
+			<m_polygon type="a">4 0 0  0 132  216 132  216 0  </m_polygon>
+			<m_nNameFormat type="a">0</m_nNameFormat>
+			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
+		</CGIDiagramFrame>
+		<CGIAnnotation type="e">
+			<_id type="a">GUID ec81fca0-21f4-4573-ba4c-b7bd3aee8a13</_id>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<IPropertySubject type="e">
+							<_Name type="a">General</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Graphics</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">FitBoxToItsTextuals</_Name>
+													<_Value type="a">False</_Value>
+													<_Type type="a">Bool</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
+			<m_type type="a">173</m_type>
+			<m_pModelObject type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IComment</_hm2Class>
+					<_hname type="a">Example Overview</_hname>
+					<_hid type="a">GUID 4d47c09e-95a1-4902-ba6d-75d945e59d61</_hid>
+				</IHandle>
+			</m_pModelObject>
+			<m_pParent type="s">GUID b8f39ffb-61eb-4544-ba15-6a1684b419f1</m_pParent>
+			<m_name type="p">
+				<CGIText type="e">
+					<m_str type="a">Example Overview::Example Overview</m_str>
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">5</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_name>
+			<m_drawBehavior type="a">2056</m_drawBehavior>
+			<m_transform type="a">0.621771 0 0 0.535714 46 47 </m_transform>
+			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
+			<m_AdditionalLabel type="p">
+				<CGIText type="e">
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">1</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_AdditionalLabel>
+			<m_polygon type="a">4 0 3  0 1095  1084 1095  1084 3  </m_polygon>
+			<m_nNameFormat type="a">0</m_nNameFormat>
+			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
+			<_iTempdisplayTextFlag type="a">2</_iTempdisplayTextFlag>
+			<m_bIsBoxStyle type="a">0</m_bIsBoxStyle>
+		</CGIAnnotation>
+		<IComponent type="e">
+			<fileName type="a">DefaultComponent</fileName>
+			<_id type="a">GUID d0867302-9ca6-4bdb-bbb2-1495ead29dfb</_id>
+		</IComponent>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

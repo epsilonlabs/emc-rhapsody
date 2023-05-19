@@ -10,6 +10,7 @@
  ********************************************************************************/
 package cas.mcmaster.epsilon.emc;
 
+import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -30,6 +31,8 @@ import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertyGetter;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
+import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertyGetter;
+import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertySetter;
 import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
@@ -86,17 +89,14 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	private RhapsodyMetaclasses types;
 	private IRPPackage mainPackage;
 	
-	private Pattern pattern;
+	private Pattern idPattern;
 	
 	private boolean usingActivePrj = false;
 	private boolean rhapsodyWasActive = false;
-	
-	
-	
-	
+
 	public RhapsodyModel() {
-		propertyGetter = new RhapsodyPropertyGetter(this);
-		propertySetter = new RhapsodyPropertySetter(this);
+		propertyGetter = new JavaPropertyGetter();
+		propertySetter = new JavaPropertySetter();
 	}
 	
 	@Override
@@ -115,8 +115,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		throw new EolModelLoadingException(new UnsupportedOperationException("Rhapsody models can't be loaded without a properties file"), this);
 	}
 
-	// TODO Read the file metaclasses.txt in the Doc directory of the Rhapsody installation.
-	@Override
 	public void load(
 		StringProperties properties,
 		IRelativePathResolver relativePathResolver) throws EolModelLoadingException {
@@ -137,15 +135,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			String path = properties.getProperty(PROPERTIES_PROJECT_PATH);
 			Path fullPath = Paths.get(relativePathResolver.resolve(path)).toAbsolutePath();
 			LOG.info("Loading project from: {}", fullPath);
-//			var active = this.app.activeProject();
-//			if (active != null) {
-//				// If active project is the target one, loading fails.
-//				var activePath = Paths.get(active.getCurrentDirectory(), active.getFilename());
-//				if (activePath.equals(fullPath)) {
-//					this.prj = active;
-//					this.usingActivePrj = true;
-//				}
-//			}
 			if (this.prj == null) {
 				this.prj = this.app.openProject(fullPath.toString());
 				if (this.prj == null) {
@@ -182,14 +171,14 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 				properties.getBooleanProperty(PROPERTY_CACHED, false),
 				this.prj)
 			.load();
-		// TODO If useLive setting, register the model as an RPApplicationListener so if the model
+		// TODO If not cached, register the model as an RPApplicationListener so if the model
 		// changes, we can clear the cache. https://www.ibm.com/docs/en/elms/esdr/8.4.0?topic=api-using-rpapplicationlistener-respond-events
-		// but still use the chache for improved performance
+		// but still use the cache for improved performance
 		LOG.info("Current project is: {}", this.prj.getName());
 		setName("Rhapsody");
 		super.load(properties, relativePathResolver);
 		clearCache();
-		this.pattern = Pattern.compile(ID_REGEX);
+		this.idPattern = Pattern.compile(ID_REGEX);
 	}
 
 	@Override
@@ -278,11 +267,11 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public Object getTypeOf(Object instance) {
-		if (instance instanceof IRPModelElement) {
+		if (isModelElement(instance)) {
 			return ((IRPModelElement)instance).getInterfaceName();
 		}
 		LOG.error("Calling getTypeOf with an object that is not an IRPModelElement");
-		throw new IllegalArgumentException("Instance is not an IRPModelElement");
+		throw new IllegalArgumentException("Instance is not a model element");
 	}
 
 	/**
@@ -293,7 +282,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	 */
 	@Override
 	public String getTypeNameOf(Object instance) {
-		if (instance instanceof IRPModelElement) {
+		if (this.isModelElement(instance)) {
 			IRPModelElement element = (IRPModelElement) instance;
 			var newTerm = element.getUserDefinedMetaClass();
 			if (newTerm != null) {
@@ -302,7 +291,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			return element.getMetaClass();
 		}
 		LOG.error("Calling getTypeNameOf with an object that is not an IRPModelElement");
-		throw new IllegalArgumentException("Instance is not an IRPModelElement");
+		throw new IllegalArgumentException("Instance is not a model element");
 	}
 
 	@Override
@@ -312,11 +301,14 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		return Objects.equals(this.getTypeNameOf(instance), type);
+		return this.isOfType(instance, type);
 	}
 
 	@Override
 	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
+		if (!this.hasType(type)) {
+			throw new EolModelElementTypeNotFoundException(this.getName(), type);
+		}
 		return Objects.equals(this.getTypeNameOf(instance), type);
 	}
 	
@@ -324,56 +316,101 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public Object getElementById(String id) {
+		if (!this.idPattern.matcher(id).matches()) {
+			LOG.warn("Rhapsody ID have the format: GUID <UUID>. The supplied id: {} does not match this format.");
+		};
 		return prj.findElementByGUID(id);
 	}
 
 	@Override
 	public String getElementId(Object instance) {
-		var element = (IRPModelElement) instance;
-		return element.getGUID();
+		if (this.isModelElement(instance)) {
+			return ((IRPModelElement)instance).getGUID();
+		}
+		throw new IllegalArgumentException("Instance must be an IRPModelElement in order to get its ID");
 	}
 
 	@Override
 	public void setElementId(Object instance, String newId) {
-		var element = (IRPModelElement) instance;
-		element.setGUID(newId);
+		if (this.isModelElement(instance)) {
+			if (!this.idPattern.matcher(newId).matches()) {
+				LOG.warn("Rhapsody IDs have the format: GUID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. The supplied id: {} does not match this format.");
+				throw new IllegalArgumentException("Rhapsody IDs should start with the string 'GUID', "
+						+ "followed by an UUID, e.g.: 'GUID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. "
+						+ "UUIDs are represented as 32 hexadecimal characers, displayed in five "
+						+ "groups separated by hyphens, in the form 8-4-4-4-12");
+			};
+			var element = (IRPModelElement) instance;
+			element.setGUID(newId);
+		} else {
+			throw new IllegalArgumentException("Instance must be an IRPModelElement in order to set its ID");
+		}
 	}
-
 	
 	@Override
 	public boolean owns(Object instance) {
-		if (!isModelElement(instance))
+		if (!isModelElement(instance)) {
 			return false;
-		var contents = prj.getNestedElementsRecursive();
-		for (int i = 1; i <= contents.getCount(); i++) {
-			var element = (IRPModelElement)contents.getItem(i);
-			if (element!=null && element==instance)
-				return true;
 		}
-		return false;
+		var needle = (IRPModelElement)instance;
+		return this.prj.equals(needle.getProject());
+	}
+	
+	@Override
+	public boolean isModelElement(Object instance) {
+		return (instance instanceof IRPModelElement);
 	}
 
+	/**
+	 * There is no documentation about properties of Rhapsody classes, so we will use reflection.
+	 * Based on the Rhapsody API, we will try to find getX, isX and hasX, which are the method
+	 * naming conventions we identified.
+	 *
+	 * @param instance the instance
+	 * @param property the property
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean knowsAboutProperty(Object instance, String property) {
-		if (!isModelElement(instance))
-			return false;
-		var modelElement = (IRPModelElement) instance;
-		try {
-			modelElement.getPropertyValue(property);
-			return true;
-		} catch (Exception e) {
+		if (!isModelElement(instance)) {
 			return false;
 		}
+		String pName = property.substring(0, 1).toUpperCase() + property.substring(1);
+		// Look for a getX() method
+		Method om = null;
+		try {
+			try {
+				om = instance.getClass().getMethod("get" + pName);
+			} catch (NoSuchMethodException e) {
+				// Not found
+			}
+			if (om == null) {
+				// Look for an isX() method
+				try {
+					om = instance.getClass().getMethod("is" + pName);
+				} catch (NoSuchMethodException e) {
+					// Not found
+				}
+			}
+			if (om == null) {
+				// Look for a hasX() method
+				try {
+					om = instance.getClass().getMethod("has" + pName);
+				} catch (NoSuchMethodException e) {
+					// Not found
+				}
+			}
+		} catch (SecurityException e) {
+			// We can't determine if the method exists
+			LOG.error("Unable to get property methods", e);
+		}
+		return om != null;
 	}
 
 	@Override
 	public boolean isPropertySet(Object instance, String property) throws EolRuntimeException {
-		return getPropertyGetter().invoke(instance, property, null) != null;
-	}
-
-	@Override
-	public boolean isModelElement(Object instance) {
-		return (instance instanceof IRPModelElement);
+		// We assume all properties are set as there is no "eIsSet" equivalent in Rhapsody
+		return true;
 	}
 
 	@Override
@@ -396,26 +433,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	@Override
 	public IPropertySetter getPropertySetter() {
 		return propertySetter;
-	}
-
-	@Override
-	public boolean isStoredOnDisposal() {
-		return storeOnDisposal;
-	}
-
-	@Override
-	public void setStoredOnDisposal(boolean storedOnDisposal) {
-		storeOnDisposal = storedOnDisposal;
-	}
-
-	@Override
-	public boolean isReadOnLoad() {
-		return readOnLoad;
-	}
-
-	@Override
-	public void setReadOnLoad(boolean readOnLoad) {
-		this.readOnLoad = readOnLoad;
 	}
 	
 	@Override

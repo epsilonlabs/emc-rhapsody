@@ -1,0 +1,693 @@
+I-Logix-RPY-Archive version 8.5.2 C++ 1508637
+{ ISubsystem 
+	- _ownerHandle = { IHandle 
+		- _m2Class = "ISubsystem";
+		- _filename = "TradeStudy.sbs";
+		- _subsystem = "DigitalCamerasAnalysis";
+		- _class = "";
+		- _name = "TradeStudy";
+		- _id = GUID 220e8b44-da2f-4496-b4e3-0544b1b2f95c;
+	}
+	- _id = GUID 3b9063e9-8931-46b2-b42e-e120c2ee3fc1;
+	- _myState = 8192;
+	- _name = "tradeStudyCV";
+	- Dependencies = { IRPYRawContainer 
+		- size = 12;
+		- value = 
+		{ IDependency 
+			- _id = GUID 4ddc119e-06fb-4f9e-8700-9c4dc0b50a61;
+			- _myState = 2048;
+			- _name = "calculatingScore";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "TradeStudy.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+				- _class = "";
+				- _name = "calculatingScore";
+				- _id = GUID fb45a52e-fcda-4f30-93c8-f48842940b7c;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 7a38cb45-fd91-4518-a8a2-8e5a8ab63178;
+			- _myState = 2048;
+			- _name = "widthUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "widthUtility";
+				- _id = GUID 31e2c14e-4369-4c50-a2c0-24c7f92039b7;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 0a0784d1-9abb-4852-9b48-ca5d61509218;
+			- _myState = 2048;
+			- _name = "weightUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "weightUtility";
+				- _id = GUID 5b7a1b2c-c1ae-441e-931f-e1356e269c41;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 2d329ef6-5c5f-453a-ad81-fa813f54ff3f;
+			- _myState = 2048;
+			- _name = "heightUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "heightUtility";
+				- _id = GUID 50b1b1ad-c070-4a3b-8a2b-d8c21e6a4507;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 1b0ac865-7dd4-4213-824a-84e3bda3abf3;
+			- _myState = 2048;
+			- _name = "thickUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "thickUtility";
+				- _id = GUID e6a18da0-7968-42d1-bfdf-b120f45f79ed;
+			}
+		}
+		{ IDependency 
+			- _id = GUID fe1e4730-b051-422b-82ef-d168d2bfec3f;
+			- _myState = 2048;
+			- _name = "colorDepthUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "colorDepthUtility";
+				- _id = GUID c47c2272-984f-4de0-bb35-51963251eeac;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 677a49d4-1afd-40e0-9930-c8b0452fed86;
+			- _myState = 2048;
+			- _name = "resolutionUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "resolutionUtility";
+				- _id = GUID ab9d5b07-3376-4b19-8798-339d49e6d2df;
+			}
+		}
+		{ IDependency 
+			- _id = GUID a9f6afd1-1414-4e9a-92c0-28c5c4ffb413;
+			- _myState = 2048;
+			- _name = "shutterSpeedUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "shutterSpeedUtility";
+				- _id = GUID 287c36e9-ad9e-46f5-9263-51e90b1a24ba;
+			}
+		}
+		{ IDependency 
+			- _id = GUID de0f706e-700e-4516-b469-8e510e3d6f8c;
+			- _myState = 2048;
+			- _name = "burstFramesUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "burstFramesUtility";
+				- _id = GUID 73641672-60de-410f-978f-77668d96433b;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 1280c5ae-b0a3-4100-8806-bd4abe2078ab;
+			- _myState = 2048;
+			- _name = "costUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "costUtility";
+				- _id = GUID b27e9603-d1cf-4ab8-ab6b-a6d0bef17d2d;
+			}
+		}
+		{ IDependency 
+			- _id = GUID d41c373a-970a-41f7-b08d-a1126182f095;
+			- _myState = 2048;
+			- _name = "zoomUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "zoomUtility";
+				- _id = GUID 4848fbcf-afba-4f0b-90ea-045a73449bde;
+			}
+		}
+		{ IDependency 
+			- _id = GUID 0b825b8d-7c93-4c1f-9ffa-06a1ea3deadb;
+			- _myState = 2048;
+			- _name = "screenUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "screenUtility";
+				- _id = GUID cbff114c-8999-4505-a882-6a50cb0496c7;
+			}
+		}
+	}
+	- Stereotypes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IHandle 
+			- _m2Class = "IStereotype";
+			- _filename = "PCE.sbs";
+			- _subsystem = "PCE";
+			- _class = "";
+			- _name = "ConstraintView";
+			- _id = GUID ebbbe90e-2234-48a0-ac69-a4dd36914337;
+		}
+	}
+	- HyperLinks = { IRPYRawContainer 
+		- size = 0;
+	}
+	- Tags = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ ITag 
+			- _id = GUID a4731042-1e24-4e2f-bd08-6d29b179c277;
+			- _name = "Values";
+			- ValueSpecifications = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ILiteralSpecification 
+					- _id = GUID 8645f8c3-3428-49fc-9ab1-de0cb4246b16;
+					- _value = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">
+<properties>
+<comment/>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.COLOR_DEPTH_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.COST_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.LCD_SIZE_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.colorDepth\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;8&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_BEST_Weight\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.BURST_MODE_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.SIZE_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_BEST_Thick\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_BEST_Height\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_Height\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.VIDEO_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.thickness\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;10&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_BEST_Width\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.RESOLUTION_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.maxShutterSpeed\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;1/125&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.hasHDVideoWithSound\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;1&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_Thick\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.ZOOM_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_Weight\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.lcdScreenSize\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;4.5&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_Width\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.framesInBurstMode\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;13&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.width\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;400&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.cost\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;300&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.SHUTTER_SPEED_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.maxOpticalZoom\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;15&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.weight\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;30&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.resolution\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;8&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::GenericDigitalCamera.height\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"&gt;100&lt;/entry&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+<entry key=\"ADigitalCamerasAnalysis::TradeStudy::CameraTradeStudyWeights.WEIGHT_W\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".command\"&gt;FIX&lt;/entry&gt;&#13;
+&lt;entry key=\".max\"/&gt;&#13;
+&lt;entry key=\".value\"/&gt;&#13;
+&lt;entry key=\".min\"/&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+</properties>
+";
+				}
+			}
+			- _typeOf = { IHandle 
+				- _m2Class = "IType";
+				- _filename = "PredefinedTypes.sbs";
+				- _subsystem = "PredefinedTypes";
+				- _class = "";
+				- _name = "RhpString";
+				- _id = GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35;
+			}
+			- _isOrdered = 0;
+			- _base = { IHandle 
+				- _m2Class = "ITag";
+				- _filename = "PCE.sbs";
+				- _subsystem = "PCE";
+				- _class = "ConstraintView";
+				- _name = "Values";
+				- _id = GUID 17d414af-6c6d-4fe8-b9c7-4ef0feabed38;
+			}
+		}
+	}
+	- weakCGTime = 10.12.2010::11:57:6;
+	- strongCGTime = 10.11.2010::15:41:17;
+	- _defaultComposite = GUID 74499455-5e82-4b2d-9970-51e7ce6554ad;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IClass 
+			- _id = GUID 74499455-5e82-4b2d-9970-51e7ce6554ad;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- weakCGTime = 10.11.2010::15:49:17;
+			- strongCGTime = 10.11.2010::15:41:17;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 1.2.1990::0:0:0;
+}
+

@@ -42,8 +42,6 @@ import cas.mcmaster.epsilon.emc.RhapsodyModel;
  * 	<li> RHAPSODY_PATH: The full path to the Rhapsody installation, till the version folder.
  * </ul>
  * 
- * Getting elements by Stereotype is slow.
- * 
  * @author Horacio Hoyos Rodriguez
  *
  */
@@ -304,6 +302,14 @@ public class RhapsodyModelTypesTests {
 		}
 	}
 	
+	
+	@Test
+	void get_type_of_fails_for_non_irp_model_element() throws EolModelElementTypeNotFoundException {
+		assertThrows(
+				IllegalArgumentException.class, 
+				() ->  underTest.getTypeOf("String"));
+	}
+	
 	@Test
 	void get_type_of_matches_metaclass() throws EolModelElementTypeNotFoundException {
 		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
@@ -314,6 +320,13 @@ public class RhapsodyModelTypesTests {
 	void get_type_of_matches_new_term_stereotype() throws EolModelElementTypeNotFoundException {
 		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
 		assertEquals("IRPClass", underTest.getTypeOf(block));
+	}
+	
+	@Test
+	void get_typename_of_fails_for_non_irp_model_element() throws EolModelElementTypeNotFoundException {
+		assertThrows(
+				IllegalArgumentException.class, 
+				() ->  underTest.getTypeNameOf("String"));
 	}
 	
 	@Test
@@ -329,18 +342,142 @@ public class RhapsodyModelTypesTests {
 	}
 	
 	@Test
+	void get_fullyqualifiedtypename_of_fails_for_non_irp_model_element() throws EolModelElementTypeNotFoundException {
+		assertThrows(
+				IllegalArgumentException.class, 
+				() ->  underTest.getFullyQualifiedTypeNameOf("String"));
+	}
+	
+	@Test
 	void get_fullyqualifiedtypename_of_matches_metaclass() throws EolModelElementTypeNotFoundException {
 		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
-		assertEquals("Package", underTest.getTypeNameOf(prj));
+		assertEquals("Package", underTest.getFullyQualifiedTypeNameOf(prj));
 	}
 	
 	@Test
 	void get_fullyqualifiedtypename_of_matches_new_term_stereotype() throws EolModelElementTypeNotFoundException {
 		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
-		assertEquals("Block", underTest.getTypeNameOf(block));
+		assertEquals("Block", underTest.getFullyQualifiedTypeNameOf(block));
 	}
 	
+	@Test
+	void is_of_kind_fails_for_non_irp_model_element() {
+		assertThrows(
+				IllegalArgumentException.class, 
+				() -> underTest.isOfKind("String", "Class"));
+	}
 	
+	@Test
+	void is_of_kind_fails_for_unknown_type() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		assertThrows(
+				EolModelElementTypeNotFoundException.class, 
+				() -> underTest.isOfKind(prj, "Star"));
+	}
+	
+	@Test
+	void is_of_kind_fails_for_no_new_term_stereotype() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		assertThrows(
+				EolModelElementTypeNotFoundException.class, 
+				() -> underTest.isOfKind(prj, "Usage"));
+	}
+
+	@Test
+	void is_of_kind_false_for_wrong_metaclass() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		try {
+			assertFalse(underTest.isOfKind(prj, "Class"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_kind_false_for_wrong_stereotype() {
+		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		try {
+			assertFalse(underTest.isOfKind(block, "DataType"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_kind_true_for_correct_metaclass() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		try {
+			assertTrue(underTest.isOfKind(prj, "Package"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_kind_true_for_correct_stereotype() {
+		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		try {
+			assertTrue(underTest.isOfKind(block, "Block"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_type_fails_for_unknown_type() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		assertThrows(
+				EolModelElementTypeNotFoundException.class, 
+				() -> underTest.isOfType(prj, "Star"));
+	}
+	
+	@Test
+	void is_of_type_fails_for_no_new_term_stereotype() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		assertThrows(
+				EolModelElementTypeNotFoundException.class, 
+				() -> underTest.isOfType(prj, "Usage"));
+	}
+
+	@Test
+	void is_of_type_false_for_wrong_metaclass() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		try {
+			assertFalse(underTest.isOfType(prj, "Class"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_type_false_for_wrong_stereotype() {
+		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		try {
+			assertFalse(underTest.isOfType(block, "DataType"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_type_true_for_correct_metaclass() {
+		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		try {
+			assertTrue(underTest.isOfType(prj, "Package"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void is_of_type_true_for_correct_stereotype() {
+		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		try {
+			assertTrue(underTest.isOfType(block, "Block"));
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
 	
 	static private IModel underTest;
 	

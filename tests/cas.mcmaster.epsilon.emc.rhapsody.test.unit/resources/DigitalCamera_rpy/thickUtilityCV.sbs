@@ -1,0 +1,221 @@
+I-Logix-RPY-Archive version 8.5.2 C++ 2020041
+{ ISubsystem 
+	- _ownerHandle = { IHandle 
+		- _m2Class = "ISubsystem";
+		- _filename = "UtilityCurves.sbs";
+		- _subsystem = "DigitalCamerasAnalysis::TradeStudy";
+		- _class = "";
+		- _name = "UtilityCurves";
+		- _id = GUID d38c64ac-a66f-4c3b-b3f8-a9c0a6f666ab;
+	}
+	- _id = GUID d8c69b31-1327-4dc2-a41c-32419c0dbe08;
+	- _myState = 8192;
+	- _name = "thickUtilityCV";
+	- Dependencies = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IDependency 
+			- _id = GUID 84acba6b-779a-415d-826d-f323ab59bbb5;
+			- _myState = 2048;
+			- _name = "thickUtility";
+			- Stereotypes = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IStereotype";
+					- _filename = "PCE.sbs";
+					- _subsystem = "PCE";
+					- _class = "";
+					- _name = "ReferenceToParametricDiagram";
+					- _id = GUID 9f6062ec-a2c8-4edd-8d4c-a53bafe9e540;
+				}
+			}
+			- _dependsOn = { INObjectHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "UtilityCurves.sbs";
+				- _subsystem = "DigitalCamerasAnalysis::TradeStudy::UtilityCurves";
+				- _class = "";
+				- _name = "thickUtility";
+				- _id = GUID e6a18da0-7968-42d1-bfdf-b120f45f79ed;
+			}
+		}
+	}
+	- Stereotypes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IHandle 
+			- _m2Class = "IStereotype";
+			- _filename = "PCE.sbs";
+			- _subsystem = "PCE";
+			- _class = "";
+			- _name = "ConstraintView";
+			- _id = GUID ebbbe90e-2234-48a0-ac69-a4dd36914337;
+		}
+	}
+	- Tags = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ ITag 
+			- _id = GUID 517e20ea-735a-451d-8013-b504cc97fc09;
+			- _name = "PlotSettings";
+			- ValueSpecifications = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ ILiteralSpecification 
+					- _id = GUID 566dc944-c374-4759-9bed-38baeb710f8b;
+					- _value = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">
+<properties>
+<comment/>
+<entry key=\"Thickness Utility Graph\">&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;&#13;
+&lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&gt;&#13;
+&lt;properties&gt;&#13;
+&lt;comment/&gt;&#13;
+&lt;entry key=\".max2\"/&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_BEST_Thick\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".min2\"/&gt;&#13;
+&lt;entry key=\".max1\"&gt;100.0&lt;/entry&gt;&#13;
+&lt;entry key=\".min1\"&gt;0.0&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::CameraMOEs.MAX_Thick\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".var2\"/&gt;&#13;
+&lt;entry key=\".var1\"&gt;DigitalCamerasAnalysis::GenericDigitalCamera.thickness&lt;/entry&gt;&#13;
+&lt;entry key=\".nticks2\"/&gt;&#13;
+&lt;entry key=\".nticks1\"&gt;30&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves.thickMOE.MAX_VAL\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves.thickMOE.MAX_BEST_VAL\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".font2\"/&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves.thickMOE.w\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".font1\"/&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::CameraMOEs.thickMOE\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"&amp;gt;Thickness MOE&amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt;x&amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\".label2\"/&gt;&#13;
+&lt;entry key=\".label1\"&gt;Thickness (mm)&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::TradeStudy::UtilityCurves.thickMOE.res\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;entry key=\"DigitalCamerasAnalysis::GenericDigitalCamera.thickness\"&gt;&amp;lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&amp;gt;&amp;#13;&#13;
+&amp;lt;!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\"&amp;gt;&amp;#13;&#13;
+&amp;lt;properties&amp;gt;&amp;#13;&#13;
+&amp;lt;comment/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".color\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".label\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineWidth\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".lineType\"/&amp;gt;&amp;#13;&#13;
+&amp;lt;entry key=\".checked\"&amp;gt; &amp;lt;/entry&amp;gt;&amp;#13;&#13;
+&amp;lt;/properties&amp;gt;&amp;#13;&#13;
+&lt;/entry&gt;&#13;
+&lt;/properties&gt;&#13;
+</entry>
+</properties>
+";
+				}
+			}
+			- _typeOf = { IHandle 
+				- _m2Class = "IType";
+				- _filename = "PredefinedTypes.sbs";
+				- _subsystem = "PredefinedTypes";
+				- _class = "";
+				- _name = "RhpString";
+				- _id = GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35;
+			}
+			- _isOrdered = 0;
+			- _base = { IHandle 
+				- _m2Class = "ITag";
+				- _filename = "PCE.sbs";
+				- _subsystem = "PCE";
+				- _class = "ConstraintView";
+				- _name = "PlotSettings";
+				- _id = GUID 9d13c319-87f5-4a74-9f6a-7b3eb89742a0;
+			}
+		}
+	}
+	- weakCGTime = 10.14.2010::13:35:49;
+	- strongCGTime = 10.11.2010::12:52:20;
+	- _defaultComposite = GUID 27d220de-5cc8-49c0-96ad-fc33297f8cad;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IClass 
+			- _id = GUID 27d220de-5cc8-49c0-96ad-fc33297f8cad;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- weakCGTime = 10.12.2010::11:55:16;
+			- strongCGTime = 10.11.2010::12:52:20;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 1.2.1990::0:0:0;
+}
+
