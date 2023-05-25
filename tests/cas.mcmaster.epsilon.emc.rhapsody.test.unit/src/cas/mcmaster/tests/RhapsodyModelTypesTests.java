@@ -123,7 +123,7 @@ public class RhapsodyModelTypesTests {
 	void get_all_by_type_for_new_term_stereotype() {
 		try {
 			var blocks = underTest.getAllOfType("Block");
-			assertEquals(5, blocks.size());
+			assertEquals(6, blocks.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -149,7 +149,7 @@ public class RhapsodyModelTypesTests {
 	void get_all_by_kind_for_type() {
 		try {
 			var packages = underTest.getAllOfKind("Package");
-			assertEquals(14, packages.size());
+			assertEquals(30, packages.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -159,7 +159,7 @@ public class RhapsodyModelTypesTests {
 	void get_all_by_kind_for_new_term_stereotype() {
 		try {
 			var blocks = underTest.getAllOfKind("Block");
-			assertEquals(5, blocks.size());
+			assertEquals(6, blocks.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}

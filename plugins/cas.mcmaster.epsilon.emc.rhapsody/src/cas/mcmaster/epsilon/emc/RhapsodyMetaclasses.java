@@ -41,8 +41,9 @@ public class RhapsodyMetaclasses {
 	public RhapsodyMetaclasses(
 		String path,
 		boolean cachingEnabled,
-		IRPProject prj) {
-		this(Path.of(path), cachingEnabled, prj, new HashSet<>(), new HashSet<>());
+		IRPProject prj,
+		String modelName) {
+		this(Path.of(path), cachingEnabled, prj, modelName, new HashSet<>(), new HashSet<>());
 	}
 	
 	/**
@@ -55,18 +56,18 @@ public class RhapsodyMetaclasses {
 				this.path,
 				this.cachingEnabled,
 				this.prj,
+				this.modelName,
 				this.metaclasses(),
 				this.stereotypes());
 	}
 	
 	public Object getEnumerationValue(
 		String enumeration,
-		String label,
-		String model) throws EolEnumerationValueNotFoundException {
+		String label) throws EolEnumerationValueNotFoundException {
 		var irpEnum = (IRPType) this.prj.findNestedElementRecursive(enumeration, "Type");
 		if (irpEnum == null) {
 			LOG.error("Unable to find a Type that matches the enumeration name: {}", enumeration);
-			throw new EolEnumerationValueNotFoundException(enumeration, label, model);
+			throw new EolEnumerationValueNotFoundException(enumeration, label, this.modelName);
 		}
 		var enumLiterals = irpEnum.getEnumerationLiterals();
 		for (int i=1; i <= enumLiterals.getCount(); i++) {
@@ -76,7 +77,7 @@ public class RhapsodyMetaclasses {
 			}
 		}
 		LOG.error("Found a Type that matches the enumeration {}, but none of its EnumerationLiterals matched the label: {}", enumeration, label);
-		throw new EolEnumerationValueNotFoundException(enumeration,label,model);
+		throw new EolEnumerationValueNotFoundException(enumeration, label, this.modelName);
 	}
 	
 
@@ -85,11 +86,10 @@ public class RhapsodyMetaclasses {
 	 * If not, it will check if the type is a known stereotype. If so, it will get all elements
 	 * that have the stereotype attached.
 	 * @param type the metaclass or stereotype to match
-	 * @param model the model name
 	 * @return a Collection of matching elements
 	 * @throws EolModelElementTypeNotFoundException 
 	 */
-	public Collection<IRPModelElement> getAllOfType(String type, String model) throws EolModelElementTypeNotFoundException {
+	public Collection<IRPModelElement> getAllOfType(String type) throws EolModelElementTypeNotFoundException {
 		HashSet<IRPModelElement> matching = new HashSet<>();
 		if (this.metaclasses.contains(type)) {
 			LOG.info("Type found in metaclasses, finding by metaclass");
@@ -100,20 +100,29 @@ public class RhapsodyMetaclasses {
 					matching.add(element);
 				}
 			}
+		} else if (stereotypes().contains(type)) {
+			LOG.info("Type found in stereotypes, finding by stereotype");
+			matching.addAll(this.getAllByStereotype(type));
 		} else {
-			LOG.info("Type not found in metaclasses, finding by stereotypes");
-			if (!stereotypes().contains(type)) {
-				LOG.error("Type not found in stereotypes");
-				throw new EolModelElementTypeNotFoundException(model, type);
+			throw new EolModelElementTypeNotFoundException(this.modelName, type);	
+		}
+		return matching;
+	}
+	
+	public Collection<IRPModelElement> getAllOfKind(String kind) throws EolModelElementTypeNotFoundException {
+		HashSet<IRPModelElement> matching = new HashSet<>();
+		if (this.metaclasses.contains(kind)) {
+			LOG.info("Type found in metaclasses, finding nested elements by metaclass");
+			var it = prj.getNestedElementsByMetaClass(kind, 1).toList().iterator();
+			while(it.hasNext()) {
+				IRPModelElement element = (IRPModelElement) it.next();
+				matching.add(element);
 			}
-			var contents = prj.getNestedElementsRecursive();
-			for (int i=1; i<=contents.getCount(); i++) {
-				var element = (IRPModelElement)contents.getItem(i);
-				var newTerm =  element.getUserDefinedMetaClass();
-				if (newTerm != null && Objects.equals(type, newTerm)) {
-					matching.add(element);	
-				}
-			}
+		} else if (stereotypes().contains(kind)) {
+			LOG.info("Type found in stereotypes, finding by stereotype");
+			matching.addAll(this.getAllByStereotype(kind));
+		} else {
+			throw new EolModelElementTypeNotFoundException(this.modelName, kind);	
 		}
 		return matching;
 	}
@@ -155,17 +164,19 @@ public class RhapsodyMetaclasses {
 	private final boolean cachingEnabled;
 	private final Path path;
 	private final IRPProject prj;
-
+	private final String modelName;
 	private final Set<String> stereotypes;
 	
 	private RhapsodyMetaclasses(
 		Path path,
 		boolean cachingEnabled,
 		IRPProject prj,
+		String modelName,
 		Set<String> metaclasses,
 		Set<String> stereotypes) {
 		this.path = path;
 		this.prj = prj;
+		this.modelName = modelName;
 		this.metaclasses = metaclasses;
 		this.stereotypes = stereotypes;
 		this.cachingEnabled = cachingEnabled;
@@ -206,6 +217,19 @@ public class RhapsodyMetaclasses {
 			}	
 		}
 		return stereotypes;
+	}
+	
+	private Collection<IRPModelElement> getAllByStereotype(String stereotype) throws EolModelElementTypeNotFoundException {
+		HashSet<IRPModelElement> matching = new HashSet<>();
+		var contents = prj.getNestedElementsRecursive();
+		for (int i=1; i<=contents.getCount(); i++) {
+			var element = (IRPModelElement)contents.getItem(i);
+			var newTerm =  element.getUserDefinedMetaClass();
+			if (newTerm != null && Objects.equals(stereotype, newTerm)) {
+				matching.add(element);	
+			}
+		}
+		return matching;
 	}
 
 	

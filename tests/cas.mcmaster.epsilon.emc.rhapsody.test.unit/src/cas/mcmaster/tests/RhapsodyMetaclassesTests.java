@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.eclipse.epsilon.eol.exceptions.models.EolEnumerationValueNotFoundException;
@@ -38,7 +39,8 @@ public class RhapsodyMetaclassesTests {
 		} catch (RhapsodyRuntimeException e) {
 			app = RhapsodyAppServer.createRhapsodyApplication();
 		}
-		prj = app.openProject("resources/TollRoad.rpyx");
+		Path fullPath = Paths.get("resources/TollRoad.rpyx").toAbsolutePath();
+		prj = app.openProject(fullPath.toString());
 		
 	}
 	
@@ -58,7 +60,7 @@ public class RhapsodyMetaclassesTests {
 		EolEnumerationValueNotFoundException thrown = Assertions.assertThrows(
 				EolEnumerationValueNotFoundException.class,
 				() -> {
-					underTest.getEnumerationValue("TestEnumWrong", "SOME_VALUE", prj.getName());
+					underTest.getEnumerationValue("TestEnumWrong", "SOME_VALUE");
 				});
 		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TestEnumWrong#SOME_VALUE in model TollRoad"));
 	}
@@ -69,7 +71,7 @@ public class RhapsodyMetaclassesTests {
 		EolEnumerationValueNotFoundException thrown = Assertions.assertThrows(
 				EolEnumerationValueNotFoundException.class,
 				() -> {
-					underTest.getEnumerationValue("TestEnum", "SOME_VALUE", prj.getName());
+					underTest.getEnumerationValue("TestEnum", "SOME_VALUE");
 				});
 		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal TestEnum#SOME_VALUE in model TollRoad"));
 	}
@@ -78,9 +80,9 @@ public class RhapsodyMetaclassesTests {
 	void get_enumeration_value_matches() {
 		var underTest = underTest();
 		try {
-			var value = (String) underTest.getEnumerationValue("TestEnum", "TEST_1", prj.getName());
+			var value = (String) underTest.getEnumerationValue("TestEnum", "TEST_1");
 			assertEquals("1", value);
-			value = (String) underTest.getEnumerationValue("TestEnum", "TEST_2", prj.getName());
+			value = (String) underTest.getEnumerationValue("TestEnum", "TEST_2");
 			assertEquals("2", value);
 		} catch (EolEnumerationValueNotFoundException e) {
 			fail("Should not throw exception", e);
@@ -92,7 +94,7 @@ public class RhapsodyMetaclassesTests {
 		var underTest = underTest();
 		EolModelElementTypeNotFoundException thrown = assertThrows(
 				EolModelElementTypeNotFoundException.class,
-				() -> underTest.getAllOfType("car", prj.getName()));
+				() -> underTest.getAllOfType("car"));
 		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'car' in model 'TollRoad'"));
 	}
 	
@@ -101,7 +103,7 @@ public class RhapsodyMetaclassesTests {
 		var underTest = underTest();
 		EolModelElementTypeNotFoundException thrown = assertThrows(
 				EolModelElementTypeNotFoundException.class,
-				() -> underTest.getAllOfType("Usage", prj.getName()));
+				() -> underTest.getAllOfType("Usage"));
 		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'Usage' in model 'TollRoad'"));
 	}
 	
@@ -109,7 +111,7 @@ public class RhapsodyMetaclassesTests {
 	void get_all_by_type_for_type() {
 		var underTest = underTest();
 		try {
-			var packages = underTest.getAllOfType("Package", prj.getName());
+			var packages = underTest.getAllOfType("Package");
 			assertEquals(14, packages.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
@@ -120,8 +122,48 @@ public class RhapsodyMetaclassesTests {
 	void get_all_by_type_for_stereotype() {
 		var underTest = underTest();
 		try {
-			var blocks = underTest.getAllOfType("Block", prj.getName());
-			assertEquals(5, blocks.size());
+			var blocks = underTest.getAllOfType("Block");
+			assertEquals(6, blocks.size());
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void get_all_by_kind_fails_if_unknown_stereotype_or_type() {
+		var underTest = underTest();
+		EolModelElementTypeNotFoundException thrown = assertThrows(
+				EolModelElementTypeNotFoundException.class,
+				() -> underTest.getAllOfKind("car"));
+		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'car' in model 'TollRoad'"));
+	}
+	
+	@Test
+	void get_all_by_type_kind_if_no_new_term_stereotype() {
+		var underTest = underTest();
+		EolModelElementTypeNotFoundException thrown = assertThrows(
+				EolModelElementTypeNotFoundException.class,
+				() -> underTest.getAllOfKind("Usage"));
+		assertTrue(thrown.getMessage().contains( "Cannot find meta-class 'Usage' in model 'TollRoad'"));
+	}
+	
+	@Test
+	void get_all_by_kind_for_type() {
+		var underTest = underTest();
+		try {
+			var packages = underTest.getAllOfKind("Package");
+			assertEquals(30, packages.size());
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
+	@Test
+	void get_all_by_kind_for_stereotype() {
+		var underTest = underTest();
+		try {
+			var blocks = underTest.getAllOfKind("Block");
+			assertEquals(6, blocks.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -217,7 +259,7 @@ public class RhapsodyMetaclassesTests {
 	private RhapsodyMetaclasses underTest() {
 		return new RhapsodyMetaclasses(
 				System.getenv("RHAPSODY_PATH"),
-				false, prj).load();
+				false, prj, "TollRoad").load();
 	}
 	
 	static private IRPApplication app;

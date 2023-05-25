@@ -166,17 +166,19 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			this.mainPackage = (IRPPackage) allPkgs.getItem(1);
 			LOG.info("Using package with name {} as main package.", this.mainPackage.getName());
 		}
-		this.types = new RhapsodyMetaclasses(
-				properties.getProperty(PROPERTIES_INSTALLATION_DIRECTORY),
-				properties.getBooleanProperty(PROPERTY_CACHED, false),
-				this.prj)
-			.load();
 		// TODO If not cached, register the model as an RPApplicationListener so if the model
 		// changes, we can clear the cache. https://www.ibm.com/docs/en/elms/esdr/8.4.0?topic=api-using-rpapplicationlistener-respond-events
 		// but still use the cache for improved performance
 		LOG.info("Current project is: {}", this.prj.getName());
 		setName("Rhapsody");
 		super.load(properties, relativePathResolver);
+		this.types = new RhapsodyMetaclasses(
+				properties.getProperty(PROPERTIES_INSTALLATION_DIRECTORY),
+				properties.getBooleanProperty(PROPERTY_CACHED, false),
+				this.prj,
+				this.name
+				)
+			.load();
 		clearCache();
 		this.idPattern = Pattern.compile(ID_REGEX);
 	}
@@ -185,7 +187,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public Object getEnumerationValue(
 		String enumeration,
 		String label) throws EolEnumerationValueNotFoundException {
-		return this.types.getEnumerationValue(enumeration, label, this.getName());
+		return this.types.getEnumerationValue(enumeration, label);
 	}
 	
 	@Override
@@ -475,14 +477,13 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	@Override
 	protected Collection<IRPModelElement> getAllOfTypeFromModel(String type)
 			throws EolModelElementTypeNotFoundException {
-		return this.types.getAllOfType(type, this.getName());
+		return this.types.getAllOfType(type);
 	}
 
 	@Override
 	protected Collection<IRPModelElement> getAllOfKindFromModel(String kind)
 			throws EolModelElementTypeNotFoundException {
-		// Rhapsody does not expose the metaclass type hierarchy, so we cannot find by kind
-		return this.getAllOfTypeFromModel(kind);
+		return this.types.getAllOfKind(kind);
 	}
 
 	@Override
