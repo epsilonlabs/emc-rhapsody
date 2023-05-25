@@ -12,10 +12,10 @@
 			<_id type="a">GUID fe10d56a-baae-4305-9bd1-f8db5aff6190</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">RoadMonitoringPkg</_name>
-			<_modifiedTimeWeak type="a">5.25.2023::14:0:24</_modifiedTimeWeak>
-			<_modifiedTime type="a">5.25.2023::13:49:6</_modifiedTime>
+			<_modifiedTimeWeak type="a">5.25.2023::17:3:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:3:43</_modifiedTime>
 			<_lastID type="a">34</_lastID>
-			<weakCGTime type="a">5.25.2023::14:0:24</weakCGTime>
+			<weakCGTime type="a">5.25.2023::17:3:43</weakCGTime>
 			<strongCGTime type="a">12.1.2011::7:24:22</strongCGTime>
 			<_defaultComposite type="s">GUID f8977e08-fbc4-4782-814b-7d4cee28ff37</_defaultComposite>
 			<_eventsBaseID type="a">18601</_eventsBaseID>
@@ -3956,9 +3956,9 @@ The TrafficControl block holds a map of vehicles (by their license plate no. or 
 			<_id type="a">GUID 67b14b52-115d-4dc8-8f0d-7f0f6bd31574</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">TagTypes</_name>
-			<_modifiedTimeWeak type="a">5.25.2023::13:47:42</_modifiedTimeWeak>
-			<_modifiedTime type="a">5.25.2023::13:47:42</_modifiedTime>
-			<_lastID type="a">9</_lastID>
+			<_modifiedTimeWeak type="a">5.25.2023::17:3:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:3:43</_modifiedTime>
+			<_lastID type="a">13</_lastID>
 			<_m2Classes type="c">
 				<IRPYRawContainer type="e">
 					<value>Class</value>
@@ -3972,6 +3972,9 @@ The TrafficControl block holds a map of vehicles (by their license plate no. or 
 				<value>GUID 61de012f-82f4-4005-9090-30cf4ec304b4</value>
 				<value>GUID 2dae36b3-7ff1-4809-a34d-0155564826fa</value>
 				<value>GUID 4ad819c5-feed-4899-b094-488da95afe0f</value>
+				<value>GUID 46899768-e438-454e-ab18-96c25948c928</value>
+				<value>GUID e4375295-fc39-4024-a630-70862ca70a28</value>
+				<value>GUID fc211be2-e6c4-4f8d-81de-9f1b896c8bd5</value>
 			</AggregatesList>
 		</IStereotype>
 		<ITag type="e">
@@ -4087,6 +4090,60 @@ The TrafficControl block holds a map of vehicles (by their license plate no. or 
 					<_hid type="a">GUID f19b56f2-78ab-44fa-860e-6ead487ecb07</_hid>
 				</IHandle>
 			</_typeOf>
+			<_isOrdered type="a">0</_isOrdered>
+		</ITag>
+		<ITag type="e">
+			<_id type="a">GUID 46899768-e438-454e-ab18-96c25948c928</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiInstanceVal</_name>
+			<_modifiedTimeWeak type="a">5.25.2023::17:3:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:3:43</_modifiedTime>
+			<_multiplicity type="a">*</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+			<AggregatesList type="e">
+				<value>GUID b8d53bf4-6ba2-4a30-933f-e8077daa7cf3</value>
+			</AggregatesList>
+		</ITag>
+		<IType type="e">
+			<_id type="a">GUID b8d53bf4-6ba2-4a30-933f-e8077daa7cf3</_id>
+			<_myState type="a">8192</_myState>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_declaration type="a">Class</_declaration>
+			<_kind type="a">Language</_kind>
+		</IType>
+		<ITag type="e">
+			<_id type="a">GUID e4375295-fc39-4024-a630-70862ca70a28</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiIntVal</_name>
+			<_modifiedTimeWeak type="a">5.25.2023::17:2:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:2:0</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypes</_hsubsystem>
+					<_hname type="a">RhpInteger</_hname>
+					<_hid type="a">GUID 9503fd72-4374-4a1d-9a70-b60508d8f583</_hid>
+				</IHandle>
+			</_typeOf>
+			<_multiplicity type="a">*</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+		</ITag>
+		<ITag type="e">
+			<_id type="a">GUID fc211be2-e6c4-4f8d-81de-9f1b896c8bd5</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiStringVal</_name>
+			<_modifiedTimeWeak type="a">5.25.2023::17:2:18</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:2:18</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypes</_hsubsystem>
+					<_hname type="a">RhpString</_hname>
+					<_hid type="a">GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35</_hid>
+				</IHandle>
+			</_typeOf>
+			<_multiplicity type="a">*</_multiplicity>
 			<_isOrdered type="a">0</_isOrdered>
 		</ITag>
 		<IStereotype type="e">
@@ -6932,10 +6989,10 @@ return (long)(res);%0D
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">5.25.2023::14:2:4</_modifiedTimeWeak>
-			<_modifiedTime type="a">5.25.2023::14:2:4</_modifiedTime>
-			<weakCGTime type="a">5.25.2023::14:2:4</weakCGTime>
-			<strongCGTime type="a">5.25.2023::14:1:22</strongCGTime>
+			<_modifiedTimeWeak type="a">5.25.2023::17:4:36</_modifiedTimeWeak>
+			<_modifiedTime type="a">5.25.2023::17:4:36</_modifiedTime>
+			<weakCGTime type="a">5.25.2023::17:4:36</weakCGTime>
+			<strongCGTime type="a">5.25.2023::17:2:49</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -6949,6 +7006,9 @@ return (long)(res);%0D
 				<value>GUID 56e29a2e-624e-47d4-b329-444fb8d0ad21</value>
 				<value>GUID 9d7012f9-68e8-4fb7-a826-36c393160c27</value>
 				<value>GUID ad7b9201-60a9-427c-b722-e70d2fd6adb7</value>
+				<value>GUID 4a81c78f-c770-4360-a2d2-98653767b4a0</value>
+				<value>GUID 93ec85f0-6744-4a91-9422-5019ae8b2326</value>
+				<value>GUID 048d3e12-7b66-43b5-a298-290640098559</value>
 			</AggregatesList>
 		</IClass>
 		<ITag type="e">
@@ -7065,7 +7125,7 @@ return (long)(res);%0D
 		<IInstanceValue type="e">
 			<_id type="a">GUID 1ef47e5b-d2a5-4f21-9335-7dda93bed30c</_id>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_value type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IClass</_hm2Class>
@@ -7077,7 +7137,7 @@ return (long)(res);%0D
 			<_id type="a">GUID a742ea3e-5e58-4c41-9928-8397550424c9</_id>
 			<_myState type="a">8192</_myState>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_declaration type="a">Class</_declaration>
 			<_kind type="a">Language</_kind>
 		</IType>
@@ -7173,6 +7233,134 @@ return (long)(res);%0D
 			<_modifiedTimeWeak type="a">5.25.2023::14:2:4</_modifiedTimeWeak>
 			<_modifiedTime type="a">5.25.2023::14:2:4</_modifiedTime>
 			<_value type="a">strValue</_value>
+		</ILiteralSpecification>
+		<ITag type="e">
+			<_id type="a">GUID 4a81c78f-c770-4360-a2d2-98653767b4a0</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiInstanceVal</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_multiplicity type="a">*</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+			<_base type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">ITag</_hm2Class>
+					<_hid type="a">GUID 46899768-e438-454e-ab18-96c25948c928</_hid>
+				</IHandle>
+			</_base>
+			<AggregatesList type="e">
+				<value>GUID 720c976e-493a-4f35-b83f-1b6769b804d0</value>
+				<value>GUID 9d3c76b5-4dbf-473f-9983-e912ba9662f8</value>
+				<value>GUID 181b1994-ab9c-471c-ac7c-ce3f27107c66</value>
+			</AggregatesList>
+		</ITag>
+		<IInstanceValue type="e">
+			<_id type="a">GUID 720c976e-493a-4f35-b83f-1b6769b804d0</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c</_hid>
+				</IHandle>
+			</_value>
+		</IInstanceValue>
+		<IInstanceValue type="e">
+			<_id type="a">GUID 9d3c76b5-4dbf-473f-9983-e912ba9662f8</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID e5baf6ea-dbe6-4828-a395-8e4bd43bc87c</_hid>
+				</IHandle>
+			</_value>
+		</IInstanceValue>
+		<IType type="e">
+			<_id type="a">GUID 181b1994-ab9c-471c-ac7c-ce3f27107c66</_id>
+			<_myState type="a">8192</_myState>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_declaration type="a">Class</_declaration>
+			<_kind type="a">Language</_kind>
+		</IType>
+		<ITag type="e">
+			<_id type="a">GUID 93ec85f0-6744-4a91-9422-5019ae8b2326</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiIntVal</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypes</_hsubsystem>
+					<_hname type="a">RhpInteger</_hname>
+					<_hid type="a">GUID 9503fd72-4374-4a1d-9a70-b60508d8f583</_hid>
+				</IHandle>
+			</_typeOf>
+			<_multiplicity type="a">*</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+			<_base type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">ITag</_hm2Class>
+					<_hid type="a">GUID e4375295-fc39-4024-a630-70862ca70a28</_hid>
+				</IHandle>
+			</_base>
+			<AggregatesList type="e">
+				<value>GUID 2a35f43d-6223-4b74-b71f-3cf259762483</value>
+				<value>GUID d57d94b5-8db2-4516-a494-e0e9c16c9436</value>
+			</AggregatesList>
+		</ITag>
+		<ILiteralSpecification type="e">
+			<_id type="a">GUID 2a35f43d-6223-4b74-b71f-3cf259762483</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="a">23</_value>
+		</ILiteralSpecification>
+		<ILiteralSpecification type="e">
+			<_id type="a">GUID d57d94b5-8db2-4516-a494-e0e9c16c9436</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="a">35</_value>
+		</ILiteralSpecification>
+		<ITag type="e">
+			<_id type="a">GUID 048d3e12-7b66-43b5-a298-290640098559</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">multiStringVal</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypes</_hsubsystem>
+					<_hname type="a">RhpString</_hname>
+					<_hid type="a">GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35</_hid>
+				</IHandle>
+			</_typeOf>
+			<_multiplicity type="a">*</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+			<_base type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">ITag</_hm2Class>
+					<_hid type="a">GUID fc211be2-e6c4-4f8d-81de-9f1b896c8bd5</_hid>
+				</IHandle>
+			</_base>
+			<AggregatesList type="e">
+				<value>GUID 4d5e5985-a612-458e-9748-8b840fc3bcb3</value>
+				<value>GUID d23dcf8d-3829-42bf-ab24-524dc08c2a90</value>
+			</AggregatesList>
+		</ITag>
+		<ILiteralSpecification type="e">
+			<_id type="a">GUID 4d5e5985-a612-458e-9748-8b840fc3bcb3</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="a">first</_value>
+		</ILiteralSpecification>
+		<ILiteralSpecification type="e">
+			<_id type="a">GUID d23dcf8d-3829-42bf-ab24-524dc08c2a90</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::18:0:0</_modifiedTime>
+			<_value type="a">second</_value>
 		</ILiteralSpecification>
 		<IClass type="e">
 			<_id type="a">GUID 21a14e61-1dd8-4b3e-b5d4-d45ec30cc3e9</_id>
