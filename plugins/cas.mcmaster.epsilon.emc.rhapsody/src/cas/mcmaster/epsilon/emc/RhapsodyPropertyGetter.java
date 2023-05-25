@@ -1,3 +1,13 @@
+/********************************************************************************
+ * Copyright (c) 2023 McMaster University
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0, or the Apache License, Version 2.0
+ * which is available at https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
+ ********************************************************************************/
 package cas.mcmaster.epsilon.emc;
 
 import java.util.ArrayList;
@@ -64,7 +74,7 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 			if (valSpec instanceof IRPInstanceValue) {
 				result.add(((IRPInstanceValue)valSpec).getValue());
 			} else if (valSpec instanceof IRPLiteralSpecification) {
-				result.add( getLiteralSpecValue(tag, (IRPLiteralSpecification) valSpec));
+				result.add( getLiteralSpecAsPrimitive(tag, (IRPLiteralSpecification) valSpec));
 			} else {
 				throw new IllegalStateException("Unknown value specification type: " + valSpec.getClass().getName());
 			}
@@ -79,7 +89,15 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	
 	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertyGetter.class);
 
-	private Object getLiteralSpecValue(IRPTag tag, IRPLiteralSpecification valSpec) {
+	/**
+	 * Gets the {@link IRPLiteralSpecification} value and tries to cast it to the correct Java
+	 * primitive.
+	 * 
+	 * @param tag
+	 * @param valSpec
+	 * @return the primitive value, or the string representation if casting failed.
+	 */
+	private Object getLiteralSpecAsPrimitive(IRPTag tag, IRPLiteralSpecification valSpec) {
 		var valSpecVal = valSpec.getValue();
 		var tagTypeName = tag.getType().getName();
 		Object result = null;
@@ -108,6 +126,28 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		return result;
 	}
 	
+	/**
+	 * Use the {@link OperationContributorRegistry} to find a plausible java method to get the 
+	 * property.
+	 * <p>
+	 * A matching Java method is searched by name with the following combinations, in order of
+	 * priority:
+	 * <ul>
+	 * 	<li> X()
+	 *  <li> getX()
+	 *  <li> isX()
+	 *  <li> hasX()
+	 * </ul> 
+	 * As a result, for example in the case of IRPModelElement, the expression
+	 * <code>element.nestedElements</code> will always result in a call to <i>getNestedElements</i>
+	 * as opposed to <i>hasNestedElements</i>. To get the hasNestedElements value, you will
+	 * need to use <code>element.hasNestedElements</code>.
+	 * 
+	 * @param object
+	 * @param property
+	 * @param context
+	 * @return the {@link ObjectMethod} to call
+	 */
 	private ObjectMethod getMethodFor(Object object, String property, IEolContext context) {
 		OperationContributorRegistry registry = context.getOperationContributorRegistry();
 		
