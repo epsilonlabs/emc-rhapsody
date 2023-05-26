@@ -78,7 +78,7 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  */
 public class RhapsodyModel extends CachedModel<IRPModelElement> implements IModel {
 	
-	public static final String PROPERTIES_PROJECT_PATH = "path";
+	public static final String PROPERTIES_PROJECT_PATH = "prj_path";
 	public static final String PROPERTIES_INSTALLATION_DIRECTORY = "install_dir";
 	public static final String PROPERTIES_MAIN_PACKAGE_NAME = "main_package";
 
