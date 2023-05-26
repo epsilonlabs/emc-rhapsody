@@ -1,5 +1,16 @@
+/********************************************************************************
+ * Copyright (c) 2023 McMaster University
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0, or the Apache License, Version 2.0
+ * which is available at https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
+ ********************************************************************************/
 package cas.mcmaster.tests;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -7,6 +18,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.stream.Stream;
 
 import org.eclipse.epsilon.eol.exceptions.EolIllegalPropertyException;
@@ -101,7 +113,11 @@ public class RhapsodyPropertyGetterTests {
 		var underTest = new RhapsodyPropertyGetter();
 		try {
 			var value = underTest.invoke(block, tagName, new EolContext());
-			assertEquals(expected, value);
+			if (value instanceof Collection<?>) {
+				assertArrayEquals((Object[])expected, ((Collection<?>)value).toArray());
+			} else {
+				assertEquals(expected, value);
+			}
 		} catch (EolRuntimeException e) {
 			fail("Property should exist");
 		}
@@ -133,13 +149,17 @@ public class RhapsodyPropertyGetterTests {
 	
 	static Stream<Arguments> get_property_from_tag() {
 		var camera = prj.findNestedElementRecursive("Camera", "Block");
+		var picture = prj.findNestedElementRecursive("Picture", "Block");
 		return Stream.of(
 		        arguments("boolVal", true),
 		        arguments("floatOther", "wrongFloat"),
 		        arguments("floatVal", 2.3f),
+		        arguments("instanceVal", camera),
 		        arguments("intOther", "wrongInt"),
 		        arguments("intVal", 10),
-		        arguments("instanceVal", camera),
+		        arguments("multiInstanceVal", new Object[] {camera, picture}),
+		        arguments("multiIntVal", new Integer[] {23, 35}),
+		        arguments("multiStringVal", new String[] {"first", "second"}),
 		        arguments("strVal", "strValue")
 		        
 		    );

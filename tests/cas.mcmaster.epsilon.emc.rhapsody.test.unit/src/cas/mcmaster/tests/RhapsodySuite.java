@@ -22,7 +22,9 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 	RhapsodyMetaclassesTests.class,
 	RhapsodyModelLoadingTests.class,
 	RhapsodyModelTests.class,
-	RhapsodyModelTypesTests.class})
+	RhapsodyModelTypesTests.class,
+	RhapsodyPropertySetterTests.class,
+	RhapsodyPropertyGetterTests.class})
 public class RhapsodySuite {
 
 }
