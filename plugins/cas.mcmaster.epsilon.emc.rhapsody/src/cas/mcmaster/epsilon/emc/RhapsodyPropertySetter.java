@@ -17,12 +17,20 @@ import org.apache.logging.log4j.Logger;
 import org.eclipse.epsilon.eol.exceptions.EolIllegalPropertyException;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.eol.execute.context.IEolContext;
+import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
 import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertySetter;
 import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
 
+/**
+ * This {@link IPropertySetter} implementation supports for Java property setter and a custom
+ * implementation to support SysML Stereotype tags (as properties).
+ * 
+ * @author Horacio Hoyos Rodriguez
+ *
+ */
 public class RhapsodyPropertySetter extends JavaPropertySetter {
 
 	@Override

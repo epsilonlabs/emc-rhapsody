@@ -27,6 +27,13 @@ import com.telelogic.rhapsody.core.IRPLiteralSpecification;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
 
+/**
+ * This {@link IPropertyGetter} implementation supports for Java property getter and a custom
+ * implementation to support SysML Stereotype tags (as properties).
+ * 
+ * @author Horacio Hoyos Rodriguez
+ *
+ */
 public class RhapsodyPropertyGetter implements IPropertyGetter {
 
 	@Override
