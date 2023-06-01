@@ -128,7 +128,7 @@ public class RhapsodyModelLoadingTests {
 		model = new RhapsodyModel();
 		try {
 			StringProperties properties = defaultProperties();
-			properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "RoadMonitoringPkg");
+			properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
 			model.load(properties);
 		} catch (EolModelLoadingException e) {
 			fail("Should not throw exception", e);
@@ -170,7 +170,7 @@ public class RhapsodyModelLoadingTests {
 	private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
 		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TollRoad.rpyx");
+		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
 		return properties;
 	}
 	

@@ -49,7 +49,7 @@ public class RhapsodyMetaclassesTests {
 		} catch (RhapsodyRuntimeException e) {
 			app = RhapsodyAppServer.createRhapsodyApplication();
 		}
-		Path fullPath = Paths.get("resources/TollRoad.rpyx").toAbsolutePath();
+		Path fullPath = Paths.get("resources/TestModelA/TestModelA.rpyx").toAbsolutePath();
 		prj = app.openProject(fullPath.toString());
 		
 	}
@@ -162,7 +162,7 @@ public class RhapsodyMetaclassesTests {
 		var underTest = underTest();
 		try {
 			var packages = underTest.getAllOfKind("Package");
-			assertEquals(30, packages.size());
+			assertEquals(19, packages.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -182,7 +182,7 @@ public class RhapsodyMetaclassesTests {
 	@Test
 	void get_all_type_names_for_class_base() {
 		var underTest = underTest();
-		IRPModelElement operation = prj.findNestedElementRecursive("takePicture", "Operation");
+		IRPModelElement operation = prj.findNestedElementRecursive("call", "Operation");
 		if (operation == null) {
 			fail("Operation with name 'takePicture' should exist");
 		}
@@ -194,9 +194,9 @@ public class RhapsodyMetaclassesTests {
 	@Test
 	void get_all_type_names_for_new_term_stereotype() {
 		var underTest = underTest();
-		var block = prj.findNestedElementRecursive("Camera", "Block");
+		var block = prj.findNestedElementRecursive("Block1", "Block");
 		if (block == null) {
-			fail("Block with name 'Camera' should exist");
+			fail("Block with name 'Block1' should exist");
 		}
 		var typeNames = underTest.getAllTypeNamesOf(block);
 		assertEquals(2, typeNames.size());
@@ -207,11 +207,11 @@ public class RhapsodyMetaclassesTests {
 	@Test
 	void get_all_type_names_for_no_new_term_stereotype() {
 		var underTest = underTest();
-		var dep = prj.findNestedElementRecursive("TimeServices", "Dependency");
+		var dep = prj.findNestedElementRecursive("Block3", "Dependency");
 		if (dep == null) {
-			fail("Dependency with name 'TimeServices' should exist");
+			fail("Dependency with name 'Block3' should exist");
 		}
-		// TimeServices has a Usage (no new term) stereotype
+		// Block3 has a Usage (no new term) stereotype
 		var typeNames = underTest.getAllTypeNamesOf(dep);
 		assertEquals(1, typeNames.size());
 		assertTrue(typeNames.contains("Dependency"));

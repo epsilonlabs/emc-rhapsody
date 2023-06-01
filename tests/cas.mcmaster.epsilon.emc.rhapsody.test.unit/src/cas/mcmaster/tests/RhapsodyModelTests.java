@@ -62,8 +62,8 @@ public class RhapsodyModelTests {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"'GUID fe10d56a-baae-4305-9bd1-f8db5aff6190',Package",
-		"'GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c',Block"})
+		"'GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6',Package",
+		"'GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78bac',Block"})
 	public void get_element_by_id(String id, String metaclass) {
 		Object element = underTest.getElementById(id);
 		assertNotNull(element);
@@ -72,11 +72,11 @@ public class RhapsodyModelTests {
 	
 	@Test
 	void get_element_id() throws EolModelElementTypeNotFoundException {
-		var element = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var element = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
 		if (element == null) {
 			fail("Element with given id should exist");
 		}
-		assertEquals("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c", underTest.getElementId(element));
+		assertEquals("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6", underTest.getElementId(element));
 	}
 	
 	@Test
@@ -88,7 +88,7 @@ public class RhapsodyModelTests {
 	
 	@Test
 	void set_element_id() {
-		var element = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var element = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
 		underTest.setElementId(element, "GUID fe10d56a-baae-4305-9bd1-f8db5aff6191");
 		if (element == null) {
 			fail("Element with given id should exist");
@@ -112,8 +112,11 @@ public class RhapsodyModelTests {
 	
 	@Test
 	void owns_is_true_for_element_in_model() {
-		var element = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
-		assertTrue(underTest.owns(element));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78bac");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertTrue(underTest.owns(ele));
 	}
 	
 	@Test
@@ -124,10 +127,10 @@ public class RhapsodyModelTests {
 	@Test
 	void owns_is_false_for_element_in_other_model() {
 		var app = RhapsodyAppServer.createRhapsodyApplication();
-		Path fullPath = Paths.get("resources/DigitalCamera.rpyx").toAbsolutePath();
+		Path fullPath = Paths.get("resources/TestModelB/TestModelB.rpyx").toAbsolutePath();
 		var prj = app.openProject(fullPath.toString());
 		// GenericDigitalCamera
-		var camera = prj.findNestedElementRecursive("GenericDigitalCamera", "Class");
+		var camera = prj.findNestedElementRecursive("BlockA", "Class");
 		assertFalse(underTest.owns(camera));
 		app.quit();
 	}
@@ -135,14 +138,14 @@ public class RhapsodyModelTests {
 	@ParameterizedTest
 	@ValueSource(strings = {"owner", "panelWidget", "modified"})
 	void knows_about_property_for_known(String property) {
-		var element = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var element = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78bac");
 		assertTrue(underTest.knowsAboutProperty(element, property));
 	}
 	
 	@ParameterizedTest
 	@ValueSource(strings = {"owners", "panelWidgets", "modifiedAt"})
 	void knows_about_property_for_unknown(String property) {
-		var element = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var element = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78bac");
 		assertFalse(underTest.knowsAboutProperty(element, property));
 	}
 	
@@ -152,7 +155,7 @@ public class RhapsodyModelTests {
 		"panelWidget,true",
 		"modified,true"})
 	void is_property_set_for_known(String property, String expected) {
-		var element = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var element = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78bac");
 		try {
 			assertEquals(Boolean.valueOf(expected), underTest.isPropertySet(element, property));
 		} catch (EolRuntimeException e) {
@@ -167,8 +170,8 @@ public class RhapsodyModelTests {
 	static private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
 		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TollRoad.rpyx");
-		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "RoadMonitoringPkg");
+		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
+		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
 		return properties;
 	}
 

@@ -49,7 +49,7 @@ public class RhapsodyPropertySetterTests {
 		} catch (RhapsodyRuntimeException e) {
 			app = RhapsodyAppServer.createRhapsodyApplication();
 		}
-		Path fullPath = Paths.get("resources/TollRoad.rpyx").toAbsolutePath();
+		Path fullPath = Paths.get("resources/TestModelA/TestModelA.rpyx").toAbsolutePath();
 		prj = app.openProject(fullPath.toString());
 		
 	}
@@ -101,7 +101,7 @@ public class RhapsodyPropertySetterTests {
 	@ParameterizedTest
 	@MethodSource
 	void set_property_for_tag_primitive(String property, Object value) {
-		var block = prj.findNestedElementRecursive("Test", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
@@ -129,8 +129,8 @@ public class RhapsodyPropertySetterTests {
 	
 	@Test
 	void set_property_for_tag_context() {
-		var block = prj.findNestedElementRecursive("Test", "Block");
-		var other = prj.findNestedElementRecursive("Vehicle", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
+		var other = prj.findNestedElementRecursive("Block5", "Block");
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
@@ -149,14 +149,14 @@ public class RhapsodyPropertySetterTests {
 	
 	@Test
 	void set_property_for_tag_multival_primitive() {
-		var block = prj.findNestedElementRecursive("Test", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
 		var underTest = new RhapsodyPropertySetter();
 		var context = new EolContext();
 		Object value = Arrays.asList(10, 11);
-		IRPTag tag = block.getTag("multiIntVal" );
+		IRPTag tag = block.getTag("multiIntVal");
 		var prevVal = tag.getValue();
 		assertNotEquals(prevVal, "10, 11", "Test value should be different than current value");
 		try {
@@ -169,21 +169,21 @@ public class RhapsodyPropertySetterTests {
 	
 	@Test
 	void set_property_for_tag_multival_context() {
-		var block = prj.findNestedElementRecursive("Test", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
 		var underTest = new RhapsodyPropertySetter();
 		var context = new EolContext();
 		var value = Arrays.asList(
-				prj.findNestedElementRecursive("Vehicle", "Block"),
-				prj.findNestedElementRecursive("TrafficControl", "Block"));
+				prj.findNestedElementRecursive("Block5", "Block"),
+				prj.findNestedElementRecursive("Block4", "Block"));
 		IRPTag tag = block.getTag("multiInstanceVal" );
 		var prevVal = tag.getValue();
-		assertNotEquals(prevVal, "Vehicle, TrafficControl", "Test value should be different than current value");
+		assertNotEquals(prevVal, "Block5, Block4", "Test value should be different than current value");
 		try {
 			underTest.invoke(block, "multiInstanceVal", value, context);
-			assertEquals("Vehicle, TrafficControl", tag.getValue());
+			assertEquals("Block5, Block4", tag.getValue());
 		} catch (EolRuntimeException e) {
 			fail("Tag should exist");
 		}

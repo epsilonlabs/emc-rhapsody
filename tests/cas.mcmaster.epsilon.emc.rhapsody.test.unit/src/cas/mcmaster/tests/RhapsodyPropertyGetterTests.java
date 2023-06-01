@@ -48,7 +48,7 @@ public class RhapsodyPropertyGetterTests {
 		} catch (RhapsodyRuntimeException e) {
 			app = RhapsodyAppServer.createRhapsodyApplication();
 		}
-		Path fullPath = Paths.get("resources/TollRoad.rpyx").toAbsolutePath();
+		Path fullPath = Paths.get("resources/TestModelA/TestModelA.rpyx").toAbsolutePath();
 		prj = app.openProject(fullPath.toString());
 		
 	}
@@ -66,9 +66,9 @@ public class RhapsodyPropertyGetterTests {
 	@ParameterizedTest
 	@MethodSource
 	void has_property(String property, boolean expected) {
-		var block = prj.findNestedElementRecursive("Test", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
-			fail("Block with name 'Camera' should exist");
+			fail("Block with name 'Block1' should exist");
 		}
 		var underTest = new RhapsodyPropertyGetter();
 		assertEquals(expected, underTest.hasProperty(block, property, new EolContext()));
@@ -76,9 +76,9 @@ public class RhapsodyPropertyGetterTests {
 	
 	@Test
 	void get_unknown_property_throws() {
-		var block = prj.findNestedElementRecursive("Camera", "Block");
+		var block = prj.findNestedElementRecursive("Block1", "Block");
 		if (block == null) {
-			fail("Block with name 'Camera' should exist");
+			fail("Block with name 'Block1' should exist");
 		}
 		var underTest = new RhapsodyPropertyGetter();
 		var context = new EolContext();
@@ -90,9 +90,9 @@ public class RhapsodyPropertyGetterTests {
 	@ParameterizedTest
 	@MethodSource
 	void get_property_from_api(String property, Object expected) {
-		var block = prj.findNestedElementRecursive("Camera", "Block");
+		var block = prj.findNestedElementRecursive("Block1", "Block");
 		if (block == null) {
-			fail("Block with name 'Camera' should exist");
+			fail("Block with name 'Block1' should exist");
 		}
 		var underTest = new RhapsodyPropertyGetter();
 		try {
@@ -106,7 +106,7 @@ public class RhapsodyPropertyGetterTests {
 	@ParameterizedTest
 	@MethodSource
 	void get_property_from_tag(String tagName, Object expected) {
-		var block = prj.findNestedElementRecursive("Test", "Block");
+		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
@@ -141,15 +141,15 @@ public class RhapsodyPropertyGetterTests {
 	 */
 	static Stream<Arguments> get_property_from_api() {
 		return Stream.of(
-		        arguments("name", "Camera"),
+		        arguments("name", "Block1"),
 		        arguments("readOnly", 0),
 		        arguments("hasNestedElements", 1)		        
 		    );
 	}
 	
 	static Stream<Arguments> get_property_from_tag() {
-		var camera = prj.findNestedElementRecursive("Camera", "Block");
-		var picture = prj.findNestedElementRecursive("Picture", "Block");
+		var camera = prj.findNestedElementRecursive("Block1", "Block");
+		var picture = prj.findNestedElementRecursive("Block2", "Block");
 		return Stream.of(
 		        arguments("boolVal", true),
 		        arguments("floatOther", "wrongFloat"),

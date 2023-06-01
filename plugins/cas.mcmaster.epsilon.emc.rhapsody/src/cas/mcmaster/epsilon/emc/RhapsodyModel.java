@@ -222,11 +222,13 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public Object createInstance(String type, Collection<Object> parameters)
 			throws EolModelElementTypeNotFoundException, EolNotInstantiableModelElementTypeException {
 		if (!this.hasType(type)) {
+			LOG.error("Unable to create instance for unknown type: {}");
 			throw new EolModelElementTypeNotFoundException(this.getName(), type);
 		}
 		ElementFactory factory;
 		String name = "";
 		if (this.types.isMetaclass(type)) {
+			LOG.info("Given type found in metaclasses.");
 			Iterator<Object> it = parameters.iterator();
 			if (it.hasNext()) {
 				Object next = it.next();
@@ -237,6 +239,9 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			factory = new ElementFactory(type, name);
 		} else {
 			IRPStereotype sType = (IRPStereotype) this.prj.findNestedElementRecursive(type, "Stereotype");
+			if (sType == null) {
+				throw new IllegalStateException("The stereotype with name " + type + " should exist in the model.");
+			}
 			List<String> ofMetaClass = Arrays.asList(sType.getOfMetaClass().split(","));
 			Iterator<Object> it = parameters.iterator();
 			String metaClass = "";

@@ -149,7 +149,7 @@ public class RhapsodyModelTypesTests {
 	void get_all_by_kind_for_type() {
 		try {
 			var packages = underTest.getAllOfKind("Package");
-			assertEquals(30, packages.size());
+			assertEquals(19, packages.size());
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -312,14 +312,20 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void get_type_of_matches_metaclass() throws EolModelElementTypeNotFoundException {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
-		assertEquals("IRPPackage", underTest.getTypeOf(prj));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("IRPPackage", underTest.getTypeOf(ele));
 	}
 	
 	@Test
 	void get_type_of_matches_new_term_stereotype() throws EolModelElementTypeNotFoundException {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
-		assertEquals("IRPClass", underTest.getTypeOf(block));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 78f445b6-f602-4fa4-abc7-619306770217");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("IRPClass", underTest.getTypeOf(ele));
 	}
 	
 	@Test
@@ -331,14 +337,20 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void get_typename_of_matches_metaclass() throws EolModelElementTypeNotFoundException {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
-		assertEquals("Package", underTest.getTypeNameOf(prj));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("Package", underTest.getTypeNameOf(ele));
 	}
 	
 	@Test
 	void get_typename_of_matches_new_term_stereotype() throws EolModelElementTypeNotFoundException {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
-		assertEquals("Block", underTest.getTypeNameOf(block));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("Block", underTest.getTypeNameOf(ele));
 	}
 	
 	@Test
@@ -350,14 +362,20 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void get_fullyqualifiedtypename_of_matches_metaclass() throws EolModelElementTypeNotFoundException {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
-		assertEquals("Package", underTest.getFullyQualifiedTypeNameOf(prj));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("Package", underTest.getFullyQualifiedTypeNameOf(ele));
 	}
 	
 	@Test
 	void get_fullyqualifiedtypename_of_matches_new_term_stereotype() throws EolModelElementTypeNotFoundException {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
-		assertEquals("Block", underTest.getFullyQualifiedTypeNameOf(block));
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
+		assertEquals("Block", underTest.getFullyQualifiedTypeNameOf(ele));
 	}
 	
 	@Test
@@ -369,25 +387,34 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_kind_fails_for_unknown_type() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		assertThrows(
 				EolModelElementTypeNotFoundException.class, 
-				() -> underTest.isOfKind(prj, "Star"));
+				() -> underTest.isOfKind(ele, "Star"));
 	}
 	
 	@Test
 	void is_of_kind_fails_for_no_new_term_stereotype() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		assertThrows(
 				EolModelElementTypeNotFoundException.class, 
-				() -> underTest.isOfKind(prj, "Usage"));
+				() -> underTest.isOfKind(ele, "Usage"));
 	}
 
 	@Test
 	void is_of_kind_false_for_wrong_metaclass() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertFalse(underTest.isOfKind(prj, "Class"));
+			assertFalse(underTest.isOfKind(ele, "Class"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -395,9 +422,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_kind_false_for_wrong_stereotype() {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertFalse(underTest.isOfKind(block, "DataType"));
+			assertFalse(underTest.isOfKind(ele, "DataType"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -405,9 +435,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_kind_true_for_correct_metaclass() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertTrue(underTest.isOfKind(prj, "Package"));
+			assertTrue(underTest.isOfKind(ele, "Package"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -415,9 +448,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_kind_true_for_correct_stereotype() {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertTrue(underTest.isOfKind(block, "Block"));
+			assertTrue(underTest.isOfKind(ele, "Block"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -425,25 +461,34 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_type_fails_for_unknown_type() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		assertThrows(
 				EolModelElementTypeNotFoundException.class, 
-				() -> underTest.isOfType(prj, "Star"));
+				() -> underTest.isOfType(ele, "Star"));
 	}
 	
 	@Test
 	void is_of_type_fails_for_no_new_term_stereotype() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		assertThrows(
 				EolModelElementTypeNotFoundException.class, 
-				() -> underTest.isOfType(prj, "Usage"));
+				() -> underTest.isOfType(ele, "Usage"));
 	}
 
 	@Test
 	void is_of_type_false_for_wrong_metaclass() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertFalse(underTest.isOfType(prj, "Class"));
+			assertFalse(underTest.isOfType(ele, "Class"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -451,9 +496,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_type_false_for_wrong_stereotype() {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertFalse(underTest.isOfType(block, "DataType"));
+			assertFalse(underTest.isOfType(ele, "DataType"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -461,9 +509,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_type_true_for_correct_metaclass() {
-		var prj = (IRPModelElement) underTest.getElementById("GUID fe10d56a-baae-4305-9bd1-f8db5aff6190");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertTrue(underTest.isOfType(prj, "Package"));
+			assertTrue(underTest.isOfType(ele, "Package"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -471,9 +522,12 @@ public class RhapsodyModelTypesTests {
 	
 	@Test
 	void is_of_type_true_for_correct_stereotype() {
-		var block = (IRPModelElement) underTest.getElementById("GUID 24885c0c-4ae9-4aa2-a03a-921ecade1f3c");
+		var ele = (IRPModelElement) underTest.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+		if (ele == null) {
+			fail("Element by id must exist");
+		}
 		try {
-			assertTrue(underTest.isOfType(block, "Block"));
+			assertTrue(underTest.isOfType(ele, "Block"));
 		} catch (EolModelElementTypeNotFoundException e) {
 			fail("Should not throw exception", e);
 		}
@@ -484,8 +538,8 @@ public class RhapsodyModelTypesTests {
 	static private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
 		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TollRoad.rpyx");
-		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "RoadMonitoringPkg");
+		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
+		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
 		return properties;
 	}
 	
