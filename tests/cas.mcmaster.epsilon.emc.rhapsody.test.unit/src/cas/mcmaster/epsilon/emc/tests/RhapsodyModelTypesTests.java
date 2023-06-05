@@ -47,7 +47,6 @@ import cas.mcmaster.epsilon.emc.RhapsodyModel;
  */
 public class RhapsodyModelTypesTests {
 	
-	
 	@BeforeAll
 	static void load() throws EolModelLoadingException {
 		underTest = new RhapsodyModel();

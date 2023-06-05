@@ -10,6 +10,7 @@
  ********************************************************************************/
 package cas.mcmaster.epsilon.emc;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,6 +22,7 @@ import org.eclipse.epsilon.eol.execute.context.IEolContext;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertyGetter;
 import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 import org.eclipse.epsilon.eol.execute.operations.contributors.OperationContributorRegistry;
+import org.eclipse.epsilon.eol.util.ReflectionUtil;
 
 import com.telelogic.rhapsody.core.IRPInstanceValue;
 import com.telelogic.rhapsody.core.IRPLiteralSpecification;
@@ -92,6 +94,31 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 			return result;
 		}
 		
+	}
+	
+	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
+		String pName = property.substring(0, 1).toUpperCase() + property.substring(1);
+		// Look for a getX() method
+		Method om = null;
+		try {
+			om = ReflectionUtil.getMethodFor(instance, "get" + pName, new Object[]{}, false, true);
+			if (om == null) {
+				// Look for an isX() method
+				om = ReflectionUtil.getMethodFor(instance, "is" + pName, new Object[]{}, false, true);
+			}
+			if (om == null) {
+				// Look for a hasX() method
+				om = ReflectionUtil.getMethodFor(instance, "has" + pName, new Object[]{}, false, true);
+			}
+		} catch (SecurityException e) {
+			// We can't determine if the method exists
+			LOG.error("Unable to get property methods", e);
+		}
+		if (om != null) {
+			return true;
+		}
+		IRPTag tag = instance.getTag(property);
+		return tag != null;
 	}
 	
 	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertyGetter.class);

@@ -68,7 +68,7 @@ public class RhapsodyPropertyGetterTests {
 	void has_property(String property, boolean expected) {
 		var block = prj.findNestedElementRecursive("BlockWithTags", "Block");
 		if (block == null) {
-			fail("Block with name 'Block1' should exist");
+			fail("Block with name 'BlockWithTags' should exist");
 		}
 		var underTest = new RhapsodyPropertyGetter();
 		assertEquals(expected, underTest.hasProperty(block, property, new EolContext()));

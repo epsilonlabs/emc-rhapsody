@@ -164,6 +164,30 @@ public class RhapsodyModelLoadingTests {
 		assertTrue(aliases.contains("source"), "Should have 'source' alias");
 	}
 	
+	@Test
+	void in_transaction_supports_multiple_loads() {
+		model = new RhapsodyModel();
+		try {
+			StringProperties properties = defaultProperties();
+			properties.put(RhapsodyModel.PROPERTY_MAIN_PACKAGE_NAME, "TestingPkg");
+			properties.put(RhapsodyModel.PROPERTY_SOFT_DISPOSE, "true");
+			model.load(properties);
+		} catch (EolModelLoadingException e) {
+			fail("Should not throw exception", e);
+		}
+		RhapsodyModel rModel = (RhapsodyModel) model;
+		try {
+			model.load();	
+			model.dispose();
+			assertEquals(0, rModel.appStatus());
+			model.load();
+			assertEquals(0, rModel.appStatus());
+		} catch (EolModelLoadingException e) {
+			fail("Should not throw exception", e);
+		}
+		model.dispose();
+	}
+	
 
 	private IModel model;
 	

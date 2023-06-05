@@ -10,7 +10,6 @@
  ********************************************************************************/
 package cas.mcmaster.epsilon.emc;
 
-import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -31,8 +30,6 @@ import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertyGetter;
 import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
-import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertyGetter;
-import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertySetter;
 import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
@@ -64,7 +61,13 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  * 		'C:\Program Files\IBM\Rhapsody\9.0.1'
  * 	<li> {@link RhapsodyModel#PROPERTY_PROJECT_PATH}:  (optional) the path to the Rhapsody project
  * 		 to use. If absent, the current project opened in Rhapsody will be used (if available).
- *  <li> {@link RhapsodyModel#PROPERTY_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults to the first package in the model
+ *  <li> {@link RhapsodyModel#PROPERTY_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults 
+ *  		to the first package in the model
+ *  <li> {@link RhapsodyModel#PROPERTY_SOFT_DISPOSE}: (optional) if true, changes will not be saved 
+ *  		when calling {@link #store()}. The model will be kept "opened" even after calling {@link #dispose()}.
+ *  		This mode is useful for ANT workflows that benefit from not having to open a new Rhapsody 
+ *  		connection and loading the model multiple times (e.g. EUnit). To dispose the model, 
+ *  		the {@link #dispose()} method must be called twice.
  * </ul>
  * <p>
  * Type operations (e.g. allOfType, allofKind, createInstance, etc) rely on two sources of information.
@@ -81,10 +84,11 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public static final String PROPERTY_PROJECT_PATH = "prj_path";
 	public static final String PROPERTY_INSTALLATION_DIRECTORY = "install_dir";
 	public static final String PROPERTY_MAIN_PACKAGE_NAME = "main_package";
+	public static final String PROPERTY_SOFT_DISPOSE = "soft_dispose";
 
 	public RhapsodyModel() {
-		propertyGetter = new JavaPropertyGetter();
-		propertySetter = new JavaPropertySetter();
+		propertyGetter = new RhapsodyPropertyGetter();
+		propertySetter = new RhapsodyPropertySetter();
 	}
 	
 	@Override
@@ -96,13 +100,8 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@Override
-	public void load() throws EolModelLoadingException {
-		LOG.error("Rhapsody models need a properties file that includes a path to the Rhapsody installation");
-		throw new EolModelLoadingException(new UnsupportedOperationException("Rhapsody models can't be loaded without a properties file"), this);
-	}
 
+	@Override
 	public void load(
 		StringProperties properties,
 		IRelativePathResolver relativePathResolver) throws EolModelLoadingException {
@@ -119,6 +118,14 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			LOG.error("Rhapsody not running");
 			throw new EolModelLoadingException(new IllegalStateException("Rhapsody not running"), this);
 		}
+		
+		this.softDispose = properties.getBooleanProperty(PROPERTY_SOFT_DISPOSE, false);
+		if (this.softDispose) {
+			LOG.info("Starting uno transaction");
+			this.app.startUndoTransaction();
+			this.canDispose = false;
+		}
+		
 		if (properties.hasProperty(PROPERTY_PROJECT_PATH)) {
 			String path = properties.getProperty(PROPERTY_PROJECT_PATH);
 			Path fullPath = Paths.get(relativePathResolver.resolve(path)).toAbsolutePath();
@@ -169,6 +176,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			.load();
 		clearCache();
 		this.idPattern = Pattern.compile(ID_REGEX);
+		
 	}
 
 	@Override
@@ -367,37 +375,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public boolean knowsAboutProperty(Object instance, String property) {
 		if (!isModelElement(instance)) {
 			return false;
-		}
-		String pName = property.substring(0, 1).toUpperCase() + property.substring(1);
-		// Look for a getX() method
-		Method om = null;
-		try {
-			try {
-				om = instance.getClass().getMethod("get" + pName);
-			} catch (NoSuchMethodException e) {
-				// Not found
-			}
-			if (om == null) {
-				// Look for an isX() method
-				try {
-					om = instance.getClass().getMethod("is" + pName);
-				} catch (NoSuchMethodException e) {
-					// Not found
-				}
-			}
-			if (om == null) {
-				// Look for a hasX() method
-				try {
-					om = instance.getClass().getMethod("has" + pName);
-				} catch (NoSuchMethodException e) {
-					// Not found
-				}
-			}
-		} catch (SecurityException e) {
-			// We can't determine if the method exists
-			LOG.error("Unable to get property methods", e);
-		}
-		return om != null;
+		}	
+		return ((RhapsodyPropertyGetter) this.propertyGetter)
+				.knowsAboutProperty((IRPModelElement) instance, property);
+		
 	}
 
 	@Override
@@ -414,6 +395,9 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	public boolean store() {
+		if (this.softDispose) {
+			return true;
+		}
 		prj.save();
 		return true;
 	}
@@ -428,26 +412,46 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		return propertySetter;
 	}
 	
+	public int appStatus() {
+		try {
+			return this.app.getApplicationStatus();
+		} catch (RhapsodyRuntimeException ex) {
+			return -1;
+		}
+	}
+	
 	@Override
 	protected void loadModel() throws EolModelLoadingException {
-		// Nothing to do
+		if (this.softDispose) {
+			if (this.canDispose) {
+				this.app.startUndoTransaction();
+			}
+			this.canDispose = false;
+		} else {
+			LOG.error("Rhapsody models need a properties file that includes a path to the Rhapsody installation");
+			throw new EolModelLoadingException(new UnsupportedOperationException("Rhapsody models can't be loaded without a properties file"), this);
+		}
 	}
 
 	@Override
 	protected void disposeModel() {
-		if (this.storeOnDisposal) {
-			this.store();
-		}
-		if (this.prj != null) {
-			if (!this.usingActivePrj) {
-				this.prj.close();		
+		if (this.softDispose && !this.canDispose) {
+			this.canDispose = true;
+		} else {
+			LOG.info("Model in normal mode. Storing and closing.");
+			if (this.storeOnDisposal) {
+				this.store();
 			}
+			if (this.prj != null) {
+				if (!this.usingActivePrj) {
+					this.prj.close();		
+				}
+			}
+			if(!this.rhapsodyWasActive && (this.app != null)) {
+				this.app.quit();
+			}
+			RhapsodyAppServer.CloseSession();
 		}
-		if(!this.rhapsodyWasActive && (this.app != null)) {
-			this.app.quit();
-		}
-		// terminate the Rhapsody session
-		RhapsodyAppServer.CloseSession();
 	}
 	
 	@Override
@@ -518,11 +522,13 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	private IRPProject prj;
 	private RhapsodyMetaclasses types;
 	private IRPPackage mainPackage;
+	private boolean softDispose;
 	
 	private Pattern idPattern;
 	
 	private boolean usingActivePrj = false;
 	private boolean rhapsodyWasActive = false;
+	private boolean canDispose = true;
 	
 	/**
 	 * Factory for creating instances with classes or stereotypes
