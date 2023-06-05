@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.epsilon.common.dt.modelType">
+      <modelType
+            class="cas.mcmaster.epsilon.emc.RhapsodyModel"
+            icon="resources/icons/rhapsody.jpg"
+            label="Rhapsody Model"
+            stable="false"
+            type="Rhapsody">
+      </modelType>
+   </extension>
+
+</plugin>

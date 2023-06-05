@@ -1,0 +1,19 @@
+<project default="rhapsody-test">
+
+	<target name="rhapsody-test" depends="load-models">
+		<epsilon.eunit src="src/test.eunit">
+			<model ref="Test"/>
+		</epsilon.eunit>
+		<epsilon.disposeModels/>
+	</target>
+	
+	<target name="load-models">
+		<epsilon.loadModel name="Test" type="Rhapsody" impl="cas.mcmaster.epsilon.emc.RhapsodyModel.java">
+		    <parameter name="prj_path" value="${basedir}\resources\TestModelA\TestModelA.rpyx"/>
+		    <parameter name="install_dir" value="C:/Program Files/IBM\Rhapsody/9.0.1"/>
+		    <parameter name="main_package" value="TestingPkg"/>
+			<parameter name="soft_dispose" value="true"/>
+		    <parameter name="readOnLoad" value="true"/>
+		</epsilon.loadModel>
+	</target>
+</project>
