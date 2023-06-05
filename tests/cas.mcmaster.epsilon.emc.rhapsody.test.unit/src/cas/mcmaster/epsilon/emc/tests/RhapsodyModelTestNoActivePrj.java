@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  ********************************************************************************/
-package cas.mcmaster.tests;
+package cas.mcmaster.epsilon.emc.tests;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,7 +37,7 @@ public class RhapsodyModelTestNoActivePrj {
 				EolModelLoadingException.class,
 				() -> {
 					StringProperties properties = new StringProperties();
-					properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, "path/to/rhapsody");
+					properties.put(RhapsodyModel.PROPERTY_INSTALLATION_DIRECTORY, "path/to/rhapsody");
 					model.load(properties);
 				});
 		assertTrue(thrown.getMessage().contains("No active project on Rhapsody"));

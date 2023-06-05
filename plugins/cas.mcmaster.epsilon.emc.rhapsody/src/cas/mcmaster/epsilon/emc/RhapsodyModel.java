@@ -59,12 +59,12 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  * The model must be loaded via one of the load methods that accepts a {@link StringProperties} 
  * parameter. The following properties are supported:
  * <ul>
- * 	<li> {@link RhapsodyModel#PROPERTIES_INSTALLATION_DIRECTORY}: the path to the Rhapsody
+ * 	<li> {@link RhapsodyModel#PROPERTY_INSTALLATION_DIRECTORY}: the path to the Rhapsody
  * 		installation. Should point to the top folder of the specific version, e.g. 
  * 		'C:\Program Files\IBM\Rhapsody\9.0.1'
- * 	<li> {@link RhapsodyModel#PROPERTIES_PROJECT_PATH}:  (optional) the path to the Rhapsody project
+ * 	<li> {@link RhapsodyModel#PROPERTY_PROJECT_PATH}:  (optional) the path to the Rhapsody project
  * 		 to use. If absent, the current project opened in Rhapsody will be used (if available).
- *  <li> {@link RhapsodyModel#PROPERTIES_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults to the first package in the model
+ *  <li> {@link RhapsodyModel#PROPERTY_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults to the first package in the model
  * </ul>
  * <p>
  * Type operations (e.g. allOfType, allofKind, createInstance, etc) rely on two sources of information.
@@ -78,21 +78,9 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  */
 public class RhapsodyModel extends CachedModel<IRPModelElement> implements IModel {
 	
-	public static final String PROPERTIES_PROJECT_PATH = "prj_path";
-	public static final String PROPERTIES_INSTALLATION_DIRECTORY = "install_dir";
-	public static final String PROPERTIES_MAIN_PACKAGE_NAME = "main_package";
-
-	private static final Logger LOG = LogManager.getLogger(RhapsodyModel.class);
-	
-	private IRPApplication app;
-	private IRPProject prj;
-	private RhapsodyMetaclasses types;
-	private IRPPackage mainPackage;
-	
-	private Pattern idPattern;
-	
-	private boolean usingActivePrj = false;
-	private boolean rhapsodyWasActive = false;
+	public static final String PROPERTY_PROJECT_PATH = "prj_path";
+	public static final String PROPERTY_INSTALLATION_DIRECTORY = "install_dir";
+	public static final String PROPERTY_MAIN_PACKAGE_NAME = "main_package";
 
 	public RhapsodyModel() {
 		propertyGetter = new JavaPropertyGetter();
@@ -118,7 +106,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public void load(
 		StringProperties properties,
 		IRelativePathResolver relativePathResolver) throws EolModelLoadingException {
-		if (!properties.hasProperty(PROPERTIES_INSTALLATION_DIRECTORY)) {
+		if (!properties.hasProperty(PROPERTY_INSTALLATION_DIRECTORY)) {
 			LOG.error("No path to the Rhapsody installation provided");
 			throw new EolModelLoadingException(new IllegalArgumentException("No path to the Rhapsody installation provided"), this);
 		}
@@ -126,13 +114,13 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			this.app = connectToRhapsody();
 		} catch (UnsatisfiedLinkError e) {
 			LOG.error("Rhapsody DLL not found in java library path");
-			throw new EolModelLoadingException(new IllegalStateException("Error in project setup"), this);
+			throw new EolModelLoadingException(new IllegalStateException("Error in project setup, Rhapsody DLL not found in java library path"), this);
 		} catch (RhapsodyRuntimeException e) {
 			LOG.error("Rhapsody not running");
 			throw new EolModelLoadingException(new IllegalStateException("Rhapsody not running"), this);
 		}
-		if (properties.hasProperty(PROPERTIES_PROJECT_PATH)) {
-			String path = properties.getProperty(PROPERTIES_PROJECT_PATH);
+		if (properties.hasProperty(PROPERTY_PROJECT_PATH)) {
+			String path = properties.getProperty(PROPERTY_PROJECT_PATH);
 			Path fullPath = Paths.get(relativePathResolver.resolve(path)).toAbsolutePath();
 			LOG.info("Loading project from: {}", fullPath);
 			if (this.prj == null) {
@@ -151,8 +139,8 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			}
 			this.usingActivePrj = true;
 		}
-		if (properties.hasProperty(PROPERTIES_MAIN_PACKAGE_NAME)) {
-			String pkgName = properties.getProperty(PROPERTIES_MAIN_PACKAGE_NAME);
+		if (properties.hasProperty(PROPERTY_MAIN_PACKAGE_NAME)) {
+			String pkgName = properties.getProperty(PROPERTY_MAIN_PACKAGE_NAME);
 			this.mainPackage = (IRPPackage) this.prj.findNestedElement(pkgName, "Package");
 			if (this.mainPackage == null) {
 				LOG.error("A package with name {} to use as main package was not found", pkgName);
@@ -173,7 +161,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		setName("Rhapsody");
 		super.load(properties, relativePathResolver);
 		this.types = new RhapsodyMetaclasses(
-				properties.getProperty(PROPERTIES_INSTALLATION_DIRECTORY),
+				properties.getProperty(PROPERTY_INSTALLATION_DIRECTORY),
 				properties.getBooleanProperty(PROPERTY_CACHED, false),
 				this.prj,
 				this.name
@@ -319,8 +307,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		return Objects.equals(this.getTypeNameOf(instance), type);
 	}
 	
-	private final String ID_REGEX = "^GUID\s[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$";
-	
 	@Override
 	public Object getElementById(String id) {
 		if (!this.idPattern.matcher(id).matches()) {
@@ -454,7 +440,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		}
 		if (this.prj != null) {
 			if (!this.usingActivePrj) {
-				this.prj.close();					
+				this.prj.close();		
 			}
 		}
 		if(!this.rhapsodyWasActive && (this.app != null)) {
@@ -508,14 +494,16 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	protected boolean deleteElementInModel(Object instance) throws EolRuntimeException {
-		/*
-		 	@Override
-	public void deleteElement(Object instance) throws EolRuntimeException {
-		var element = (IRPModelElement) instance;
-		element.deleteFromProject();
-	}
-		 */
-		return false;
+		if (!isModelElement(instance)) {
+			return false;
+		}
+		try {
+			((IRPModelElement)instance).deleteFromProject();	
+		} catch(RhapsodyRuntimeException ex) {
+			LOG.error("Unable to delete element from model", ex);
+			throw new EolRuntimeException("Unable to delete the eleement", ex);
+		}
+		return true;
 	}
 	
 	@Override
@@ -523,8 +511,22 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		return this.types.getAllTypeNamesOf(instance);
 	}
 	
+	private static final Logger LOG = LogManager.getLogger(RhapsodyModel.class);
+	private final String ID_REGEX = "^GUID\s[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$";
+	
+	private IRPApplication app;
+	private IRPProject prj;
+	private RhapsodyMetaclasses types;
+	private IRPPackage mainPackage;
+	
+	private Pattern idPattern;
+	
+	private boolean usingActivePrj = false;
+	private boolean rhapsodyWasActive = false;
+	
 	/**
 	 * Factory for creating instances with classes or stereotypes
+	 * 
 	 * @author Horacio Hoyos Rodriguez
 	 */
 	private class ElementFactory {

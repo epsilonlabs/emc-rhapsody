@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  ********************************************************************************/
-package cas.mcmaster.tests;
+package cas.mcmaster.epsilon.emc.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -537,9 +537,9 @@ public class RhapsodyModelTypesTests {
 	
 	static private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
-		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
-		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
+		properties.put(RhapsodyModel.PROPERTY_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
+		properties.put(RhapsodyModel.PROPERTY_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
+		properties.put(RhapsodyModel.PROPERTY_MAIN_PACKAGE_NAME, "TestingPkg");
 		return properties;
 	}
 	

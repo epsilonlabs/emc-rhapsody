@@ -1,7 +1,0 @@
-for (t in Test_Project.allContents()){
-	t.metaclass.println();
-}
-"".println();
-for (t in EnumerationLiteral.all()){
-	t.name.println();
-}

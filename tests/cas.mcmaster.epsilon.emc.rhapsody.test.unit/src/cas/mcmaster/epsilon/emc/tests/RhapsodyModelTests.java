@@ -8,8 +8,11 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  ********************************************************************************/
-package cas.mcmaster.tests;
+package cas.mcmaster.epsilon.emc.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,15 +20,13 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.Arrays;
 
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
+import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -163,15 +164,33 @@ public class RhapsodyModelTests {
 		}
 	}
 	
-	
+	@Test
+	void deletes_element() throws EolModelElementTypeNotFoundException {
+		IRPModelElement newClass = null;
+		try {
+			newClass = (IRPModelElement) underTest.createInstance("Class", Arrays.asList("NewClass"));
+		} catch (EolModelElementTypeNotFoundException | EolNotInstantiableModelElementTypeException e) {
+			fail("Should not throw exception", e);
+		}
+		String id = newClass.getGUID();
+		Object byId = underTest.getElementById(id);
+		assertNotNull(byId);
+		try {
+			underTest.deleteElement(byId);
+		} catch (EolRuntimeException e) {
+			fail("Should not throw exception", e);
+		}
+		byId = underTest.getElementById(id);
+		assertNull(byId);
+	}
 	
 	static private IModel underTest;
 	
 	static private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
-		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
-		properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
+		properties.put(RhapsodyModel.PROPERTY_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
+		properties.put(RhapsodyModel.PROPERTY_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
+		properties.put(RhapsodyModel.PROPERTY_MAIN_PACKAGE_NAME, "TestingPkg");
 		return properties;
 	}
 

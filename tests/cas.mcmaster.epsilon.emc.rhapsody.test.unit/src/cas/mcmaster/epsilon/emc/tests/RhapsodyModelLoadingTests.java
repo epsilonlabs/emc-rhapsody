@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  ********************************************************************************/
-package cas.mcmaster.tests;
+package cas.mcmaster.epsilon.emc.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -66,7 +66,7 @@ public class RhapsodyModelLoadingTests {
 				EolModelLoadingException.class,
 				() -> {
 					StringProperties properties = defaultProperties();
-					properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "");
+					properties.put(RhapsodyModel.PROPERTY_PROJECT_PATH, "");
 					model.load(properties);
 				});
 		assertTrue(thrown.getMessage().contains("No active project on Rhapsody"));
@@ -84,7 +84,7 @@ public class RhapsodyModelLoadingTests {
 				EolModelLoadingException.class,
 				() -> {
 					StringProperties properties = defaultProperties();
-					properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "path/to/project.rpyx");
+					properties.put(RhapsodyModel.PROPERTY_PROJECT_PATH, "path/to/project.rpyx");
 					model.load(properties);
 				});
 		assertTrue(thrown.getMessage().contains("Invalid project name and/or path"));
@@ -128,7 +128,7 @@ public class RhapsodyModelLoadingTests {
 		model = new RhapsodyModel();
 		try {
 			StringProperties properties = defaultProperties();
-			properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "TestingPkg");
+			properties.put(RhapsodyModel.PROPERTY_MAIN_PACKAGE_NAME, "TestingPkg");
 			model.load(properties);
 		} catch (EolModelLoadingException e) {
 			fail("Should not throw exception", e);
@@ -142,7 +142,7 @@ public class RhapsodyModelLoadingTests {
 				EolModelLoadingException.class,
 				() -> {
 					StringProperties properties = defaultProperties();
-					properties.put(RhapsodyModel.PROPERTIES_MAIN_PACKAGE_NAME, "UnkownPkg");
+					properties.put(RhapsodyModel.PROPERTY_MAIN_PACKAGE_NAME, "UnkownPkg");
 					model.load(properties);
 				});
 		assertTrue(thrown.getMessage().contains("A package with name UnkownPkg could not be found"));
@@ -169,8 +169,8 @@ public class RhapsodyModelLoadingTests {
 	
 	private StringProperties defaultProperties() {
 		StringProperties properties = new StringProperties();
-		properties.put(RhapsodyModel.PROPERTIES_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
-		properties.put(RhapsodyModel.PROPERTIES_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
+		properties.put(RhapsodyModel.PROPERTY_INSTALLATION_DIRECTORY, System.getenv("RHAPSODY_PATH"));
+		properties.put(RhapsodyModel.PROPERTY_PROJECT_PATH, "resources/TestModelA/TestModelA.rpyx");
 		return properties;
 	}
 	
