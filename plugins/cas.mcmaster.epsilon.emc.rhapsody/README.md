@@ -32,3 +32,32 @@ As a result, for example in the case of `IRPModelElement`s, the expression
 <code>element.nestedElements</code> will always result in a call to <i>getNestedElements</i>
 as opposed to <i>hasNestedElements</i>. To get the hasNestedElements value, you will
 need to use <code>element.hasNestedElements</code>.
+
+# Compatibility
+
+The following table shows the version compatibility of the EMC Driver:
+
+EMC Model | Rhapsody 
+|---|---|
+|1.0.0 | 9.0.1 |
+
+
+# Development
+
+For development you need access to a Rhapsody Installation. 
+
+## Jar to Plugin
+
+The `cas.mcmaster.epsilon.emc.rhapsody` projects needs the Rhapsody jar as a dependency. 
+For this, you need to craete a new project using the `Plug-in From Existing JAR Archives` [wizard](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Fproject_wizards%2Fplugin_from_archives.htm).
+The name of the project should be `com.telelogic.rhapsody.core`, and the version should match 
+the Rhapsody version you are using. For specific versions matching the EMC plugin version see the 
+table in the Compatibility section.
+
+Once the plugin is created. Add a `lib` folder to the root and copy the Java API dll from the 
+Rhapsody installation to this folder. 
+
+**NOTE:** DO NOT redistribute the plugin you created from the jar or the dll.
+
+
+
