@@ -1,0 +1,135 @@
+@test
+operation enumeration_value_fails_for_invalid_name() {
+	assertError(Test!TestEnumWrong#SOME_VALUE);
+}
+
+@test
+operation enumeration_value_fails_for_invalid_literal() {
+	assertError(Test!TestEnum#SOME_VALUE);
+}
+
+@test
+operation get_enumeration_value_matches() {
+	var value = Test!TestEnum#TEST_1;
+	assertEquals("1", value);
+	value = Test!TestEnum#TEST_2;
+	assertEquals("2", value);
+}
+
+@test
+operation get_all_by_type_for_type() {
+	var blocks = Test!Package.getAllOfType();
+	assertEquals(14, blocks.size());
+}
+
+@test
+operation get_all_by_type_for_new_term_stereotype() {
+	var blocks = Test!Block.getAllOfType();
+	assertEquals(6, blocks.size());
+}
+
+@test
+operation get_all_by_kind_for_type() {
+	var blocks = Test!Package.all();
+	assertEquals(19, blocks.size());
+}
+
+@test
+operation get_all_by_kind_for_new_term_stereotype() {
+	var blocks = Test!Block.all();
+	assertEquals(6, blocks.size());
+}
+
+@Test
+operation create_metaclass_instance_without_paramteres() {
+	var element = new Test!Class;
+	assertNotEquals(null, element);
+}
+
+@test
+operation create_stereotype_instance_without_paramteres() {
+	var element = new Test!Block;
+	assertNotEquals(null, element);
+}
+
+@test
+operation get_type_of_matches_metaclass() {
+	var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+	assertEquals("IRPPackage", ele.type());
+}
+
+@test
+operation is_of_kind_false_for_wrong_metaclass() {
+	var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+	assertFalse(ele.isKindOf(Test!Class));
+}
+
+@Test
+operation is_of_kind_false_for_wrong_stereotype() {
+	var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+	assertFalse(ele.isKindOf(Test!DataType));
+}
+
+@test
+operation is_of_kind_true_for_correct_metaclass() {
+	var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+	assertTrue(ele.isKindOf(Test!Package));
+}
+
+@test
+operation is_of_kind_true_for_correct_stereotype() {
+	var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+	assertTrue(ele.isKindOf(Test!Block));
+}
+
+@test
+operation is_of_type_false_for_wrong_metaclass() {
+	var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+	assertFalse(ele.isTypeOf(Test!Class));
+}
+
+@test
+operation is_of_type_false_for_wrong_stereotype() {
+	var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+	assertFalse(ele.isTypeOf(Test!DataType));
+}
+
+@test
+operation is_of_type_true_for_correct_metaclass() {
+	var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+	assertTrue(ele.isTypeOf(Test!Package));
+}
+
+@test
+operation is_of_type_true_for_correct_stereotype() {
+	var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+	assertTrue(ele.isTypeOf(Test!Block));
+}
+
+@test
+operation get_property_from_api() {
+	var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+	assertEquals("Block1", ele.name);
+}
+
+@test
+operation get_property_from_tag() {
+	var ele = Test.getElementById("GUID 331dc17e-2f5f-49eb-8cca-8a68d7288c17");
+	assertEquals(2.3f, ele.floatVal);
+}
+
+@test
+operation set_property_from_api() {
+	var ele = Test.getElementById("GUID b285a059-d9e9-43bc-a144-426af8afcc73a");
+	assertEquals("Block2", ele.name);
+	ele.name = "Block_Two";
+	assertEquals("Block_Two", ele.name);
+}
+
+@test
+operation set_property_from_tag() {
+	var ele = Test.getElementById("GUID 331dc17e-2f5f-49eb-8cca-8a68d7288c17");
+	assertEquals(10, ele.intVal);
+	ele.intVal = 26;
+	assertEquals(26, ele.intVal);
+}

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rational Rhapsody API
+Bundle-SymbolicName: com.telelogic.rhapsody.core
+Bundle-Vendor: IBM
+Bundle-Version: 9.0.1
+Export-Package: com.telelogic.rhapsody.core;version="9.0.1"
+Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.api
+Bundle-RequiredExecutionEnvironment: JavaSE-19
