@@ -8,7 +8,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.*;
 
 public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigurationDialog {
-	
+
 	private Text fileText;
 	private boolean selectElemRoot;
 	private Text rhapsodyText;
@@ -24,7 +24,7 @@ public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigu
 		// TODO Auto-generated method stub
 		return "Rhapsody";
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -32,16 +32,16 @@ public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigu
 		createLoadStoreOptionsGroup(control);
 		createRhapsodyInstallationGroup(control);
 	}
-	
+
 	private void createFileGroup(Composite parent) {
 		final Composite groupContent = DialogUtil.createGroupContainer(parent, "Files", 3);
-		
+
 		final Label modelFileLabel = new Label(groupContent, SWT.NONE);
 		modelFileLabel.setText("Model file: ");
-		
+
 		fileText = new Text(groupContent, SWT.BORDER);
 		fileText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
+
 		final Button browseFile = new Button(groupContent, SWT.NONE);
 		browseFile.setText("Browse Workspace...");
 		browseFile.addListener(SWT.Selection, new BrowseWorkspaceForModelsListener(fileText, "Rhapsody model files in the workspace",
@@ -51,37 +51,37 @@ public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigu
 		final Button useCurrentProjectCheckBtn = new Button(groupContent, SWT.CHECK);
 		useCurrentProjectCheckBtn.addSelectionListener(new CurrentProjectListener(fileText));
 	}
-	
+
 	private void createRhapsodyInstallationGroup(Composite parent) {
 		final Composite groupContent = DialogUtil.createGroupContainer(parent, "Rhapsody Installation", 3);
-		
+
 		final Label modelFileLabel = new Label(groupContent, SWT.NONE);
 		modelFileLabel.setText("Rhapsody installation: ");
-		
-		fileText = new Text(groupContent, SWT.BORDER);
-		fileText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
+
+		rhapsodyText = new Text(groupContent, SWT.BORDER);
+		rhapsodyText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
 		final Button browseFile = new Button(groupContent, SWT.NONE);
 		browseFile.setText("Browse...");
 		browseFile.addSelectionListener(new SelectionListener() {
- 
+
 			public void widgetDefaultSelected(SelectionEvent e) {
 			}
- 
+
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog dlg = new FileDialog(browseFile.getShell(),  SWT.OPEN);
 				dlg.setText("Open");
 				String path = dlg.open();
 				if (path == null) return;
-				fileText.setText(path);
+				rhapsodyText.setText(path);
 			}
 		});
 	}
-	
+
 	protected class CurrentProjectListener extends SelectionAdapter {
-		
+
 		private Text targetText;
-		
+
 		public CurrentProjectListener(Text target) {
 			targetText = target;
 		}
@@ -93,5 +93,12 @@ public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigu
 			}
 		}
 	}
-	
+
+	protected class RootElementListener extends SelectionAdapter {
+
+		@Override
+		public void widgetSelected(SelectionEvent event) {
+			selectElemRoot = ((Button) event.getSource()).getSelection();
+		}
+	}
 }
