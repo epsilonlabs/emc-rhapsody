@@ -5,6 +5,7 @@
          point="org.eclipse.epsilon.common.dt.modelType">
       <modelType
             class="cas.mcmaster.epsilon.emc.RhapsodyModel"
+            dialog="cas.mcmaster.epsilon.emc.rhapsody.dt.RhapsodyModelConfigurationDialog"
             icon="resources/icons/rhapsody.jpg"
             label="Rhapsody Model"
             stable="false"
