@@ -85,6 +85,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public static final String PROPERTY_INSTALLATION_DIRECTORY = "install_dir";
 	public static final String PROPERTY_MAIN_PACKAGE_NAME = "main_package";
 	public static final String PROPERTY_SOFT_DISPOSE = "soft_dispose";
+	public static final String PROPERTY_ROOT_ELEM = "root_elem";
 
 	public RhapsodyModel() {
 		propertyGetter = new RhapsodyPropertyGetter();
