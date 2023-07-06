@@ -12,10 +12,10 @@
 			<_id type="a">GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">TestingPkg</_name>
-			<_modifiedTimeWeak type="a">5.31.2023::19:46:24</_modifiedTimeWeak>
-			<_modifiedTime type="a">5.31.2023::19:46:24</_modifiedTime>
-			<_lastID type="a">10</_lastID>
-			<weakCGTime type="a">5.31.2023::19:46:24</weakCGTime>
+			<_modifiedTimeWeak type="a">6.7.2023::14:25:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">6.7.2023::14:25:59</_modifiedTime>
+			<_lastID type="a">11</_lastID>
+			<weakCGTime type="a">6.7.2023::14:25:59</weakCGTime>
 			<strongCGTime type="a">5.31.2023::19:42:0</strongCGTime>
 			<_defaultComposite type="s">GUID fbfcbe4a-6c2b-4335-b399-16055851dc89</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -32,6 +32,7 @@
 				<value>GUID f9c455d2-c4d2-4d30-8e47-2158937ff117</value>
 				<value>GUID 78f445b6-f602-4fa4-abc7-619306770217</value>
 				<value>GUID a4b5ed8f-0b9b-409c-b10f-38117a14d93b</value>
+				<value>GUID 0d917655-0deb-45e7-8b13-daa6f9d04872</value>
 			</AggregatesList>
 		</ISubsystem>
 		<IStereotype type="e">
@@ -835,10 +836,6 @@
 			<_lastID type="a">1</_lastID>
 			<weakCGTime type="a">5.31.2023::19:44:43</weakCGTime>
 			<strongCGTime type="a">5.31.2023::19:42:0</strongCGTime>
-			<Operations type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</Operations>
 			<_itsStateChart type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -977,6 +974,27 @@
 			<_modifiedTime type="a">5.31.2023::19:46:24</_modifiedTime>
 			<_value type="a">2</_value>
 		</IEnumerationLiteral>
+		<IType type="e">
+			<_id type="a">GUID 0d917655-0deb-45e7-8b13-daa6f9d04872</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Speed</_name>
+			<_modifiedTimeWeak type="a">6.7.2023::14:25:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">6.7.2023::14:25:59</_modifiedTime>
+			<_typedefBaseType type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+					<_hsubsystem type="a">SysML::StandardValueTypes</_hsubsystem>
+					<_hname type="a">Integer</_hname>
+					<_hid type="a">GUID 8eeb9640-2089-4a73-a636-545f59ece9d0</_hid>
+				</IClassifierHandle>
+			</_typedefBaseType>
+			<_typedefMultiplicity type="a">1</_typedefMultiplicity>
+			<_typedefIsOrdered type="a">0</_typedefIsOrdered>
+			<_typedefIsReference type="a">0</_typedefIsReference>
+			<_typedefIsConstant type="a">0</_typedefIsConstant>
+			<_kind type="a">Typedef</_kind>
+		</IType>
 		
 	</RHAPSODY-MODEL>
 	<OslcLinks type="c">
