@@ -46,13 +46,6 @@ public class RhapsodyModelConfigurationDialog extends AbstractCachedModelConfigu
 		browseFile.setText("Browse Workspace...");
 		browseFile.addListener(SWT.Selection, new BrowseWorkspaceForModelsListener(fileText, "Rhapsody model files in the workspace",
 				"Select a Rhapsody project file"));
-		/*
-		 * final Label useCurrentProjLabel = new Label(groupContent, SWT.NONE);
-		 * useCurrentProjLabel.setText("Use current project: "); final Button
-		 * useCurrentProjectCheckBtn = new Button(groupContent, SWT.CHECK);
-		 * useCurrentProjectCheckBtn.addSelectionListener(new
-		 * CurrentProjectListener(fileText));
-		 */
 	}
 
 	private void createRhapsodyGroup(Composite parent) {
