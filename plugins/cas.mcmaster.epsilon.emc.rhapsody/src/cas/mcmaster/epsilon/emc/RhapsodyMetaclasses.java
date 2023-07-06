@@ -79,6 +79,10 @@ public class RhapsodyMetaclasses {
 			LOG.error("Unable to find a Type that matches the enumeration name: {}", name);
 			throw new EolEnumerationValueNotFoundException(name, literal, this.modelName);
 		}
+		if (irpEnum.isKindEnumeration() == 0) {
+			LOG.error("The Type that matches the enumeration name {} is not an enumeration", name);
+			throw new EolEnumerationValueNotFoundException(name, literal, this.modelName);
+		}
 		var enumLiterals = irpEnum.getEnumerationLiterals();
 		for (int i=1; i <= enumLiterals.getCount(); i++) {
 			var element = (IRPEnumerationLiteral) enumLiterals.getItem(i);

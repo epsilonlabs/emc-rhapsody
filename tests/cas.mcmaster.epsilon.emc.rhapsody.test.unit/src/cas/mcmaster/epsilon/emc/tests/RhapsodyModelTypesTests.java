@@ -81,6 +81,16 @@ public class RhapsodyModelTypesTests {
 	}
 	
 	@Test
+	void enumeration_value_fails_for_type_that_is_not_enum() {
+		EolEnumerationValueNotFoundException thrown = Assertions.assertThrows(
+				EolEnumerationValueNotFoundException.class,
+				() -> {
+					underTest.getEnumerationValue("Speed", "SOME_VALUE");
+				});
+		assertTrue(thrown.getMessage().contains("Cannot find enumeration literal Speed#SOME_VALUE in model"));
+	}
+	
+	@Test
 	void get_enumeration_value_matches() {
 		try {
 			var value = (String) underTest.getEnumerationValue("TestEnum", "TEST_1");
