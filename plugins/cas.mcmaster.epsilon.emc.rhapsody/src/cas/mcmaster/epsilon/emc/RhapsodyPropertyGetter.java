@@ -24,10 +24,12 @@ import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 import org.eclipse.epsilon.eol.execute.operations.contributors.OperationContributorRegistry;
 import org.eclipse.epsilon.eol.util.ReflectionUtil;
 
+import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPInstanceValue;
 import com.telelogic.rhapsody.core.IRPLiteralSpecification;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
+import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
 
 /**
  * This {@link IPropertyGetter} implementation supports for Java property getter and a custom
@@ -61,7 +63,18 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		try (ObjectMethod objectMethod = getMethodFor(target, property, context)) {
 			if (objectMethod.getMethod() != null) {
 				ModuleElement ast = context.getExecutorFactory().getActiveModuleElement();
-				return objectMethod.execute(ast, context);
+				Object value = null;
+				try {
+					value = objectMethod.execute(ast, context);
+				} catch (RhapsodyRuntimeException e) {
+					throw new EolRuntimeException("Error invoking Rhapsody API.", e);
+				}
+				if (value != null) {
+					if (value instanceof IRPCollection) {
+						return ((IRPCollection)value).toList();
+					}
+					return value;
+				}
 			}
 		}
 		// Can be a stereotype tag?
@@ -97,18 +110,17 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	}
 	
 	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
-		String pName = property.substring(0, 1).toUpperCase() + property.substring(1);
 		// Look for a getX() method
 		Method om = null;
 		try {
-			om = ReflectionUtil.getMethodFor(instance, "get" + pName, new Object[]{}, false, true);
+			om = ReflectionUtil.getMethodFor(instance, "get" + property, new Object[]{}, true, true);
 			if (om == null) {
 				// Look for an isX() method
-				om = ReflectionUtil.getMethodFor(instance, "is" + pName, new Object[]{}, false, true);
+				om = ReflectionUtil.getMethodFor(instance, "is" + property, new Object[]{}, true, true);
 			}
 			if (om == null) {
 				// Look for a hasX() method
-				om = ReflectionUtil.getMethodFor(instance, "has" + pName, new Object[]{}, false, true);
+				om = ReflectionUtil.getMethodFor(instance, "has" + property, new Object[]{}, true, true);
 			}
 		} catch (SecurityException e) {
 			// We can't determine if the method exists

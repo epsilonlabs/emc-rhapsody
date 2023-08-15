@@ -128,6 +128,19 @@ public class RhapsodyModelTypesTests {
 		}
 	}
 	
+	/**
+	 * @bug https://ihub.cas.mcmaster.ca/hoyosroh/mde-workbench/-/issues/1
+	 */
+	@Test
+	void get_all_by_type_for_type_reception() {
+		try {
+			var receptions = underTest.getAllOfType("Reception");
+			assertEquals(1, receptions.size());
+		} catch (EolModelElementTypeNotFoundException e) {
+			fail("Should not throw exception", e);
+		}
+	}
+	
 	@Test
 	void get_all_by_type_for_new_term_stereotype() {
 		try {
@@ -155,7 +168,7 @@ public class RhapsodyModelTypesTests {
 	}
 	
 	@Test
-	void get_all_by_kind_for_type() {
+	void get_all_by_kind_for_typ() {
 		try {
 			var packages = underTest.getAllOfKind("Package");
 			assertEquals(19, packages.size());
@@ -163,6 +176,7 @@ public class RhapsodyModelTypesTests {
 			fail("Should not throw exception", e);
 		}
 	}
+	
 	
 	@Test
 	void get_all_by_kind_for_new_term_stereotype() {

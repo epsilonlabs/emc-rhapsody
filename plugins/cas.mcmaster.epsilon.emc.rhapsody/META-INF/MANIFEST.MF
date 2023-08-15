@@ -4,10 +4,10 @@ Bundle-Name: %bundleName
 Bundle-SymbolicName: cas.mcmaster.epsilon.emc.rhapsody;singleton:=true
 Bundle-Vendor: %bundleVendor
 Bundle-Localization: plugin
-Bundle-Version: 1.0.0.qualifier
-Import-Package: com.telelogic.rhapsody.core;version="[9.0.1,9.0.1]",
- org.apache.logging.log4j;version="2.17.1"
-Require-Bundle: org.eclipse.epsilon.eol.engine;bundle-version="2.4.0"
+Bundle-Version: 9.0.1.qualifier
+Import-Package: org.apache.logging.log4j;version="2.17.1"
+Require-Bundle: org.eclipse.epsilon.eol.engine;bundle-version="2.4.0",
+ com.telelogic.rhapsody.core;bundle-version="9.0.1"
 Automatic-Module-Name: %bundleName
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-19
 Export-Package: cas.mcmaster.epsilon.emc

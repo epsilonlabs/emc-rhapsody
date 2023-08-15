@@ -62,7 +62,8 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  * 	<li> {@link RhapsodyModel#PROPERTY_PROJECT_PATH}:  (optional) the path to the Rhapsody project
  * 		 to use. If absent, the current project opened in Rhapsody will be used (if available).
  *  <li> {@link RhapsodyModel#PROPERTY_MAIN_PACKAGE_NAME}: (optional) the main package name, defaults 
- *  		to the first package in the model
+ *  		to the first package in the model. The main package is where new elements will be 
+ *  		created.
  *  <li> {@link RhapsodyModel#PROPERTY_SOFT_DISPOSE}: (optional) if true, changes will not be saved 
  *  		when calling {@link #store()}. The model will be kept "opened" even after calling {@link #dispose()}.
  *  		This mode is useful for ANT workflows that benefit from not having to open a new Rhapsody 
