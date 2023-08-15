@@ -24,10 +24,12 @@ import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 import org.eclipse.epsilon.eol.execute.operations.contributors.OperationContributorRegistry;
 import org.eclipse.epsilon.eol.util.ReflectionUtil;
 
+import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPInstanceValue;
 import com.telelogic.rhapsody.core.IRPLiteralSpecification;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
+import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
 
 /**
  * This {@link IPropertyGetter} implementation supports for Java property getter and a custom
@@ -61,7 +63,18 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		try (ObjectMethod objectMethod = getMethodFor(target, property, context)) {
 			if (objectMethod.getMethod() != null) {
 				ModuleElement ast = context.getExecutorFactory().getActiveModuleElement();
-				return objectMethod.execute(ast, context);
+				Object value = null;
+				try {
+					value = objectMethod.execute(ast, context);
+				} catch (RhapsodyRuntimeException e) {
+					throw new EolRuntimeException("Error invoking Rhapsody API.", e);
+				}
+				if (value != null) {
+					if (value instanceof IRPCollection) {
+						return ((IRPCollection)value).toList();
+					}
+					return value;
+				}
 			}
 		}
 		// Can be a stereotype tag?
