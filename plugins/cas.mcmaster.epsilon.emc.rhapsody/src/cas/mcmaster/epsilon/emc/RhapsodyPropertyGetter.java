@@ -97,18 +97,17 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	}
 	
 	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
-		String pName = property.substring(0, 1).toUpperCase() + property.substring(1);
 		// Look for a getX() method
 		Method om = null;
 		try {
-			om = ReflectionUtil.getMethodFor(instance, "get" + pName, new Object[]{}, false, true);
+			om = ReflectionUtil.getMethodFor(instance, "get" + property, new Object[]{}, true, true);
 			if (om == null) {
 				// Look for an isX() method
-				om = ReflectionUtil.getMethodFor(instance, "is" + pName, new Object[]{}, false, true);
+				om = ReflectionUtil.getMethodFor(instance, "is" + property, new Object[]{}, true, true);
 			}
 			if (om == null) {
 				// Look for a hasX() method
-				om = ReflectionUtil.getMethodFor(instance, "has" + pName, new Object[]{}, false, true);
+				om = ReflectionUtil.getMethodFor(instance, "has" + property, new Object[]{}, true, true);
 			}
 		} catch (SecurityException e) {
 			// We can't determine if the method exists

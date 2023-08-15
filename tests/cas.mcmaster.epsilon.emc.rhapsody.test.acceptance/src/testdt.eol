@@ -1,0 +1,36 @@
+// enumeration_value_matche
+var value = Test!TestEnum#TEST_1;
+value.println("Test!TestEnum#TEST_1: ");
+// expected output: "Test!TestEnum#TEST_1: 1"
+
+
+// get_all_by_type_for_type
+var packages = Test!Package.getAllOfType();
+packges.size().println("Test!Package.getAllOfType: ");
+// expected output "Test!Package.getAllOfType: 14"
+
+// get_all_by_type_for_new_term_stereotype
+var blocks = Test!Block.getAllOfType();
+blocks.size().println("Test!Block.getAllOfType: ");
+// expected output "Test!Block.getAllOfType: 6"
+
+// get_all_by_kind_for_type
+var packages = Test!Package.all();
+packges.size().println("Test!Package.all: ");
+// expected output "Test!Package.all: 19"
+
+// get_type_of_matches_metaclass
+var ele = Test.getElementById("GUID 9d852c72-9a2a-4e2e-8649-222f80d796d6");
+ele.type().println("Element type: ");
+// expected output "Element type: IRPPackage"
+
+// get_property_from_api
+var ele = Test.getElementById("GUID 4247c7c8-d0f2-499f-bfe3-a9dd964f78ba");
+ele.name.println("API name: ");
+// expected output "API name: Block1"
+
+
+// get_property_from_tag
+var ele = Test.getElementById("GUID 331dc17e-2f5f-49eb-8cca-8a68d7288c17");
+ele.floatVal.println("TAG floatVal: ");
+// expected output "TAG floatVal: 2.3f"

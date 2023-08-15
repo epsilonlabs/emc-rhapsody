@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %bundleName
 Bundle-SymbolicName: cas.mcmaster.epsilon.emc.rhapsody.dt;singleton:=true
 Bundle-Vendor: %bundleVendor
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 9.0.1.qualifier
 Require-Bundle: cas.mcmaster.epsilon.emc.rhapsody;bundle-version="1.0.0",
  org.eclipse.epsilon.common.dt
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.dt
