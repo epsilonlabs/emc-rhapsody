@@ -6,4 +6,4 @@ Bundle-Vendor: IBM
 Bundle-Version: 9.0.1
 Export-Package: com.telelogic.rhapsody.core;version="9.0.1"
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.api
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17

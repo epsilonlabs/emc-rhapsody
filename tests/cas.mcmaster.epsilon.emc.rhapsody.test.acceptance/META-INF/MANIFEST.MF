@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %bundleName
 Bundle-SymbolicName: cas.mcmaster.epsilon.emc.rhapsody.test.acceptance
 Bundle-Vendor: %bundleVendor
-Bundle-Version: 9.0.1.qualifier
+Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.test.acceptance
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17
