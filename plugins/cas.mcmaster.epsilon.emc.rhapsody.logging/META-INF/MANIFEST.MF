@@ -4,6 +4,6 @@ Bundle-Name: %bundleName
 Bundle-SymbolicName: cas.mcmaster.epsilon.emc.rhapsody.logging
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %bundleVendor
-Fragment-Host: org.apache.logging.log4j;bundle-version="2.17.1"
+Fragment-Host: org.apache.logging.log4j;bundle-version="2.17.1.v20220106-2156"
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.logging
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17
