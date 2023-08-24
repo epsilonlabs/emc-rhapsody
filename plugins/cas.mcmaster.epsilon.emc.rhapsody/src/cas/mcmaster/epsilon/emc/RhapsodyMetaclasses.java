@@ -106,8 +106,9 @@ public class RhapsodyMetaclasses {
 	 */
 	public Collection<IRPModelElement> getAllOfType(final String type) throws EolModelElementTypeNotFoundException {
 		HashSet<IRPModelElement> matching = new HashSet<>();
+		LOG.info("get All Of Type {}", type);
 		if (this.metaclasses.contains(type)) {
-			LOG.info("Type {} found in metaclasses, finding by metaclass", type);
+			LOG.info("Type {} found in metaclasses", type);
 			var actualType = type;
 			// Bug 1. Metaclasses.txt lists Reception, but correct MetaClass is 'EventReception'
 			if (Objects.equals("Reception", type)) {
@@ -122,7 +123,7 @@ public class RhapsodyMetaclasses {
 				}
 			}
 		} else if (stereotypes().contains(type)) {
-			LOG.info("Type {} found in stereotypes, finding by stereotype", type);
+			LOG.info("Type {} found in stereotypes", type);
 			matching.addAll(this.getAllByStereotype(type));
 		} else {
 			throw new EolModelElementTypeNotFoundException(this.modelName, type);	
@@ -140,16 +141,17 @@ public class RhapsodyMetaclasses {
 	 * @throws EolModelElementTypeNotFoundException if the type is not a known metaclass or stereotype
 	 */
 	public Collection<IRPModelElement> getAllOfKind(String kind) throws EolModelElementTypeNotFoundException {
+		LOG.info("get All Of Kind {}", kind);
 		HashSet<IRPModelElement> matching = new HashSet<>();
 		if (this.metaclasses.contains(kind)) {
-			LOG.info("Type found in metaclasses, finding nested elements by metaclass");
+			LOG.info("Kind {} found in metaclasses", kind);
 			var it = prj.getNestedElementsByMetaClass(kind, 1).toList().iterator();
 			while(it.hasNext()) {
 				IRPModelElement element = (IRPModelElement) it.next();
 				matching.add(element);
 			}
 		} else if (stereotypes().contains(kind)) {
-			LOG.info("Type found in stereotypes, finding by stereotype");
+			LOG.info("Kind {} found in stereotypes", kind);
 			matching.addAll(this.getAllByStereotype(kind));
 		} else {
 			throw new EolModelElementTypeNotFoundException(this.modelName, kind);	
