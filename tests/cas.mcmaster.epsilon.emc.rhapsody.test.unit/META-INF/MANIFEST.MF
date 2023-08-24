@@ -12,6 +12,7 @@ Require-Bundle: org.eclipse.epsilon.eol.engine,
  junit-jupiter-params;bundle-version="5.9.1",
  junit-platform-suite-api;bundle-version="1.9.1",
  junit-platform-suite-engine;bundle-version="1.9.1",
- junit-platform-suite-commons;bundle-version="1.9.1"
+ junit-platform-suite-commons;bundle-version="1.9.1",
+ com.github.ben-manes.caffeine;bundle-version="3.1.8"
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-19

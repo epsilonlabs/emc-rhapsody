@@ -18,6 +18,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -30,6 +31,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.telelogic.rhapsody.core.IRPApplication;
 import com.telelogic.rhapsody.core.IRPOperation;
 import com.telelogic.rhapsody.core.IRPProject;
@@ -37,6 +40,8 @@ import com.telelogic.rhapsody.core.IRPTag;
 import com.telelogic.rhapsody.core.RhapsodyAppServer;
 import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
 
+import cas.mcmaster.epsilon.emc.IRPKey;
+import cas.mcmaster.epsilon.emc.PropertyValue;
 import cas.mcmaster.epsilon.emc.RhapsodyPropertySetter;
 
 public class RhapsodyPropertySetterTests {
@@ -51,6 +56,11 @@ public class RhapsodyPropertySetterTests {
 		}
 		Path fullPath = Paths.get("resources/TestModelA/TestModelA.rpyx").toAbsolutePath();
 		prj = app.openProject(fullPath.toString());
+		propertyCache = Caffeine.newBuilder()
+				.expireAfterWrite(10, TimeUnit.MINUTES)
+			    .maximumSize(100)
+			    .executor(Runnable::run)
+			    .build();
 		
 	}
 	
@@ -71,7 +81,7 @@ public class RhapsodyPropertySetterTests {
 		if (operation == null) {
 			fail("Operation with name 'run' should exist");
 		}
-		var underTest = new RhapsodyPropertySetter();
+		var underTest = new RhapsodyPropertySetter(propertyCache);
 		var context = new EolContext();
 		var prevVal = getter.apply(operation);
 		assertNotEquals(prevVal, value, "Test value should be different than current value");
@@ -105,7 +115,7 @@ public class RhapsodyPropertySetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertySetter();
+		var underTest = new RhapsodyPropertySetter(propertyCache);
 		var context = new EolContext();
 		IRPTag tag = block.getTag(property);
 		var prevVal = tag.getValue();
@@ -134,7 +144,7 @@ public class RhapsodyPropertySetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertySetter();
+		var underTest = new RhapsodyPropertySetter(propertyCache);
 		var context = new EolContext();
 		IRPTag tag = block.getTag("instanceVal");
 		var prevVal = tag.getValue();
@@ -153,7 +163,7 @@ public class RhapsodyPropertySetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertySetter();
+		var underTest = new RhapsodyPropertySetter(propertyCache);
 		var context = new EolContext();
 		Object value = Arrays.asList(10, 11);
 		IRPTag tag = block.getTag("multiIntVal");
@@ -173,7 +183,7 @@ public class RhapsodyPropertySetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertySetter();
+		var underTest = new RhapsodyPropertySetter(propertyCache);
 		var context = new EolContext();
 		var value = Arrays.asList(
 				prj.findNestedElementRecursive("Block5", "Block"),
@@ -191,6 +201,7 @@ public class RhapsodyPropertySetterTests {
 	
 	static private IRPApplication app;
 	static private IRPProject prj;
+	static private Cache<IRPKey, PropertyValue> propertyCache;
 	static private boolean rhapsodyWasActive;
 
 }

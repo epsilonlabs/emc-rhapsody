@@ -168,7 +168,7 @@ public class RhapsodyModelTypesTests {
 	}
 	
 	@Test
-	void get_all_by_kind_for_typ() {
+	void get_all_by_kind_for_type() {
 		try {
 			var packages = underTest.getAllOfKind("Package");
 			assertEquals(19, packages.size());

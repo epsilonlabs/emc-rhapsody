@@ -313,20 +313,18 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		try {
+		if (this.isModelElement(instance)) {
 			return this.getAllOfKind(type).contains(instance);
-		} catch (EolModelElementTypeNotFoundException e) {
-			return false;
 		}
+		throw new IllegalArgumentException("Instance must be an IRPModelElement in order to check its kind");
 	}
 
 	@Override
 	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		try {
+		if (this.isModelElement(instance)) {
 			return this.getAllOfType(type).contains(instance);
-		} catch (EolModelElementTypeNotFoundException e) {
-			return false;
 		}
+		throw new IllegalArgumentException("Instance must be an IRPModelElement in order to check its type");
 	}
 	
 	@Override

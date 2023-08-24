@@ -19,6 +19,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import org.eclipse.epsilon.eol.exceptions.EolIllegalPropertyException;
@@ -31,14 +32,19 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.telelogic.rhapsody.core.IRPApplication;
 import com.telelogic.rhapsody.core.IRPProject;
 import com.telelogic.rhapsody.core.RhapsodyAppServer;
 import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
 
+import cas.mcmaster.epsilon.emc.IRPKey;
+import cas.mcmaster.epsilon.emc.PropertyValue;
 import cas.mcmaster.epsilon.emc.RhapsodyPropertyGetter;
 
 public class RhapsodyPropertyGetterTests {
+	
 	
 	@BeforeAll
 	static void load() {
@@ -50,6 +56,11 @@ public class RhapsodyPropertyGetterTests {
 		}
 		Path fullPath = Paths.get("resources/TestModelA/TestModelA.rpyx").toAbsolutePath();
 		prj = app.openProject(fullPath.toString());
+		propertyCache = Caffeine.newBuilder()
+				.expireAfterWrite(10, TimeUnit.MINUTES)
+			    .maximumSize(100)
+			    .executor(Runnable::run)
+			    .build();
 		
 	}
 	
@@ -70,7 +81,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'BlockWithTags' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter();
+		var underTest = new RhapsodyPropertyGetter(propertyCache);
 		assertEquals(expected, underTest.hasProperty(block, property, new EolContext()));
 	}
 	
@@ -80,7 +91,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Block1' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter();
+		var underTest = new RhapsodyPropertyGetter(propertyCache);
 		var context = new EolContext();
 		assertThrows(EolIllegalPropertyException.class, () -> {
 			underTest.invoke(block, "film", context);
@@ -94,7 +105,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Block1' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter();
+		var underTest = new RhapsodyPropertyGetter(propertyCache);
 		try {
 			var value = underTest.invoke(block, property, new EolContext());
 			assertEquals(expected, value);
@@ -110,7 +121,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter();
+		var underTest = new RhapsodyPropertyGetter(propertyCache);
 		try {
 			var value = underTest.invoke(block, tagName, new EolContext());
 			if (value instanceof Collection<?>) {
@@ -167,6 +178,7 @@ public class RhapsodyPropertyGetterTests {
 	
 	static private IRPApplication app;
 	static private IRPProject prj;
+	static private Cache<IRPKey, PropertyValue> propertyCache;
 	static private boolean rhapsodyWasActive;
 
 }
