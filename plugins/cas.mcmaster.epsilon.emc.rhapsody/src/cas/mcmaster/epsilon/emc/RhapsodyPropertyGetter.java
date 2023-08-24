@@ -12,6 +12,7 @@ package cas.mcmaster.epsilon.emc;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +25,8 @@ import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 import org.eclipse.epsilon.eol.execute.operations.contributors.OperationContributorRegistry;
 import org.eclipse.epsilon.eol.util.ReflectionUtil;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPInstanceValue;
 import com.telelogic.rhapsody.core.IRPLiteralSpecification;
@@ -40,16 +43,31 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  */
 public class RhapsodyPropertyGetter implements IPropertyGetter {
 
+	public RhapsodyPropertyGetter(Cache<IRPKey, PropertyValue> cache) {
+		this.cache = cache;
+		this.hasCache = Caffeine.newBuilder()
+				.expireAfterWrite(10, TimeUnit.MINUTES)
+			    .maximumSize(10_000)
+			    .build();
+	}
+
 	@Override
 	public boolean hasProperty(Object object, String property, IEolContext context) {
-		try (ObjectMethod om = getMethodFor(object, property, context)) {
-			if (om.getMethod() != null) {
-				return true;
-			}
+		if (!(object instanceof IRPModelElement)) {
+			return false;
 		}
-		// Can be a stereotype tag?
 		IRPModelElement element = (IRPModelElement) object;
-		return element.getTag(property) != null;
+		return this.hasCache.get(new IRPKey(
+				element.getGUID(), property),
+				k -> {
+					try (ObjectMethod om = getMethodFor(element, property, context)) {
+							if (om.getMethod() != null) {
+								return true;
+							}
+						}
+						// Can be a stereotype tag?
+						return element.getTag(property) != null;
+					});
 	}
 	
 	@Override
@@ -60,33 +78,64 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		if (!(target instanceof IRPModelElement)) {
 			throw new IllegalArgumentException("Can't get ptoperty of none IRPModelElement");
 		}
-		try (ObjectMethod objectMethod = getMethodFor(target, property, context)) {
+		IRPModelElement element = (IRPModelElement) target;
+		LOG.info("Getting property {} from {}", property, element.getGUID());
+		PropertyValue value =  this.cache.get(
+				new IRPKey(element.getGUID(), property),
+				k -> {
+					return computeValue(property, context, element);
+				});
+		return value.get();
+		
+	}	
+	
+	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
+		Method om = nativeMethod(instance, property);
+		if (om != null) {
+			return true;
+		}
+		IRPTag tag = instance.getTag(property);
+		return tag != null;
+	}
+	
+	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertyGetter.class);
+	private final Cache<IRPKey, PropertyValue> cache;
+	private final Cache<IRPKey, Boolean> hasCache;
+
+	private PropertyValue computeValue(String property, IEolContext context, IRPModelElement element) {
+		LOG.info("Property {} value not cached, computing", property);
+		try (ObjectMethod objectMethod = getMethodFor(element, property, context)) {
 			if (objectMethod.getMethod() != null) {
+				LOG.info("Execuing method {} to get property {}.",
+						objectMethod.getMethod().getName(),
+						property);
 				ModuleElement ast = context.getExecutorFactory().getActiveModuleElement();
 				Object value = null;
 				try {
 					value = objectMethod.execute(ast, context);
 				} catch (RhapsodyRuntimeException e) {
-					throw new EolRuntimeException("Error invoking Rhapsody API.", e);
+					return new PropertyValue(new EolRuntimeException("Error invoking Rhapsody API.", e));
+				} catch (EolRuntimeException e) {
+					return new PropertyValue(e);
 				}
 				if (value != null) {
 					if (value instanceof IRPCollection) {
-						return ((IRPCollection)value).toList();
+						return new PropertyValue(((IRPCollection)value).toList());
 					}
-					return value;
+					return new PropertyValue(value);
 				}
 			}
 		}
 		// Can be a stereotype tag?
-		IRPModelElement element = (IRPModelElement) target;
+		LOG.info("Could not find a property with name {}, looking for tag.", property);
 		IRPTag tag = element.getTag(property);
 		if (tag == null) {
 			LOG.error("Could not find a property or tag with name {}", property);
-			throw new EolIllegalPropertyException(
-					target,
+			return new PropertyValue(new EolIllegalPropertyException(
+					element,
 					property,
 					context.getExecutorFactory().getActiveModuleElement(),
-					context);
+					context));
 		}
 		var valSpecs = tag.getValueSpecifications();
 		var looper = valSpecs.toList().iterator();
@@ -98,43 +147,18 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 			} else if (valSpec instanceof IRPLiteralSpecification) {
 				result.add( getLiteralSpecAsPrimitive(tag, (IRPLiteralSpecification) valSpec));
 			} else {
-				throw new IllegalStateException("Unknown value specification type: " + valSpec.getClass().getName());
+				new PropertyValue(new EolRuntimeException("Unknown value specification type: " + valSpec.getClass().getName()));				
 			}
+		}
+		if (result.isEmpty()) {
+			return new PropertyValue(tag.getValue());
 		}
 		if (result.size() == 1) {
-			return result.get(0);
+			return new PropertyValue(result.get(0));
 		} else {
-			return result;
+			return new PropertyValue(result);
 		}
-		
 	}
-	
-	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
-		// Look for a getX() method
-		Method om = null;
-		try {
-			om = ReflectionUtil.getMethodFor(instance, "get" + property, new Object[]{}, true, true);
-			if (om == null) {
-				// Look for an isX() method
-				om = ReflectionUtil.getMethodFor(instance, "is" + property, new Object[]{}, true, true);
-			}
-			if (om == null) {
-				// Look for a hasX() method
-				om = ReflectionUtil.getMethodFor(instance, "has" + property, new Object[]{}, true, true);
-			}
-		} catch (SecurityException e) {
-			// We can't determine if the method exists
-			LOG.error("Unable to get property methods", e);
-		}
-		if (om != null) {
-			return true;
-		}
-		IRPTag tag = instance.getTag(property);
-		return tag != null;
-	}
-	
-	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertyGetter.class);
-
 	/**
 	 * Gets the {@link IRPLiteralSpecification} value and tries to cast it to the correct Java
 	 * primitive.
@@ -189,12 +213,19 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	 * as opposed to <i>hasNestedElements</i>. To get the hasNestedElements value, you will
 	 * need to use <code>element.hasNestedElements</code>.
 	 * 
+	 * If a Java (native) method can't be found, the Epsilon OperationContributorRegistry is used.
+	 * 
 	 * @param object
 	 * @param property
 	 * @param context
 	 * @return the {@link ObjectMethod} to call
 	 */
-	private ObjectMethod getMethodFor(Object object, String property, IEolContext context) {
+	private ObjectMethod getMethodFor(IRPModelElement object, String property, IEolContext context) {
+		Method m = nativeMethod(object, property);
+		if (m != null) {
+			return new ObjectMethod(object, m);
+		}
+		LOG.info("Looking for method for property {} in the OperationContributorRegistry", property);
 		OperationContributorRegistry registry = context.getOperationContributorRegistry();
 		
 		// Look for an X() method
@@ -214,6 +245,27 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		if (om != null) return om;
 		
 		return new ObjectMethod(object);
+	}
+	
+	
+	private Method nativeMethod(IRPModelElement instance, String property) {
+		LOG.info("Looking for native method for property {}", property);
+		Method om = null;
+		try {
+			om = ReflectionUtil.getMethodFor(instance, "get" + property, new Object[]{}, true, true);
+			if (om == null) {
+				// Look for an isX() method
+				om = ReflectionUtil.getMethodFor(instance, "is" + property, new Object[]{}, true, true);
+			}
+			if (om == null) {
+				// Look for a hasX() method
+				om = ReflectionUtil.getMethodFor(instance, "has" + property, new Object[]{}, true, true);
+			}
+		} catch (SecurityException e) {
+			// We can't determine if the method exists
+			LOG.error("Unable to get property methods", e);
+		}
+		return om;
 	}
 
 }

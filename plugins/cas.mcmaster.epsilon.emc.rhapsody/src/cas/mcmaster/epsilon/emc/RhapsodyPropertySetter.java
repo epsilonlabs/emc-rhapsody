@@ -21,6 +21,7 @@ import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
 import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertySetter;
 import org.eclipse.epsilon.eol.execute.introspection.java.ObjectMethod;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
 
@@ -33,6 +34,10 @@ import com.telelogic.rhapsody.core.IRPTag;
  */
 public class RhapsodyPropertySetter extends JavaPropertySetter {
 
+	public RhapsodyPropertySetter(Cache<IRPKey, PropertyValue> cache) {
+		this.cache = cache;
+	}
+
 	@Override
 	public void invoke(
 		Object target,
@@ -42,17 +47,18 @@ public class RhapsodyPropertySetter extends JavaPropertySetter {
 		if (!(target instanceof IRPModelElement)) {
 			throw new IllegalArgumentException("Can't set ptoperty of none IRPModelElement");
 		}
+		IRPModelElement element = (IRPModelElement) target;
 		try (ObjectMethod objectMethod = getMethodFor(target, property, value, context)) {
 			if (objectMethod.getMethod() != null) {
 				objectMethod.execute(
 						context.getExecutorFactory().getActiveModuleElement(),
 						context,
 						value);		
+				this.cache.invalidate(new IRPKey(element.getGUID(), property));
 				return;
 			}
 		}
 		// Can be a stereotype tag?
-		IRPModelElement element = (IRPModelElement) target;
 		IRPTag tag = element.getTag(property);
 		if (tag == null) {
 			LOG.error("Could not find a property or tag with name {}", property);
@@ -62,6 +68,7 @@ public class RhapsodyPropertySetter extends JavaPropertySetter {
 					context.getExecutorFactory().getActiveModuleElement(),
 					context);
 		}
+		this.cache.invalidate(new IRPKey(element.getGUID(), property));
 		element.setTagElementValue(tag, null);
 		element.setTagValue(tag, null);
 		if (value instanceof Collection<?>) {
@@ -83,5 +90,6 @@ public class RhapsodyPropertySetter extends JavaPropertySetter {
 	}
 	
 	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertySetter.class);
+	private final Cache<IRPKey, PropertyValue> cache;
 
 }

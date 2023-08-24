@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -34,6 +34,8 @@ import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.telelogic.rhapsody.core.IRPApplication;
 import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPModelElement;
@@ -89,8 +91,13 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public static final String PROPERTY_ROOT_ELEM = "root_elem";
 
 	public RhapsodyModel() {
-		propertyGetter = new RhapsodyPropertyGetter();
-		propertySetter = new RhapsodyPropertySetter();
+		// TODO Cache should be created during load to use user options.
+		this.propertyCache = Caffeine.newBuilder()
+				.expireAfterWrite(10, TimeUnit.MINUTES)
+			    .maximumSize(10_000)
+			    .build();
+		propertyGetter = new RhapsodyPropertyGetter(this.propertyCache);
+		propertySetter = new RhapsodyPropertySetter(this.propertyCache);
 	}
 	
 	@Override
@@ -295,7 +302,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			}
 			return element.getMetaClass();
 		}
-		LOG.error("Calling getTypeNameOf with an object that is not an IRPModelElement");
+		LOG.error("Calling getTypeNameOf with an object that is not an IRPModelElement: {}", instance);
 		throw new IllegalArgumentException("Instance is not a model element");
 	}
 
@@ -306,15 +313,20 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		return this.isOfType(instance, type);
+		try {
+			return this.getAllOfKind(type).contains(instance);
+		} catch (EolModelElementTypeNotFoundException e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
-		if (!this.hasType(type)) {
-			throw new EolModelElementTypeNotFoundException(this.getName(), type);
+		try {
+			return this.getAllOfType(type).contains(instance);
+		} catch (EolModelElementTypeNotFoundException e) {
+			return false;
 		}
-		return Objects.equals(this.getTypeNameOf(instance), type);
 	}
 	
 	@Override
@@ -437,6 +449,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	protected void disposeModel() {
+		this.propertyCache.invalidateAll();
 		if (this.softDispose && !this.canDispose) {
 			this.canDispose = true;
 		} else {
@@ -519,6 +532,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	private static final Logger LOG = LogManager.getLogger(RhapsodyModel.class);
 	private final String ID_REGEX = "^GUID\s[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$";
+	private final Cache<IRPKey, PropertyValue> propertyCache;
 	
 	private IRPApplication app;
 	private IRPProject prj;
