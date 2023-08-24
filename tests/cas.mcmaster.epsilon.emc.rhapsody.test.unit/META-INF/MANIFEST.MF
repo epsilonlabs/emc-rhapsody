@@ -15,4 +15,4 @@ Require-Bundle: org.eclipse.epsilon.eol.engine,
  junit-platform-suite-commons;bundle-version="1.9.1",
  com.github.ben-manes.caffeine;bundle-version="3.1.8"
 Automatic-Module-Name: cas.mcmaster.epsilon.emc.rhapsody.tests
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17
