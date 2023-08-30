@@ -27,6 +27,7 @@ import org.eclipse.epsilon.eol.util.ReflectionUtil;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.telelogic.rhapsody.core.IRPApplication;
 import com.telelogic.rhapsody.core.IRPCollection;
 import com.telelogic.rhapsody.core.IRPInstanceValue;
 import com.telelogic.rhapsody.core.IRPLiteralSpecification;
@@ -43,12 +44,13 @@ import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
  */
 public class RhapsodyPropertyGetter implements IPropertyGetter {
 
-	public RhapsodyPropertyGetter(Cache<IRPKey, PropertyValue> cache) {
+	public RhapsodyPropertyGetter(Cache<IRPKey, PropertyValue> cache, IRPApplication app) {
 		this.cache = cache;
 		this.hasCache = Caffeine.newBuilder()
 				.expireAfterWrite(10, TimeUnit.MINUTES)
 			    .maximumSize(10_000)
 			    .build();
+		this.app = app;
 	}
 
 	@Override
@@ -79,14 +81,23 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 			throw new IllegalArgumentException("Can't get ptoperty of none IRPModelElement");
 		}
 		IRPModelElement element = (IRPModelElement) target;
-		LOG.info("Getting property {} from {}", property, element.getGUID());
-		PropertyValue value =  this.cache.get(
-				new IRPKey(element.getGUID(), property),
-				k -> {
-					return computeValue(property, context, element);
-				});
-		return value.get();
-		
+		try {
+			LOG.info("Getting property {} from {}", property, element.getGUID());
+			PropertyValue value =  this.cache.get(
+					new IRPKey(element.getGUID(), property),
+					k -> {
+						return computeValue(property, context, element);
+					});
+			return value.get();
+		} catch (RhapsodyRuntimeException ex) {
+			String msg;
+			if (ex.getMessage().contains("IRPApplication.getErrorMessage")) {
+				msg = this.app.getErrorMessage();
+			} else {
+				msg = "There was an error getting the value for property " + property;
+			}
+			throw new EolRuntimeException(msg);
+		}
 	}	
 	
 	public boolean knowsAboutProperty(IRPModelElement instance, String property) {
@@ -99,9 +110,11 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	}
 	
 	private static final Logger LOG = LogManager.getLogger(RhapsodyPropertyGetter.class);
+	
 	private final Cache<IRPKey, PropertyValue> cache;
 	private final Cache<IRPKey, Boolean> hasCache;
-
+	private final IRPApplication app;
+	
 	private PropertyValue computeValue(String property, IEolContext context, IRPModelElement element) {
 		LOG.info("Property {} value not cached, computing", property);
 		try (ObjectMethod objectMethod = getMethodFor(element, property, context)) {
@@ -151,6 +164,7 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 			}
 		}
 		if (result.isEmpty()) {
+			LOG.info("Tag does not have value specifications, returning value.");
 			return new PropertyValue(tag.getValue());
 		}
 		if (result.size() == 1) {
@@ -215,36 +229,40 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 	 * 
 	 * If a Java (native) method can't be found, the Epsilon OperationContributorRegistry is used.
 	 * 
-	 * @param object
+	 * @param element
 	 * @param property
 	 * @param context
 	 * @return the {@link ObjectMethod} to call
 	 */
-	private ObjectMethod getMethodFor(IRPModelElement object, String property, IEolContext context) {
-		Method m = nativeMethod(object, property);
+	private ObjectMethod getMethodFor(IRPModelElement element, String property, IEolContext context) {
+		Method m = nativeMethod(element, property);
 		if (m != null) {
-			return new ObjectMethod(object, m);
+			return new ObjectMethod(element, m);
+		}
+		// Look for tag before OperationContributorRegistry
+		if (element.getTag(property) != null) {
+			return new ObjectMethod(element, null);
 		}
 		LOG.info("Looking for method for property {} in the OperationContributorRegistry", property);
 		OperationContributorRegistry registry = context.getOperationContributorRegistry();
 		
 		// Look for an X() method
-		ObjectMethod om = registry.findContributedMethodForEvaluatedParameters(object, property, new Object[]{}, context);
+		ObjectMethod om = registry.findContributedMethodForEvaluatedParameters(element, property, new Object[]{}, context);
 		if (om != null) return om;
 				
 		// Look for a getX() method
-		om = registry.findContributedMethodForEvaluatedParameters(object, "get" + property, new Object[]{}, context);
+		om = registry.findContributedMethodForEvaluatedParameters(element, "get" + property, new Object[]{}, context);
 		if (om != null) return om;
 
 		// Look for an isX() method
-		om = registry.findContributedMethodForEvaluatedParameters(object, "is" + property, new Object[]{}, context);
+		om = registry.findContributedMethodForEvaluatedParameters(element, "is" + property, new Object[]{}, context);
 		if (om != null) return om;
 		
 		// Look for an hasX() method
-		om = registry.findContributedMethodForEvaluatedParameters(object, "has" + property, new Object[]{}, context);
+		om = registry.findContributedMethodForEvaluatedParameters(element, "has" + property, new Object[]{}, context);
 		if (om != null) return om;
 		
-		return new ObjectMethod(object);
+		return new ObjectMethod(element);
 	}
 	
 	

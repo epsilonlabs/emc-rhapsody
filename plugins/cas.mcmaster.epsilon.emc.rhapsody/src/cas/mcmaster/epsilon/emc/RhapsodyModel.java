@@ -96,8 +96,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 				.expireAfterWrite(10, TimeUnit.MINUTES)
 			    .maximumSize(10_000)
 			    .build();
-		propertyGetter = new RhapsodyPropertyGetter(this.propertyCache);
-		propertySetter = new RhapsodyPropertySetter(this.propertyCache);
 	}
 	
 	@Override
@@ -114,6 +112,7 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	public void load(
 		StringProperties properties,
 		IRelativePathResolver relativePathResolver) throws EolModelLoadingException {
+		super.load(properties, relativePathResolver);
 		if (!properties.hasProperty(PROPERTY_INSTALLATION_DIRECTORY)) {
 			LOG.error("No path to the Rhapsody installation provided");
 			throw new EolModelLoadingException(new IllegalArgumentException("No path to the Rhapsody installation provided"), this);
@@ -174,8 +173,6 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 		// changes, we can clear the cache. https://www.ibm.com/docs/en/elms/esdr/8.4.0?topic=api-using-rpapplicationlistener-respond-events
 		// but still use the cache for improved performance
 		LOG.info("Current project is: {}", this.prj.getName());
-		setName("Rhapsody");
-		super.load(properties, relativePathResolver);
 		this.types = new RhapsodyMetaclasses(
 				properties.getProperty(PROPERTY_INSTALLATION_DIRECTORY),
 				properties.getBooleanProperty(PROPERTY_CACHED, false),
@@ -185,6 +182,8 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 			.load();
 		clearCache();
 		this.idPattern = Pattern.compile(ID_REGEX);
+		this.propertyGetter = new RhapsodyPropertyGetter(this.propertyCache, this.app);
+		this.propertySetter = new RhapsodyPropertySetter(this.propertyCache);
 		
 	}
 

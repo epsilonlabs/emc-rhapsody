@@ -112,7 +112,7 @@ public class RhapsodyMetaclasses {
 			var actualType = type;
 			// Bug 1. Metaclasses.txt lists Reception, but correct MetaClass is 'EventReception'
 			if (Objects.equals("Reception", type)) {
-				LOG.info("Type is Reception, using to EventReception");
+				LOG.info("Type is Reception, using EventReception");
 				actualType = "EventReception";
 			}
 			var contents = prj.getNestedElementsRecursive();
@@ -126,6 +126,7 @@ public class RhapsodyMetaclasses {
 			LOG.info("Type {} found in stereotypes", type);
 			matching.addAll(this.getAllByStereotype(type));
 		} else {
+			LOG.error("Type {} is not in the list of valid metaclasses or a known stereotype", type);
 			throw new EolModelElementTypeNotFoundException(this.modelName, type);	
 		}
 		return matching;
