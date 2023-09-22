@@ -81,7 +81,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'BlockWithTags' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter(propertyCache);
+		var underTest = new RhapsodyPropertyGetter(propertyCache, app);
 		assertEquals(expected, underTest.hasProperty(block, property, new EolContext()));
 	}
 	
@@ -91,7 +91,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Block1' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter(propertyCache);
+		var underTest = new RhapsodyPropertyGetter(propertyCache, app);
 		var context = new EolContext();
 		assertThrows(EolIllegalPropertyException.class, () -> {
 			underTest.invoke(block, "film", context);
@@ -105,7 +105,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Block1' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter(propertyCache);
+		var underTest = new RhapsodyPropertyGetter(propertyCache, app);
 		try {
 			var value = underTest.invoke(block, property, new EolContext());
 			assertEquals(expected, value);
@@ -121,7 +121,7 @@ public class RhapsodyPropertyGetterTests {
 		if (block == null) {
 			fail("Block with name 'Test' should exist");
 		}
-		var underTest = new RhapsodyPropertyGetter(propertyCache);
+		var underTest = new RhapsodyPropertyGetter(propertyCache, app);
 		try {
 			var value = underTest.invoke(block, tagName, new EolContext());
 			if (value instanceof Collection<?>) {
