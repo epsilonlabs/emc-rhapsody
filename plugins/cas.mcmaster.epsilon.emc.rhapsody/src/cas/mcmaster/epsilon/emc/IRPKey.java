@@ -21,13 +21,13 @@ public class IRPKey {
 	
 	public IRPKey(String gUID, String property) {
 		super();
-		GUID = gUID;
+		this.GUID = gUID;
 		this.property = property;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(GUID, property);
+		return Objects.hash(this.GUID, this.property);
 	}
 	
 	@Override
@@ -39,7 +39,7 @@ public class IRPKey {
 		if (getClass() != obj.getClass())
 			return false;
 		IRPKey other = (IRPKey) obj;
-		return Objects.equals(GUID, other.GUID) && Objects.equals(property, other.property);
+		return Objects.equals(this.GUID, other.GUID) && Objects.equals(this.property, other.property);
 	}
 	
 	

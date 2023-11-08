@@ -278,6 +278,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public Object getTypeOf(Object instance) {
+		if (instance == null) {
+			LOG.error("Get type name of null");
+			throw new IllegalArgumentException("Can't get type name of null");
+		}
 		if (isModelElement(instance)) {
 			return ((IRPModelElement)instance).getInterfaceName();
 		}
@@ -293,6 +297,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	 */
 	@Override
 	public String getTypeNameOf(Object instance) {
+		if (instance == null) {
+			LOG.error("Get type name of null");
+			throw new IllegalArgumentException("Can't get type name of null");
+		}
 		if (this.isModelElement(instance)) {
 			IRPModelElement element = (IRPModelElement) instance;
 			var newTerm = element.getUserDefinedMetaClass();
@@ -312,6 +320,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 	
 	@Override
 	public boolean isOfKind(Object instance, String type) throws EolModelElementTypeNotFoundException {
+		if (instance == null) {
+			LOG.warn("Checking the kind of null");
+			return false;
+		}
 		if (this.isModelElement(instance)) {
 			return this.getAllOfKind(type).contains(instance);
 		}
@@ -320,6 +332,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	public boolean isOfType(Object instance, String type) throws EolModelElementTypeNotFoundException {
+		if (instance == null) {
+			LOG.warn("Checking the type of null");
+			return false;
+		}
 		if (this.isModelElement(instance)) {
 			return this.getAllOfType(type).contains(instance);
 		}
@@ -336,6 +352,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	public String getElementId(Object instance) {
+		if (instance == null) {
+			LOG.error("Get id  of null");
+			throw new IllegalArgumentException("Can't get ID of null");
+		}
 		if (this.isModelElement(instance)) {
 			return ((IRPModelElement)instance).getGUID();
 		}
@@ -344,6 +364,10 @@ public class RhapsodyModel extends CachedModel<IRPModelElement> implements IMode
 
 	@Override
 	public void setElementId(Object instance, String newId) {
+		if (instance == null) {
+			LOG.error("Set id  of null");
+			throw new IllegalArgumentException("Can't set ID of null");
+		}
 		if (this.isModelElement(instance)) {
 			if (!this.idPattern.matcher(newId).matches()) {
 				LOG.warn("Rhapsody IDs have the format: GUID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. The supplied id: {} does not match this format.");
