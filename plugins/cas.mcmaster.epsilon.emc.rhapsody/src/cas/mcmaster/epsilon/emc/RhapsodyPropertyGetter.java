@@ -11,6 +11,7 @@
 package cas.mcmaster.epsilon.emc;
 
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -34,6 +35,9 @@ import com.telelogic.rhapsody.core.IRPLiteralSpecification;
 import com.telelogic.rhapsody.core.IRPModelElement;
 import com.telelogic.rhapsody.core.IRPTag;
 import com.telelogic.rhapsody.core.RhapsodyRuntimeException;
+
+import dev.failsafe.Failsafe;
+import dev.failsafe.RetryPolicy;
 
 /**
  * This {@link IPropertyGetter} implementation supports for Java property getter and a custom
@@ -80,13 +84,24 @@ public class RhapsodyPropertyGetter implements IPropertyGetter {
 		if (!(target instanceof IRPModelElement)) {
 			throw new IllegalArgumentException("Can't get ptoperty of none IRPModelElement");
 		}
+		// Connection to Rhapsody can fail, so we want to retry
+		RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
+				  .handle(RhapsodyRuntimeException.class)
+				  .withDelay(Duration.ofMillis(300))
+				  .withMaxRetries(3)
+				  .build();
+	
 		IRPModelElement element = (IRPModelElement) target;
 		try {
-			LOG.info("Getting property {} from {}", property, element.getGUID());
-			PropertyValue value =  this.cache.get(
-					new IRPKey(element.getGUID(), property),
-					k -> {
-						return computeValue(property, context, element);
+			PropertyValue value =  (PropertyValue) Failsafe.with(retryPolicy)
+					.onFailure(e -> LOG.error("Failed to getting value from Rhapsody", e.getException()))
+					.get(() -> {
+						LOG.info("Getting property {} from {}", property, element.getGUID());
+						return this.cache.get(
+								new IRPKey(element.getGUID(), property),
+								k -> {
+									return computeValue(property, context, element);
+								});
 					});
 			return value.get();
 		} catch (RhapsodyRuntimeException ex) {
